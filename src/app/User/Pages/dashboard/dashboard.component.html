@@ -1,0 +1,105 @@
+
+      <mat-card class="m-auto mt-4 w-75  []o=o0">
+        <ngb-carousel>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper" >
+              <img src="../../../../assets/images/images.jpeg" alt="Random first slide" class="images" />
+            </div>
+            <div class="carousel-caption">
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+
+              <!-- <button mat-raised-button color="accent"
+                  class="btn btn-outline-primary"
+                  (click)="collapse.toggle()"
+                  [attr.aria-expanded]="!isCollapsed"
+                  aria-controls="collapseExample">
+                  Register</button> -->
+
+                  <button mat-button  class="bg-info" (click)="openDialog()">Register</button>
+
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img src="../../../../assets/images/images (2).jpeg" alt="Random second slide" class="images" />
+            </div>
+            <div class="carousel-caption">
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+               <button mat-button  class="bg-info" (click)="openDialog()">Register</button>
+            </div>
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="picsum-img-wrapper">
+              <img src="../../../../assets/images/images (3).jpeg" alt="Random third slide" class="images" />
+            </div>
+            <div class="carousel-caption">
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+               <button mat-button  class="bg-info" (click)="openDialog()">Register</button>
+            </div>
+          </ng-template>
+        </ngb-carousel>
+      </mat-card>
+
+
+
+      <div class="flex-column flex-lg-row m-4  tertiary-alert">
+        <div class="row">
+          <div class="col">
+            <thead>
+              <th>YALIYOMO</th>
+            </thead>
+            <ul>
+                <li>Usajili wa mvuvi</li>
+                <LI>Usajili wa chombo cha uvuvi</LI>
+                <li>Usajili wa mwani Zanzibar</li>
+              </ul>
+          </div>
+          <div class="col">
+            <thead>
+              <th>KUHUSU</th>
+            </thead>
+          </div>
+          <div class="col">
+            <thead>
+              <th>MAWASILIANO</th>
+            </thead>
+            <div>
+              <ul>
+                <li>S.L.P.:  159 ZANZIBAR</li>
+                <LI>SIMU: +255 24 2230987</LI>
+                <li>NUKUSHI: +255 24 2234656</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- MODAL FUNCTION -->
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+

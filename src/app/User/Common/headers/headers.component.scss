@@ -1,0 +1,35 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  height: 20%;
+}
+.example-spacer {
+  flex: 1 1 auto;
+}
+.picha{
+  width: 10px;
+}
+.font{
+  font-size: 25px;
+  text-align: center;
+  font-style:bold;
+}
+.wizara-font{
+  font-size: 23px;
+  font-family: 'Courier New', Courier, monospace;
+  margin-top: 5px;
+}
+

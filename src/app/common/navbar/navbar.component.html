@@ -1,0 +1,24 @@
+<mat-toolbar class="navbar" color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+  <div>
+    <button mat-icon-button (click)="toggleSidenav.emit()">
+      <mat-icon style="line-height: 20px">menu</mat-icon>
+    </button>
+    <span fxShow.lt-sm="false" fxShow="true" class="nav-brand">
+      <!-- {{ appTitle | uppercase }} -->
+    </span>
+  </div>
+  <button mat-button fxShow.lt-sm="false" fxShow="true" [matMenuTriggerFor]="menu">
+    <mat-icon style="font-size: 20px">account_circle</mat-icon> {{currentUser.name}}
+    <mat-icon style="font-size: 20px">expand_more</mat-icon>
+  </button>
+  <button mat-icon-button fxShow.lt-sm="true" fxShow="false" [matMenuTriggerFor]="menu">
+    <mat-icon style="font-size: 20px">lock</mat-icon>
+  </button>
+
+  <mat-menu #menu="matMenu" xPosition="before">
+    <button mat-menu-item (click)="logout()">
+      <mat-icon style="font-size: 20px">lock</mat-icon>
+      <span>Logout</span>
+    </button>
+  </mat-menu>
+</mat-toolbar>

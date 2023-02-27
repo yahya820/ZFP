@@ -1,0 +1,68 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <ngb-accordion class="ngb-accordion" #acc="ngbAccordion">
+        <ngb-panel title="Vessel">
+          <ng-template ngbPanelContent>
+           <div class="wrapper">
+           <div style="margin-bottom: 10px;"> <a href="#">Registration</a><br></div>
+            <a class="third after" href="/vessel-record">Record</a></div>
+          </ng-template>
+        </ngb-panel>
+        <ngb-panel title="Sea Men">
+          <ng-template ngbPanelContent>
+           <div class="wrapper">
+           <div style="margin-bottom: 10px;"> <a href="#">Registration</a><br></div>
+            <a class="third after" href="/seamen-record">Record</a></div>
+          </ng-template>
+        </ngb-panel>
+
+        <ngb-panel title="Algae">
+          <ng-template ngbPanelContent>
+           <div class="wrapper">
+           <div style="margin-bottom: 10px;"> <a href="#">Registration</a><br></div>
+            <a class="third after" href="/algae-record">Record</a></div>
+          </ng-template>
+        </ngb-panel>
+
+        <ngb-panel title="Seawed">
+          <ng-template ngbPanelContent>
+           <div class="wrapper">
+           <div style="margin-bottom: 10px;"> <a href="#">Production</a><br></div>
+            <a class="third after" href="/seawed-record">Record</a></div>
+          </ng-template>
+        </ngb-panel>
+
+        <ngb-panel title="Report">
+          <ng-template ngbPanelContent>
+           <div class="wrapper">
+           <div style="margin-bottom: 10px;"> <a href="#">Vessel</a><br></div>
+            <a class="third after" href="#">Sea-Men</a></div>
+          </ng-template>
+        </ngb-panel>
+      </ngb-accordion>
+
+    </mat-nav-list>
+
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>ZFP</span>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
