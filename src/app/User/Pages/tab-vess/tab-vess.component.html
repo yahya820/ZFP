@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card mb-2">
   <div class="m-auto">
     <div class="text-center"><img class="img-fluid" src="../../../../assets/images/nembo1.png" width="200" height="70" ></div>
   <div class="text-center">
@@ -13,8 +13,8 @@
 
 
 <div class="mt-2">
-    <mat-tab-group>
-      <mat-tab label="Sheria">
+    <mat-tab-group class="hid mb-3">
+      <mat-tab label="Sheria" >
        <div class="mt-3">
         <h2 style="text-decoration:underline;">MTUMIAJI/WATUMIAJI</h2>
         <ol>
@@ -32,7 +32,10 @@
         </ol>
        </div>
 
-       <button mat-button (click)="nextTab">Nyengine</button>
+       <div class="">
+        <button mat-button (click)="tabGroup.selectedIndex=1" class="mbele">Nyengine</button>
+       </div>
+
       </mat-tab>
 
       <form [formGroup]="form1" (ngSubmit)="onSubmit()">
@@ -129,6 +132,11 @@
          </div>
         </div>
         </div>
+
+        <div class="">
+          <button mat-button  (click)="tabGroup.selectedIndex=0" class="nyuma">Rudi</button>
+          <button mat-button  (click)="tabGroup.selectedIndex=2" class="mbele">Nyengine</button>
+         </div>
          </mat-tab>
 
 
@@ -197,6 +205,11 @@
             </div>
           </div>
         </div>
+
+        <div class="">
+          <button mat-button  (click)="tabGroup.selectedIndex=1" class="Rudi">Rudi</button>
+          <button mat-button  (click)="tabGroup.selectedIndex=3" class="mbele">Nyengine</button>
+         </div>
       </mat-tab>
 
 
@@ -252,6 +265,10 @@
             </DIV>
           </div>
         </div>
+
+        <div class="">
+          <button mat-button  (click)="tabGroup.selectedIndex=2" class="nyuma">Rudi</button>
+         </div>
       </mat-tab>
 
       </form>

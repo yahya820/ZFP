@@ -12,7 +12,8 @@ export class TabVessComponent implements OnInit {
   imageSrc! : String;
   imageRisiti! : String;
 
-  @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
+  @ViewChild(MatTabGroup)
+  tabGroup!: MatTabGroup;
 
   // Profile Picture
   displayImage(event : any){
@@ -71,15 +72,6 @@ export class TabVessComponent implements OnInit {
   }
 
   onSubmit(){
-
-  }
-
-  // button za kwenda na kurudi
-  nextTab(){
-    this.tabGroup.selectedIndex = this.tabGroup.selectedIndex + 1;
-  }
-
-  previousTab(){
 
   }
 

@@ -1,3 +1,4 @@
+
 <mat-sidenav-container class="sidenav-container fixed-top">
   <!-- <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
@@ -11,26 +12,154 @@
     </mat-nav-list>
   </mat-sidenav> -->
   <mat-sidenav-content>
-    <!-- <mat-toolbar color="primary">
-      <button
+
+    <div class="sticky bg-light mb-0">
+      <nav class="nav nav-brand nav-pills flex-lg-row sticky">
+        <button mat-button class="example-icon" aria-label="Example icon-buton with menu">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span class="flex-sm-fill text-sm text-black nav-link ">{{currentDate | date}}</span>
+        <span class="example-spacer"></span>
+        <button mat-button class="example-icon" aria-label="Example icon-buton with menu">
+          <mat-menu #appMenu="matMenu">
+            <ng-template matMenuContent let-name="name">
+              <button mat-menu-item>Settings</button>
+              <button mat-menu-item (click)="openDialog()">Log off {{name}}</button>
+            </ng-template>
+          </mat-menu>
+
+          <button mat-icon-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Bob'}">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+        </button>
+      </nav>
+      <hr class="mb-1">
+      <!-- <nav class="navbar bg-body-tertiary-alert sticky-top">
+        <div class="container-fluid bg-light">
+          <a class="navbar-brand">
+
+           <div class="text-center" style="text-align: center;">
+            <img class="img-fluid" src="../../../../assets/images/nembo1.png" width="100" height="50">
+           </div>
+              <div> <span>WIZARA YA KILIMO UMWAGILIAJI MALIASILI NA MIFUGO</span><br>
+                <span class="font">MFUMO WA UVUVI ZANZIBAR</span></div>
+           <DIV>
+            <ul>
+              <li><img class="img-fluid" src="../../../../assets/images/nembo1.png" width="100" height="50">
+                WIZARA YA KILIMO UMWAGILIAJI MALIASILI NA MIFUGO<br>
+                <span class="font">MFUMO WA UVUVI ZANZIBAR</span>
+              </li>
+            </ul>
+           </DIV>
+
+
+
+           <div class="row text-center ">
+            <div class="">
+              <img class="img-fluid" src="../../../../assets/images/nembo1.png" width="100" height="50">
+              <span>WIZARA YA KILIMO UMWAGILIAJI MALIASILI NA MIFUGO</span><br>
+              <span class="font">MFUMO WA UVUVI ZANZIBAR</span></div>
+           </div>
+
+          </a>
+
+        </div>
+      </nav> -->
+
+      <div>
+        <div>
+          <div class="text-center">
+             <img class="img-fluid" src="../../../../assets/images/nembo1.png" width="100" height="50">
+            <!-- <h2 class="mb-0">MFUMO WA UVUVI ZANZIBAR</h2> -->
+            <H3>WIZARA YA KILIMO UMWAGILIAJI MALIASILI NA MIFUGO</H3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="wizara-font">
+
+      </div>
+
+      <!-- NAVIGATION -->
+
+      <div class="wrapper sticky-top">
+        <nav>
+         <input type="checkbox" id="show-menu">
+          <button mat-button (click)="openScroll(content)" for="show-menu" class="menu-icon" aria-label="Example icon-buton with menu">
+            <mat-icon>menu</mat-icon>
+          </button>
+          <div class="content">
+            <div class="logo"><a href="">Mfumo wa Uvuvi Zanzibar</a></div>
+            <ul class="links">
+              <li><a routerLink="/tabs_fisher" routerLinkActive="active">Mvuvi</a></li>
+              <li><a routerLink="/tabs_vessel" routerLinkActive="active">Chombo cha Mvuvi</a></li>
+              <li><a routerLink="/" routerLinkActive="active">mwani</a></li>
+              <li><a routerLink="/" routerLinkActive="active">Sheria</a></li>
+              <li><a routerLink="/contact" routerLinkActive="active">Mawasiliano</a></li>
+              <!-- <li><a routerLink="/" routerLinkActive="active">Kuhus sisi</a></li> -->
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <!-- NAVIGATION -->
+
+      <nav class="nav container  mt-1 nav-brand bg-info nav-pills flex-column flex-lg-row sticky">
+
+        <!-- <but ton
         type="button"
         aria-label="Toggle sidenav"
         mat-icon-button
         (click)="drawer.toggle()"
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <img src="../../../../assets/images/nembo1.png" alt="Random first slide" />
-      <span>ZFP</span>
-    </mat-toolbar> -->
+      </button> -->
 
-<div class="sticky-top bg-light">
+
+
+        <!-- <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Dashboard</a>
+        <a class="flex-sm-fill text-sm-center nav-link me-2"
+            placement="bottom"
+            ngbPopover="Mvuvi yoyote ni lazima atambulikane kutokana na sheria inavyosema na ataweza kufuata sheria zote ambazo zimewekwa."
+            triggers="mouseenter:mouseleave"
+            popoverTitle="Pop title" routerLink="/tabs_fisher">Mvuvi</a>
+
+        <a class="flex-sm-fill text-sm-center nav-link"
+            placement="bottom"
+            ngbPopover="Chombo chochote cha uvuvi ambacho kinajishulisha na mambo ya bahari ni lazima kisajiliwe ili kuondosha matatizo yatakayotokea na sheria itachkua mkono wake. "
+            triggers="mouseenter:mouseleave"
+            popoverTitle="SHERIA YA MTUMIAJI/WATUMIAJI" routerLink="/tabs_vessel">Chombo cha Uvuvi</a>
+
+        <a class="flex-sm-fill text-sm-center nav-link"
+          placement="bottom"
+          ngbPopover="You see, I show up on hover!"
+          triggers="mouseenter:mouseleave"
+          popoverTitle="Pop title"href="#">Mwani</a>
+
+        <a class="flex-sm-fill text-sm-center nav-link"
+          placement="bottom"
+          ngbPopover="You see, I show up on hover!"
+          triggers="mouseenter:mouseleave"
+          popoverTitle="Pop title"href="#">Mawasiliano</a>
+
+        <a class="flex-sm-fill text-sm-center nav-link"
+            placement="bottom"
+            ngbPopover="You see, I show up on hover!"
+            triggers="mouseenter:mouseleave"
+            popoverTitle="Pop title" href="#">Kuhusu Sisi</a> -->
+      </nav>
+
+
+
+<!-- <div class="sticky-top bg-light">
     <nav class="navbar bg-body-tertiary-alert sticky-top">
       <div class="container-fluid bg-light">
         <a class="navbar-brand">
 
          <div class="text-center">
-          <img class="img-fluid" src="../../../../assets/images/nembo1.png" width="200" height="70">
+          <img class="img-fluid" src="../../../../assets/images/nembo1.png" width="100" height="50">
          </div>
         </a>
         <span class="font">MFUMO WA UVUVI ZANZIBAR</span>
@@ -38,7 +167,7 @@
         <mat-menu #appMenu="matMenu">
           <ng-template matMenuContent let-name="name">
             <button mat-menu-item>Settings</button>
-            <button mat-menu-item>Log off {{name}}</button>
+            <button mat-menu-item (click)="openDialog()">Log off {{name}}</button>
           </ng-template>
         </mat-menu>
 
@@ -53,13 +182,13 @@
       <marquee><span>WIZARA YA KILIMO UMWAGILIAJI MALIASILI NA MIFUGO</span></marquee>
     </div>
 
-    <nav class="nav mt-3 nav-brand bg-info nav-pills flex-column flex-lg-row sticky">
+    <nav class="nav mt-1 nav-brand bg-info nav-pills flex-column flex-lg-row sticky">
       <a class="flex-sm-fill text-sm-center nav-link active" aria-current="page" href="#">Dashboard</a>
       <a class="flex-sm-fill text-sm-center nav-link me-2"
           placement="bottom"
           ngbPopover="Mvuvi yoyote ni lazima atambulikane kutokana na sheria inavyosema na ataweza kufuata sheria zote ambazo zimewekwa."
           triggers="mouseenter:mouseleave"
-          popoverTitle="Pop title" routerLink="/tabs_vessel">Mvuvi</a>
+          popoverTitle="Pop title" routerLink="/tabs_fisher">Mvuvi</a>
 
       <a class="flex-sm-fill text-sm-center nav-link"
           placement="bottom"
@@ -85,7 +214,7 @@
           triggers="mouseenter:mouseleave"
           popoverTitle="Pop title" href="#">Kuhusu Sisi</a>
     </nav>
-    </div>
+    </div> -->
 
 
 
@@ -134,7 +263,45 @@
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
 
+    <!-- Footer -->
+    <div class="footer ">
+      <nav>
+        <div class="text-white text-center">
+          <div class="row">
+            <div class="col-sm-12 col-md-6 col-lg-6">
+              <h5 class="mb-0">Imetengenezwa na Wizara ya Kilimo Umwangiliaji Maliasili na Mifugo</h5>
+            </div>
+            <div class="col">
+              <h5>Haki zimehifadhiwa @ 2023</h5>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+
   </mat-sidenav-content>
 
   <!-- <img src="../../../../assets/images/nembo1.png" /> -->
 </mat-sidenav-container>
+
+<!-- OffCascav -->
+<ng-template #content let-offcanvas>
+  <div class="offcanvas-header">
+    <h4 class="mx-3">Menu</h4>
+    <button type="button" class="btn-close" aria-label="close" (click)="offcanvas.close('cross click')"></button>
+  </div>
+  <div class="content">
+    <!-- <div class="logo"><a href="">Mfumo wa Uvuvi Zanzibar</a></div> -->
+    <ul class="links">
+      <li><a routerLink="/tabs_fisher">Mvuvi</a></li>
+      <li><a routerLink="/tabs_vessel">Chombo cha Mvuvi</a></li>
+      <li><a routerLink="/">mwani</a></li>
+      <li><a routerLink="/">Sheria</a></li>
+      <li><a routerLink="/contact">Mawasiliano</a></li>
+      <!-- <li><a routerLink="/">Kuhus sisi</a></li> -->
+    </ul>
+  </div>
+</ng-template>
+
+
