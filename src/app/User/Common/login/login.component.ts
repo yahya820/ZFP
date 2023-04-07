@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import {FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +8,23 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class LoginComponent {
 hide =true;
+form2!:FormGroup;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
+ngOnInit() : void {
+  this.form2 = new FormGroup({
+    email : new FormControl('', [Validators.required]),
+    password : new FormControl('', [Validators.required])
+  })
+}
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
+  // email = new FormControl('', [Validators.required, Validators.email]);
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
+  // getErrorMessage() {
+  //   if (this.form2.hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
+
+  //   return this.form2.hasError('email') ? 'Not a valid email' : '';
+  // } 
 
 }

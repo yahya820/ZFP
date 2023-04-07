@@ -7,32 +7,34 @@
 
     <mat-card-content>
 
+      <form [formGroup]="form2">
       <div class="col">
         <div class="example-container">
-
         <div class="row">
           <mat-form-field appearance="fill">
             <mat-label>Jina Kamili</mat-label>
-            <input matInput [formControl]="email" required>
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <input matInput formControlName="email" required>
+            <!-- <mat-error *ngIf="form2.invalid">{{getErrorMessage()}}</mat-error> -->
           </mat-form-field>
         </div>
 
         <div class="row">
           <mat-form-field appearance="fill">
             <mat-label>Enter your password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'">
+            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
             <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
             </button>
+           
           </mat-form-field>
         </div>
       </div>
       </div>
+    </form>
 
 
 
-      <button mat-raised-button class="login-btn">Ingia ndani</button>
+      <button mat-raised-button class="login-btn" [disabled]="form2.invalid">Ingia ndani</button>
 
     </mat-card-content>
   </mat-card>
