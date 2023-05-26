@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { VesselRecComponent } from './vessel-rec.component';
+import { ApdVesselComponent } from './apd-vessel.component';
 
-describe('VesselRecComponent', () => {
-  let component: VesselRecComponent;
-  let fixture: ComponentFixture<VesselRecComponent>;
+describe('ApdVesselComponent', () => {
+  let component: ApdVesselComponent;
+  let fixture: ComponentFixture<ApdVesselComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VesselRecComponent ]
+      declarations: [ ApdVesselComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(VesselRecComponent);
+    fixture = TestBed.createComponent(ApdVesselComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

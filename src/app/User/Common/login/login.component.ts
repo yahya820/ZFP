@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,7 @@ import {FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginComponent {
 hide =true;
 form2!:FormGroup;
+constructor(private dialogRef: MatDialogRef<LoginComponent>) {}
 
 ngOnInit() : void {
   this.form2 = new FormGroup({
@@ -26,5 +28,7 @@ ngOnInit() : void {
 
   //   return this.form2.hasError('email') ? 'Not a valid email' : '';
   // } 
-
+  close(){
+    this.dialogRef.close();
+  }
 }

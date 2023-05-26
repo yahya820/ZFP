@@ -8,6 +8,7 @@ import { MatTabGroup } from '@angular/material/tabs';
   styleUrls: ['./tabs-fisher.component.scss']
 })
 export class TabsFisherComponent {
+  currentDate = new Date().toISOString().split('T')[0];
   imageSrc! : String;
   imageRisiti! : String;
   form1!:FormGroup;
@@ -44,15 +45,11 @@ export class TabsFisherComponent {
     this.form1 = new FormGroup({
 
       // BInafsi
-      picha_yako : new FormControl(null,[Validators.required]),
-      jina : new FormControl(null,[Validators.required]),
-      kazi : new FormControl(null,[Validators.required]),
-      mahali : new FormControl(null,[Validators.required]),
-      simu : new FormControl(null,[Validators.required]),
-      kitambulisho : new FormControl(null,[Validators.required]),
-      uraia : new FormControl(null,[Validators.required]),
-      jinsia : new FormControl(null,[Validators.required]),
-      umri : new FormControl(null,[Validators.required]),
+      // image : new FormControl(null,[Validators.required]),
+      diko : new FormControl(null,[Validators.required]),
+      way : new FormControl(null,[Validators.required]),
+      // date_in : new FormControl(null,[Validators.required]),
+      // date_out : new FormControl(null,[Validators.required]),
 
 
       // // chombo
@@ -66,7 +63,7 @@ export class TabsFisherComponent {
 
 
       // malipo
-      akaunt : new FormControl(null,[Validators.required]),
+      acc : new FormControl(null,[Validators.required]),
       no_ac : new FormControl(null,[Validators.required]),
       no_risiti : new FormControl(null,[Validators.required]),
       date : new FormControl(null,[Validators.required]),

@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./confirm-vessel.component.scss']
 })
 export class ConfirmVesselComponent {
-
+  print(){
+    window.print();
+  }
 }

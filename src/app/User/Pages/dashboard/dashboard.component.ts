@@ -1,10 +1,11 @@
 import { CdkTableDataSourceInput } from '@angular/cdk/table';
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
-import { NgbModalConfig, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { config } from 'rxjs';
 import { TabsFisherComponent } from '../tabs-fisher/tabs-fisher.component';
+import { FooterComponent } from '../../Common/footer/footer.component';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class DashboardComponent {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   // images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  constructor(public dialog: MatDialog,config: NgbModalConfig, private modalService: NgbModal) {
+  constructor(public dialog: MatDialog,config: NgbModalConfig) {
     config.backdrop = 'static';
     config.keyboard = false;
   }
@@ -33,6 +34,7 @@ export class DashboardComponent {
   //     this.modalService.open(content);
   // }
   }
+ 
 }
 
 export interface PeriodicElement {

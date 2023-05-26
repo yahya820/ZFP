@@ -1,4 +1,4 @@
-<div class="card">
+<!-- <div class="card">
   <div class="m-auto">
     <div class="text-center"><img class="img-fluid" src="../../../../assets/images/nembo1.png" width="200" height="70" ></div>
   <div class="text-center">
@@ -9,45 +9,33 @@
   <H5 class="mb-0">Kanuni 12(1)</H5>
   </div>
   </div>
-</div>
+</div> -->
 
 
 <!-- TABS -->
 
 <div class="mt-2">
   <mat-tab-group class="hid mb-3">
-    <mat-tab label="Sheria" >
-     <div class="mt-3">
-      <h2 style="text-decoration:underline;">MTUMIAJI/WATUMIAJI</h2>
-      <ol>
-        <li>Leseni inayoombwa mda wote inatakiwa iwepo katika chombo husika.</li>
-        <li>Nambari ya uwandikishaji lazima iandikwe pembeni ya chombo zenye ukubwa usiopungua sentimita 5.</li>
-        <li>Akihaulisha chombo atoe taarifa kwa Afisa Uvuvi wilaya.</li>
-        <li>Kutoa taarifa za uzalishaji wa Samaki katika dikon husika.</li>
-        <li>Asihaulishe mazao ya baharini kwenye chombo chengine.</li>
-        <li>kutovua kwa ajili ya chombo chengine bila ya kibali.</li>
-        <li>Hatatumia Uvuvi wa Mtando ndani ya maeneo ya hifadhi.</li>
-        <li>Ni marufuku mtu mwenye Leseni ndogo kuitumia kwenye leseni kubwa ya uvuvi.</li>
-        <li>Ni marufuku Leseni ya Dau kuitumia kwa chombo chengine.</li>
-        <li>Mtu wowote ataekiuka Masharti Atatozwa Faini ya shilingi Milioni tano (5,000,000) au Kifungo kisichopungua miaka miwili au vyote kwa pamoja.</li>
-        <li>Nahodha ndo mwenye jukumu la wavuvi wote katika chombo husika.</li>
-      </ol>
-     </div>
-
-     <div class="">
-      <button mat-button (click)="tabGroup.selectedIndex=1" class="mbele">Nyengine</button>
-     </div>
-
-    </mat-tab>
-
     <form [formGroup]="form1" (ngSubmit)="onSubmit()">
-    <mat-tab label="Taarifa Binafsi">
+    <mat-tab label="Leseni ya Uvuvi">
       <div class="container mt-4 mb-4">
        <div class="card">
-        <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">JAZA TAARIFA HUSIKA</h2>
+
+        <div class="m-auto mt-3">
+          <!-- <div class="text-center"><img class="img-fluid" src="../../../../assets/images/nembo1.png" width="200" height="70" ></div> -->
+        <div class="text-center">
+          <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
+          <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
+          <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
+          <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
+        <H5 class="mb-0">Kanuni 12(1)</H5>
+        </div>
+        </div>
+
+        <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px; margin-top: 60px;">JAZA TAARIFA HUSIKA</h2>
         <div class="container">
 
-          <div class="text-center mb-5">
+          <!-- <div class="text-center mb-5">
             <div id="display_image" >
               <img [src]="imageSrc" width="150">
             </div>
@@ -56,89 +44,44 @@
               <div class="mt-3">
                 <label for="inputFile" style="margin-right:15px">Weka picha yako</label>
                 <label for="inputFile"  >Badilisha picha yako</label>
-                <input hidden (change)="displayImage($event)" type="file" id="inputFile" formControlName="picha_yako">
+                <input hidden (change)="displayImage($event)" type="file" id="inputFile" formControlName="image">
               </div>
             </div>
-          </div>
+          </div> -->
 
           <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Jina kamili</label>
+            <label class="col-sm-2 col-form-label">Diko unalotumia</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" formControlName="jina" required>
-            </div>
-          </div>
-
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Kazi yako</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" formControlName="kazi" required>
+              <input type="text" class="form-control" formControlName="diko" required>
             </div>
           </div>
 
           <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Mahali unapoishi</label>
+            <label class="col-sm-2 col-form-label"> Njia ya Uwendeshaji</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" formControlName="mahali" required>
+              <input type="text" class="form-control"  formControlName="way" required>
+            </div>
+          </div>
+<!-- 
+          <div class="mb-3 row has-validation">
+            <label class="col-sm-2 col-form-label">Tarehe ya kuanzia</label>
+            <div class="col-sm-10">
+              <input type="date" class="form-control" formControlName="date_in"
+                name="date" placeholder="name" required>
             </div>
           </div>
 
           <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Namba ya Simu</label>
+            <label class="col-sm-2 col-form-label">Tarehe ya Kuishia</label>
             <div class="col-sm-10">
-              <input type="number" class="form-control" formControlName="simu" required>
+              <input type="number" class="form-control" formControlName="date_out" required>
             </div>
-          </div>
-
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Kitambulisho cha  Mzanzibar/Mtanzania</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" formControlName="kitambulisho" required>
-            </div>
-          </div>
-
-          <div class="mb-3 row has-validation">
-            <label for="inputPassword" class="col-sm-2 col-form-label">Uraia</label>
-            <div class="col-sm-10">
-              <select class="form-control" formControlName="uraia" required>
-                <option value="" disabled selected>Choose an options</option>
-                <option>Mtanzania</option>
-                <option>Nchi nyengine</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="row m-2">
-
-            <div class="col">
-              <div class="mb-3 row has-validation">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Jinsia</label>
-                <div class="col-sm-10">
-                  <select class="form-control" formControlName="jinsia" required>
-                    <option value="" disabled selected>Choose an options</option>
-                    <option>Mwanaume</option>
-                    <option>Mwanamke</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="mb-3 row has-validation">
-                <label for="inputPassword" class="col-sm-2 col-form-label">Umri</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" min="0" max="100" formControlName="umri" required>
-                </div>
-              </div>
-            </div>
-          </div>
+          </div> -->
        </div>
+       <button mat-button  (click)="tabGroup.selectedIndex=2" class="mbele w-25">Nyengine</button>
       </div>
       </div>
 
-      <div class="">
-        <button mat-button  (click)="tabGroup.selectedIndex=0" class="nyuma">Rudi</button>
-        <button mat-button  (click)="tabGroup.selectedIndex=2" class="mbele">Nyengine</button>
-       </div>
        </mat-tab>
 
 
@@ -154,21 +97,21 @@
             <div class="mb-3 row has-validation">
               <label class="col-sm-2 col-form-label">Jina la Akaunti</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" formControlName="akaunt" required>
+                <input type="text" class="form-control" formControlName="acc" required>
               </div>
             </div>
 
             <div class="mb-3 row has-validation">
               <label class="col-sm-2 col-form-label">Nambari ya Akanti</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" formControlName="no_ac" required>
+                <input type="number" class="form-control" formControlName="no_ac" required>
               </div>
             </div>
 
             <div class="mb-3 row has-validation">
               <label class="col-sm-2 col-form-label">Nambari ya Risiti</label>
               <div class="col-sm-10">
-                <input type="date" class="form-control" formControlName="no_risiti" required>
+                <input type="number" class="form-control" formControlName="no_risiti" required>
               </div>
             </div>
 
@@ -199,7 +142,7 @@
       </div>
 
       <div class="">
-        <button mat-button  (click)="tabGroup.selectedIndex=1" class="nyuma">Rudi</button>
+        <button mat-button  (click)="tabGroup.selectedIndex=0" class="nyuma">Rudi</button>
        </div>
     </mat-tab>
 

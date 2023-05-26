@@ -1,1 +1,15 @@
-<p>seawed-pro works!</p>
+<!-- <div *ngif="alert" class=" container mt-5 alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>Ingia Namba Sahihi ya Uongozi!</strong> 
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div> -->
+
+  <div class="card bg-light container">
+    <form [formGroup]="form" >
+        <label>Ingiza Namba Ya Uongozi</label>
+        <br>
+        <input type="number" class="containter form-control" formControlName="number"/>
+        <br>
+        <button [disabled]="form.invalid" class="btn btn-primary" (click)="onSubmit()">Ingia</button>
+    </form>
+</div>
+<router-outlet></router-outlet>

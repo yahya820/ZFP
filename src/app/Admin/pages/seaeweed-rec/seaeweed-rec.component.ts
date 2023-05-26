@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-seaeweed-rec',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./seaeweed-rec.component.scss']
 })
 export class SeaeweedRecComponent {
+ 
 
 }

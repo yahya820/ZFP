@@ -40,15 +40,15 @@ export class TabVessComponent implements OnInit {
     this.form1 = new FormGroup({
 
       // BInafsi
-      picha_yako : new FormControl(null,[Validators.required]),
-      jina : new FormControl(null,[Validators.required]),
-      kazi : new FormControl(null,[Validators.required]),
-      mahali : new FormControl(null,[Validators.required]),
-      simu : new FormControl(null,[Validators.required]),
-      kitambulisho : new FormControl(null,[Validators.required]),
-      uraia : new FormControl(null,[Validators.required]),
-      jinsia : new FormControl(null,[Validators.required]),
-      umri : new FormControl(null,[Validators.required]),
+      // picha_yako : new FormControl(null,[Validators.required]),
+      // jina : new FormControl(null,[Validators.required]),
+      // kazi : new FormControl(null,[Validators.required]),
+      // mahali : new FormControl(null,[Validators.required]),
+      // simu : new FormControl(null,[Validators.required]),
+      // kitambulisho : new FormControl(null,[Validators.required]),
+      // uraia : new FormControl(null,[Validators.required]),
+      // jinsia : new FormControl(null,[Validators.required]),
+      // umri : new FormControl(null,[Validators.required]),
 
 
       // chombo
@@ -58,7 +58,8 @@ export class TabVessComponent implements OnInit {
       urefu : new FormControl(null,[Validators.required]),
       idadi : new FormControl(null,[Validators.required]),
       njia : new FormControl(null,[Validators.required]),
-      terehe : new FormControl(null,[Validators.required]),
+      // date_in : new FormControl(null,[Validators.required]),
+      // date_out : new FormControl([null, Validators.required]),
 
 
       // malipo
