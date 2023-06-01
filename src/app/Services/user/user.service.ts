@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class UserService {
 
   private url = "http://localhost:8080/api/vi/users";
+  
   constructor(private http: HttpClient) { }
 
   add(body: object){
@@ -21,7 +22,7 @@ export class UserService {
   getId(id:number):Observable<User>{
     return this.http.get<User>(`${this.url}/${id}`);
   }
-  delete(id:number):Observable<Object>{
+  delete(id:number){
     return this.http.delete(`${this.url}/${id}`)
   }
   update(id:number , user : User):Observable<Object>{

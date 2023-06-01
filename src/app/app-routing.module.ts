@@ -4,7 +4,7 @@ import { ConfirmFisherComponent } from './Admin/pages/confirm-fisher/confirm-fis
 import { ConfirmVesselComponent } from './Admin/pages/confirm-vessel/confirm-vessel.component';
 import { FisherRecComponent } from './Admin/pages/fisher-rec/fisher-rec.component';
 import { HomeComponent } from './Admin/pages/home/home.component';
-import { NavBarComponent } from './Admin/pages/nav-bar/nav-bar.component';
+// import { NavBarComponent } from './Admin/pages/nav-bar/nav-bar.component';
 import { NavigationComponent } from './Admin/pages/navigation/navigation.component';
 import { UsersComponent } from './Admin/pages/users/users.component';
 // import { VesselRecComponent } from './Admin/pages/vessel-rec/vessel-rec.component';
@@ -29,8 +29,10 @@ import { ViewVesselComponent } from './Admin/pages/view-vessel/view-vessel.compo
 import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
 import { ApdFishermanComponent } from './Admin/pages/apd-fisherman/apd-fisherman.component';
 import { ApdVesselComponent } from './Admin/pages/apd-vessel/apd-vessel.component';
-import { SeaeweedRecComponent } from './Admin/pages/seaeweed-rec/seaeweed-rec.component';
+// import { SeaeweedRecComponent } from './Admin/pages/seaeweed-rec/seaeweed-rec.component';
 import { ViewSeaweedComponent } from './Admin/pages/view-seaweed/view-seaweed.component';
+import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.component';
+import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -46,7 +48,7 @@ const routes: Routes = [
     component: HeadersComponent,
     children: [
 	    { path: '', redirectTo: 'menu', pathMatch: 'full' },
-      { path: '', component: DashboardComponent },
+      { path: 'menu', component: DashboardComponent },
       { path: 'tabs_vessel', component: TabVessComponent },
       { path:"tabs_fisher",  component:TabsFisherComponent},
       { path:"seaweed", component: SeawedProComponent},
@@ -70,11 +72,14 @@ const routes: Routes = [
       { path: 'apd_vessel', component: ApdVesselComponent},
       { path:"view_fisher",  component:ViewFisherComponent},
       { path:"ConfirmVessel", component: ConfirmVesselComponent},
-      { path:"confirmFisher", component: ConfirmFisherComponent},
+      { path:"ConfirmFisher", component: ConfirmFisherComponent},
       { path: "view_user", component: ViewUserComponent},
       { path: "view_vessel", component: ViewVesselComponent},
       { path: "seaweed", component: SeaweedComponent},
       { path: "view_seaweed", component: ViewSeaweedComponent},
+      { path: "card_vessel", component: CardVesselComponent},
+      { path: "card_fisher", component: CardFisherComponent},
+    
     ],
   }
 

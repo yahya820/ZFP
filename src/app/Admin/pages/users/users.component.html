@@ -29,14 +29,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let user of users ;let x = index">
+                <tr *ngFor="let user of users; let x = index">
                   <td>{{x+1}}</td>
                   <td>{{user.name}}</td>
                   <td>{{user.phone}}</td>
                   <td>{{user.address}}</td>
-                  <td>
-                    <button  class="btn btn-info" (Click)="view(user.userId)">View</button>
+                    <!-- <td>1</td>
+                    <td>Yahya ali hamid</td>
+                    <td>0776944789</td>
+                    <td>Kilindi</td> -->
+                    <td>
+                    <button  class="btn btn-info" (click)="view(user.userId)">View</button>
                     <button  class="btn btn-danger" (click)="delete(user.userId)">Delete</button>
+                    <!-- <button class="btn btn-info" (click)="views()">View</button> -->
                   </td>
                 </tr>
               </tbody>

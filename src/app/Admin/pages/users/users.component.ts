@@ -9,7 +9,7 @@ import { UserService } from 'src/app/Services/user/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  users!: User[];
+  users!: any[];
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
@@ -25,10 +25,15 @@ export class UsersComponent implements OnInit {
   view(id: number){
     this.router.navigate(['/admin/view_user',{id}]);
   }
+  views(){
+    this.router.navigate(["/admin/view_user"])
+  }
 
   //Delete by id 
   delete(id: number){
-
+   this.userService.delete(id).subscribe((response)=> {
+      // this.users = response;
+    })
   }
 
   //get All User

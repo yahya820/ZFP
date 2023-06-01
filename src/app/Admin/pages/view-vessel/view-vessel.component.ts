@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApdVesselComponent } from '../apd-vessel/apd-vessel.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 export interface User {
   name: string;
   username: string;
@@ -29,7 +30,7 @@ export class ViewVesselComponent {
     phone_no: '0776955066',
   };
 
-  constructor(public dialog: MatDialog,) { }
+  constructor(public dialog: MatDialog,private router:Router) { }
 
   openDialog() {
     const dialogRef = this.dialog.open(ApdVesselComponent);
@@ -37,6 +38,9 @@ export class ViewVesselComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+  view(){
+    this.router.navigate(["/admin/card_vessel"]);
   }
 
 }

@@ -6,7 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./confirm-fisher.component.scss']
 })
 export class ConfirmFisherComponent {
-  print(){
-    window.print();
-  }
+  
 }

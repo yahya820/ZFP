@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ApdFishermanComponent } from '../apd-fisherman/apd-fisherman.component';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 export interface User {
   name: string;
@@ -31,7 +32,7 @@ export class ViewFisherComponent {
     phone_no: '0776955066',
   };
 
-  constructor(public dialog: MatDialog,) { }
+  constructor(public dialog: MatDialog,private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -42,6 +43,10 @@ export class ViewFisherComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+
+  view(){
+    this.router.navigate(["/admin/card_fisher"]);
   }
 
 }

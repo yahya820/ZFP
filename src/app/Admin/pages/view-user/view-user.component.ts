@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/Services/user/User';
 import { UserService } from 'src/app/Services/user/user.service';
+import { ApdUserComponent } from '../apd-user/apd-user.component';
 
 @Component({
   selector: 'app-view-user',
@@ -13,7 +15,9 @@ export class ViewUserComponent implements OnInit {
   user! : User
   
   constructor(private route:ActivatedRoute,
-    private userService: UserService){}
+    private userService: UserService,
+    public dialog: MatDialog){}
+
   ngOnInit(): void {
    this.id = this.route.snapshot.params['id'];
 
@@ -21,6 +25,13 @@ export class ViewUserComponent implements OnInit {
    this.userService.getId(this.id).subscribe((response) => {
     this.user = response;
    })
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(ApdUserComponent);
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`Dialog result: ${result}`);
+    });
   }
 
 

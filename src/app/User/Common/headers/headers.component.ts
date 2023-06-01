@@ -8,6 +8,7 @@ import {DatePipe} from '@angular/common'
 import { NgbModal, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Dialog } from '@angular/cdk/dialog';
 import { FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-headers',
@@ -28,7 +29,8 @@ export class HeadersComponent {
   constructor(private breakpointObserver: BreakpointObserver,
     public dialog: MatDialog,
     private offcanvasService : NgbOffcanvas,
-    private modalService: NgbModal) {
+    private modalService: NgbModal,
+    private router:Router) {
 
     }
 
@@ -52,12 +54,16 @@ export class HeadersComponent {
   //VALIDATION
   email = new FormControl('', [Validators.required, Validators.email]);
 
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
-    }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
+  // getErrorMessage() {
+  //   if (this.email.hasError('required')) {
+  //     return 'You must enter a value';
+  //   }
+
+  //   return this.email.hasError('email') ? 'Not a valid email' : '';
+  // }
+  view(){
+    this.router.navigate(["/register"])
   }
 
   

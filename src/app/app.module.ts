@@ -29,7 +29,7 @@ import { RegisterComponent } from './User/Pages/register/register.component';
 import { AlgaeComponent } from './User/Pages/algae/algae.component';
 import { HomeComponent } from './Admin/pages/home/home.component';
 import { UsersComponent } from './Admin/pages/users/users.component';
-import { NavBarComponent } from './Admin/pages/nav-bar/nav-bar.component';
+// import { NavBarComponent } from './Admin/pages/nav-bar/nav-bar.component';
 import { MatCardModule } from '@angular/material/card';
 import { VesselComponent } from './Admin/pages/vessel/vessel.component';
 import { ViewUserComponent } from './Admin/pages/view-user/view-user.component';
@@ -39,6 +39,10 @@ import { ApdFishermanComponent } from './Admin/pages/apd-fisherman/apd-fisherman
 import { ApdVesselComponent } from './Admin/pages/apd-vessel/apd-vessel.component';
 import { SeaweedComponent } from './Admin/pages/seaweed/seaweed.component';
 import { ViewSeaweedComponent } from './Admin/pages/view-seaweed/view-seaweed.component';
+import {NgxPrintModule} from 'ngx-print';
+import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.component';
+import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
+import { ApdUserComponent } from './Admin/pages/apd-user/apd-user.component'
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -61,7 +65,7 @@ import { ViewSeaweedComponent } from './Admin/pages/view-seaweed/view-seaweed.co
     RegisterComponent,
     HomeComponent,
     UsersComponent,
-    NavBarComponent,
+    // NavBarComponent,
     VesselComponent,
     ViewUserComponent,
     FishermanComponent,
@@ -69,11 +73,15 @@ import { ViewSeaweedComponent } from './Admin/pages/view-seaweed/view-seaweed.co
     ApdVesselComponent,
     SeaweedComponent,
     ViewSeaweedComponent,
+    CardFisherComponent,
+    CardVesselComponent,
+    ApdUserComponent,
 
 
 
   ],
   imports: [
+    NgxPrintModule,
     HttpClientModule,
     MatCardModule,
     BrowserModule,

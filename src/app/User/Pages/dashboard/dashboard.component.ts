@@ -40,18 +40,18 @@ export class DashboardComponent {
 export interface PeriodicElement {
   name: string;
   position: number;
-  weight: number;
+  weight: string;
   symbol: string;
   // action: string;
   // miter: string;
 }
 
 const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hdrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Hydogen', weight: 2.0079, symbol: 'o'},
-  {position: 3, name: 'Hydrgen', weight: 3.0079, symbol: 'l'},
-  {position: 4, name: 'Hydroen', weight: 4.0079, symbol: 'g'},
-  {position: 5, name: 'Hydroen', weight: 4.0079, symbol: 'g'}
+  {position: 1, name: 'Kilindi', symbol: "Kaskazini A", weight: 'Kaskazini Unguja'},
+  {position: 2, name: 'kidoti', symbol: "Kaskazini A", weight: 'Kaskazini Unguja'},
+  {position: 3, name: 'Chwaka', symbol: "Kati", weight: 'Kusini Unguja'},
+  {position: 4, name: 'Fundo', symbol: "Wete", weight: 'Kusini Pemba'},
+  {position: 5, name: 'Michezani', symbol: "Mkoani", weight: 'Kusini Pemba'}
 
 
 ];
