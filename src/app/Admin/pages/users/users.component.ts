@@ -9,7 +9,7 @@ import { UserService } from 'src/app/Services/user/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  users!: any[];
+  users!: User[];
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;
@@ -30,9 +30,10 @@ export class UsersComponent implements OnInit {
   }
 
   //Delete by id 
-  delete(id: number){
+  delete(id:number){
    this.userService.delete(id).subscribe((response)=> {
       // this.users = response;
+      this.retrieveAll();
     })
   }
 

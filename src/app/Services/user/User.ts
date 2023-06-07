@@ -1,4 +1,7 @@
 export class User{
+    // static id(id: any) {
+    //   throw new Error('Method not implemented.')
+    // }
     userId!: number
     name!: String
     // image!: String
@@ -12,5 +15,5 @@ export class User{
     username!: String
     pass!: String
     email!: String
-    roleId!: number
+    roles!: String
 }

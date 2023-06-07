@@ -42,7 +42,8 @@ import { ViewSeaweedComponent } from './Admin/pages/view-seaweed/view-seaweed.co
 import {NgxPrintModule} from 'ngx-print';
 import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.component';
 import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
-import { ApdUserComponent } from './Admin/pages/apd-user/apd-user.component'
+import { ApdUserComponent } from './Admin/pages/apd-user/apd-user.component';
+import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component'
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -76,6 +77,7 @@ import { ApdUserComponent } from './Admin/pages/apd-user/apd-user.component'
     CardFisherComponent,
     CardVesselComponent,
     ApdUserComponent,
+    LoginAdminComponent,
 
 
 

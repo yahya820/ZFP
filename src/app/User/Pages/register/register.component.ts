@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from 'src/app/Services/user/User';
 import { UserService } from 'src/app/Services/user/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -9,6 +11,7 @@ import { UserService } from 'src/app/Services/user/user.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  user: User = new User();
   selectedFile!:File;
   message!: String;
   imageSrc! : String;
@@ -42,6 +45,7 @@ export class RegisterComponent {
         pass : new FormControl(null,[Validators.required]),
         email : new FormControl(null,[Validators.required]),
         username : new FormControl(null,[Validators.required]),
+        roles : new FormControl("USER")
   
       })
     }
@@ -49,14 +53,19 @@ export class RegisterComponent {
       
     }
     Submit(){
-      //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
-    // const uploadImageData = new FormData();
-    // uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-
-      const values = this.form1.value
-      this.userService.add(values).subscribe(response => {
+      const values = this.form1.value;
+      if (this.userService.add(values).subscribe((response)=>{
         console.log(response);
-      })
+      })){
+        Swal.fire({
+          title: 'Registration Successful',
+          // text: 'You have been registered as an admin',
+          icon: 'success'
+        }).then (()=> {
+          this.router.navigate(['/menu'])
+        });
+      }
+      
       
     }
 

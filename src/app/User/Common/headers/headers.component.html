@@ -10,7 +10,7 @@
           <mat-menu #appMenu="matMenu">
             <ng-template matMenuContent let-name="name">
               <button mat-menu-item routerLink="/profile">Taarifa Zako</button>
-              <button mat-menu-item (click)="openBackDropCustomClass(tempa)">Kutoka</button>
+              <button mat-menu-item (click)="openBackDropCustomClass(tempa)">Kuingia</button>
             </ng-template>
           </mat-menu>
 
@@ -98,35 +98,6 @@
   </div>
 </ng-template>
 
-
-      <!-- LOGIN -->
-      <!-- <ng-template #content let-modal>
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h4 class="modal-title">Login</h4>
-                    <button type="button" class="close btn-close pull-right" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
-                    <span aria-hidden="true" class="visually-hidden">&times;</span></button>
-                  </div>
-                <div style="border-radius: 2px;">
-          <mat-card class="container">
-            <mat-card-header style="text-align: center; margin-bottom: 10px; margin-top:10px">
-              <mat-card-title>MFUMO WA UVUVI ZANZIBAR</mat-card-title>
-              <mat-card-subtitle>KUINGIA</mat-card-subtitle>
-            </mat-card-header>
-        
-          
-          </mat-card>
-        </div>
-        
-                  <div class="modal-footer text-center">
-                    <p>Hauna Akaunti? <a data-toggle="modal" (click)="modal.close('Close click')">Jisajili Hapa</a></p>
-                    <p><a  data-toggle="modal" data-dismiss="modal">Forgot Password ?</a></p>
-                  </div>
-                </div>
-              </div>
-        </ng-template> -->
-
         <ng-template #tempa let-modal >
           <div class="modal-header container">
             <h2>KUINGIA</h2>
@@ -138,37 +109,40 @@
             <mat-card-title style="text-align: center; margin-bottom: 10px; margin-top:10px">MFUMO WA UVUVI ZANZIBAR</mat-card-title></span>
           </mat-card-header>
           <mat-card-content class="container mx-2 mt-3">
-            <form>
+            <form [formGroup]="form">
               <div class="row container">
                 <div class="example-container">
                   <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Jina kamili</mat-label>
-                    <input matInput placeholder="Jina Kamili" [formControl]="email" required>
+                    <input matInput placeholder="Jina Kamili" formControlName="name" required>
                     <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                   </mat-form-field>
                 </div>
                 <div class="example-container">
                   <mat-form-field appearance="fill" class="w-100">
                     <mat-label>Neno la siri</mat-label>
-                    <input matInput placeholder="Neno la siri" type="password" [formControl]="email" required>
+                    <input matInput placeholder="Neno la siri" type="password" formControlName="pass" required>
                     <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                   </mat-form-field>
                 </div>
               </div>
             </form>
-            <button type="button" mat-raised-button color="primary" (click)="modal.close('Close click')">Ingia Ndani</button>
+            <button type="button" mat-raised-button color="primary" (click)="modal.close('Close click')" (click)="Login()">Ingia Ndani</button>
           </mat-card-content>
           <div class="modal-footer">
             <div class="footer">
               <nav>
                 <div class="text-center">
                   <div class="row">
-                    <div class="col-sm-12 col-md-6 col-lg-6">
+                    <!-- <div class="col-sm-12 col-md-6 col-lg-6">
                       <a class="mb-0" (click)="modal.close('Close click')">Umesahau Namba ya Siri</a>
-                    </div>
+                    </div> -->
                     <div class="col">
                       <a (click)="view()" (click)="modal.close('Close click')">Huna Akaunti? Jisajili Hapa</a>
                     </div>
+                    <!-- <div class="text-center maneno">
+                      <a (click)="administrator()" class="mb-0" (click)="modal.close('Close click')">kwa Msimamizi</a>
+                    </div> -->
                   </div>
                 </div>
               </nav>

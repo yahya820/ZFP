@@ -33,6 +33,7 @@ import { ApdVesselComponent } from './Admin/pages/apd-vessel/apd-vessel.componen
 import { ViewSeaweedComponent } from './Admin/pages/view-seaweed/view-seaweed.component';
 import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.component';
 import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
+import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -41,7 +42,8 @@ const routes: Routes = [
 
 {path:"login", component: LoginComponent},
 { path:"register", component: RegisterComponent},
-{ path:"seawed", component: SeaweedComponent}   ,                
+{ path:"seawed", component: SeaweedComponent}   , 
+{ path:"Login", component: LoginAdminComponent} ,              
 
   {
     path: '',

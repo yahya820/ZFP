@@ -7,8 +7,9 @@ import { MatDialog } from '@angular/material/dialog';
 import {DatePipe} from '@angular/common'
 import { NgbModal, NgbOffcanvas } from '@ng-bootstrap/ng-bootstrap';
 import { Dialog } from '@angular/cdk/dialog';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UserService } from 'src/app/Services/user/user.service';
 
 @Component({
   selector: 'app-headers',
@@ -16,6 +17,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./headers.component.scss']
 })
 export class HeadersComponent {
+  form!: FormGroup;
   closeResult!: string;
 
   currentDate = new Date();
@@ -30,7 +32,8 @@ export class HeadersComponent {
     public dialog: MatDialog,
     private offcanvasService : NgbOffcanvas,
     private modalService: NgbModal,
-    private router:Router) {
+    private router:Router,
+    private userServices: UserService) {
 
     }
 
@@ -47,25 +50,29 @@ export class HeadersComponent {
   }
 
   openBackDropCustomClass(tempa: any) {
-		this.modalService.open(tempa, { backdropClass: 'light-blue-backdrop' });
+		this.modalService.open(tempa, { size: 'md', backdropClass: 'light-blue-backdrop' });
 	}
 
-
-  //VALIDATION
-  email = new FormControl('', [Validators.required, Validators.email]);
-
-
-  // getErrorMessage() {
-  //   if (this.email.hasError('required')) {
-  //     return 'You must enter a value';
-  //   }
-
-  //   return this.email.hasError('email') ? 'Not a valid email' : '';
-  // }
+  ngOnInit(){
+    this.form = new FormGroup({
+      name: new FormControl(null, [Validators.required]),
+      pass : new FormControl(null,[Validators.required])
+    })
+  }
   view(){
     this.router.navigate(["/register"])
   }
 
-  
+  administrator(){
+    this.router.navigate(["/Login"]);
+  }
+
+  Login(){
+    const value = this.form.value
+    this.userServices.login(this.form.value.name, this.form.value.pass).subscribe((response) => {
+      console.log(value)
+      response.valueOf
+    })
+  }
 
 }

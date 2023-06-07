@@ -1,0 +1,25 @@
+<div class="card container">
+   <div class="login">
+    <form [formGroup]="form">
+        <div class="col">
+            <div class="row">
+                <div class="mb-5 row has-validation container mt-5">
+                    <label class="col-sm-6 col-form-label">Neno La Siri</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" formControlName="name" required>
+                        </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="mb-5 row has-validation container mt-5">
+                    <label class="col-sm-6 col-form-label">Neno La Siri</label>
+                        <div class="col-sm-12">
+                            <input type="text" class="form-control" formControlName="name" required>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <button class="mb-2" mat-raised-button color="primary" [disabled]="form.invalid">Ingia Ndani</button>
+    </form>
+   </div>
+</div>
