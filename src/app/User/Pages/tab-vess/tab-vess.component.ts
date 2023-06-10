@@ -1,6 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTabGroup } from '@angular/material/tabs';
+import { Router } from '@angular/router';
+import { PaymentService } from 'src/app/Services/payment/payment.service';
+import { VesselService } from 'src/app/Services/vessel/vessel.service';
 
 @Component({
   selector: 'app-tab-vess',
@@ -11,6 +14,10 @@ export class TabVessComponent implements OnInit {
   form1!:FormGroup;
   imageSrc! : String;
   imageRisiti! : String;
+
+  constructor(private router:Router,
+  private paymentService: PaymentService,
+  private vesslService : VesselService){}
 
   @ViewChild(MatTabGroup)
   tabGroup!: MatTabGroup;
@@ -38,42 +45,38 @@ export class TabVessComponent implements OnInit {
   // Form Validation
   ngOnInit(): void {
     this.form1 = new FormGroup({
-
-      // BInafsi
-      // picha_yako : new FormControl(null,[Validators.required]),
-      // jina : new FormControl(null,[Validators.required]),
-      // kazi : new FormControl(null,[Validators.required]),
-      // mahali : new FormControl(null,[Validators.required]),
-      // simu : new FormControl(null,[Validators.required]),
-      // kitambulisho : new FormControl(null,[Validators.required]),
-      // uraia : new FormControl(null,[Validators.required]),
-      // jinsia : new FormControl(null,[Validators.required]),
-      // umri : new FormControl(null,[Validators.required]),
-
-
       // chombo
-      chombo : new FormControl(null,[Validators.required]),
-      aina : new FormControl(null,[Validators.required]),
-      no : new FormControl(null,[Validators.required]),
-      urefu : new FormControl(null,[Validators.required]),
-      idadi : new FormControl(null,[Validators.required]),
-      njia : new FormControl(null,[Validators.required]),
-      // date_in : new FormControl(null,[Validators.required]),
-      // date_out : new FormControl([null, Validators.required]),
+      name_vessel : new FormControl(null,[Validators.required]),
+      type_vessel : new FormControl(null,[Validators.required]),
+      no_people : new FormControl(null,[Validators.required]),
+      meter : new FormControl(null,[Validators.required]),
+      no_vessel : new FormControl(null,[Validators.required]),
+      ways : new FormControl(null,[Validators.required]),
 
+    //})
 
-      // malipo
-      akaunt : new FormControl(null,[Validators.required]),
-      no_ac : new FormControl(null,[Validators.required]),
-      no_risiti : new FormControl(null,[Validators.required]),
+    // this.form1 = new FormGroup({
+      acc_name : new FormControl(null,[Validators.required]),
+      acc_no : new FormControl(null,[Validators.required]),
+      receipt_no : new FormControl(null,[Validators.required]),
       date : new FormControl(null,[Validators.required]),
-      risiti : new FormControl(null,[Validators.required])
-
-    })
+      // receipt_image : new FormControl(null,[Validators.required])
+     })
   }
+      // malipo
+    
+
+  
 
   onSubmit(){
+    var values = this.form1.value
+    this.vesslService.add(values).subscribe ( response => {
+      console.log(response);
 
+      this.paymentService.add(values).subscribe( response => {
+        console.log(response);
+      })
+    })
   }
 
 

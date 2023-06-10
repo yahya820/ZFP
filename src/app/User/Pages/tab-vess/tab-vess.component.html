@@ -31,42 +31,42 @@
               <div class="mb-3 row has-validation">
                 <label class="col-sm-2 col-form-label">Jina la chombo</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="chombo" required>
+                  <input type="text" class="form-control" formControlName="name_vessel" required>
                 </div>
               </div>
 
               <div class="mb-3 row has-validation">
                 <label class="col-sm-2 col-form-label">Aina ya chombo</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="aina" required>
+                  <input type="text" class="form-control" formControlName="type_vessel" required>
                 </div>
               </div>
 
               <div class="mb-3 row has-validation">
                 <label class="col-sm-2 col-form-label">Namba ya uwandikishaji</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="no" required>
+                  <input type="text" class="form-control" formControlName="no_vessel" required>
                 </div>
               </div>
 
               <div class="mb-3 row has-validation">
                 <label class="col-sm-2 col-form-label">Urefu wa chombo</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="urefu" required>
+                  <input type="text" class="form-control" formControlName="meter" required>
                 </div>
               </div>
 
               <div class="mb-3 row has-validation">
                 <label class="col-sm-2 col-form-label">Idadi ya wavuvi</label>
                 <div class="col-sm-10">
-                  <input type="number" class="form-control" formControlName="idadi" required>
+                  <input type="number" class="form-control" formControlName="no_people" required>
                 </div>
               </div>
 
               <div class="mb-3 row has-validation">
                 <label class="col-sm-2 col-form-label">Njia ya uwendeshaji</label>
                 <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="njia" required>
+                  <input type="text" class="form-control" formControlName="ways" required>
                 </div>
               </div>
 <!-- 
@@ -87,6 +87,7 @@
             </div>
           </div>
         </div>
+      </form>
 
         <!-- <div class="">
           <button mat-button  (click)="tabGroup.selectedIndex=1" class="Rudi">Rudi</button>
@@ -96,64 +97,66 @@
 
 
       <!-- <mat-tab label="Malipo "> -->
-        <div class="container mt-4 mb-3">
-          <div class=" mt-5">
-            <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">MALIPO HUSIKA</h2>
-            <DIV class="container">
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Jina la Akaunti</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="akaunt" required>
+        <form [formGroup]="form1">
+          <div class="container mt-4 mb-3">
+            <div class=" mt-5">
+              <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">MALIPO HUSIKA</h2>
+              <DIV class="container">
+  
+                <div class="mb-3 row has-validation">
+                  <label class="col-sm-2 col-form-label">Jina la Akaunti</label>
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" formControlName="acc_name" required>
+                  </div>
                 </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Nambari ya Akanti</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" formControlName="no_ac" required>
+  
+                <div class="mb-3 row has-validation">
+                  <label class="col-sm-2 col-form-label">Nambari ya Akanti</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" formControlName="acc_no" required>
+                  </div>
                 </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Nambari ya Risiti</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" formControlName="no_risiti" required>
+  
+                <div class="mb-3 row has-validation">
+                  <label class="col-sm-2 col-form-label">Nambari ya Risiti</label>
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" formControlName="receipt_no" required>
+                  </div>
                 </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Tarehe ulofanyika muamala</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control" formControlName="date" required>
+  
+                <div class="mb-3 row has-validation">
+                  <label class="col-sm-2 col-form-label">Tarehe ulofanyika muamala</label>
+                  <div class="col-sm-10">
+                    <input type="date" class="form-control" formControlName="date" required>
+                  </div>
                 </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
-                <div class="col-sm-10">
-                  <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="risiti" required>
+  
+                <!-- <div class="mb-3 row has-validation">
+                  <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
+                  <div class="col-sm-10">
+                    <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="receipt_image" required>
+                  </div>
                 </div>
-              </div>
-
-              <div id="display_image" class="img-fluid" >
-                <img [src]="imageRisiti" >
-              </div>
-
-             <div class="text-center mb-3 mt-3">
-              <button class="btn btn-primary" [disabled]="form1.invalid"> Wasilisha Taarifa</button>
-             </div>
-
-            </DIV>
+  
+                <div id="display_image" class="img-fluid" >
+                  <img [src]="imageRisiti" >
+                </div> -->
+  
+               <div class="text-center mb-3 mt-3">
+                <button class="btn btn-primary" [disabled]="form1.invalid" (click)="onSubmit()"> Wasilisha Taarifa</button>
+               </div>
+  
+              </DIV>
+            </div>
           </div>
-        </div>
+        </form>
 
         <!-- <div class="">
           <button mat-button  (click)="tabGroup.selectedIndex=2" class="nyuma">Rudi</button>
          </div> -->
       <!-- </mat-tab> -->
 
-      </form>
+      
 
     <!-- </mat-tab-group> -->
 

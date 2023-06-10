@@ -76,6 +76,9 @@ export class HeadersComponent {
   view(){
     this.router.navigate(["/register"])
   }
+  close(){
+    this.offcanvasService.dismiss();
+  }
 
   // administrator(){
   //   this.router.navigate(["/Login"]);
