@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
-import { User } from 'src/app/Services/user/User';
+// 
 import { UserService } from 'src/app/Services/user/user.service';
 
 @Component({
@@ -11,24 +12,29 @@ import { UserService } from 'src/app/Services/user/user.service';
 })
 export class ApdUserComponent {
   id!: number;
-  users: User = new User;
+  users!: any;
   form!:FormGroup;
 
   constructor(private userService: UserService,
-    private route: ActivatedRoute){}
+    private route: ActivatedRoute,
+    private dialogRef: MatDialogRef<ApdUserComponent>,){}
 
   ngOnInit(){
     this.id = this.route.snapshot.params['id']
 
     this.form = new FormGroup({
-      diko_usage : new FormControl(null,[Validators.required])
+      leader : new FormControl(null,[Validators.required])
     })
   }
 
   save(){
     this.userService.update(this.id, this.users).subscribe ((response)=> {
-      console.log("SuccessFull");
+      console.log("SuccessFull", response);
     })
+  }
+
+  close(){
+    this.dialogRef.close();
   }
 
 }

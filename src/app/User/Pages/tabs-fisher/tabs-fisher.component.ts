@@ -46,10 +46,10 @@ export class TabsFisherComponent {
 
       // BInafsi
       // image : new FormControl(null,[Validators.required]),
-      diko : new FormControl(null,[Validators.required]),
-      way : new FormControl(null,[Validators.required]),
-      // date_in : new FormControl(null,[Validators.required]),
-      // date_out : new FormControl(null,[Validators.required]),
+      diko_usage : new FormControl(null,[Validators.required]),
+      ways : new FormControl(null,[Validators.required]),
+      meter : new FormControl(null,[Validators.required]),
+      type : new FormControl(null,[Validators.required]),
 
 
       // // chombo

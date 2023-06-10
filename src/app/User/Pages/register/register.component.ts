@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/Services/user/User';
+// import { User } from 'src/app/Services/user/User';
 import { UserService } from 'src/app/Services/user/user.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +11,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
-  user: User = new User();
+  // user: User = new User();
   selectedFile!:File;
   message!: String;
   imageSrc! : String;

@@ -3,14 +3,15 @@
   <mat-sidenav-content>
 
     <div class="sticky bg-light mb-0">
-      <nav class="nav nav-brand nav-pills flex-lg-row sticky">
+      <nav class="nav nav-brand nav-pills flex-lg-row sticky" >
         <span class="flex-sm-fill text-sm text-black nav-link ">{{currentDate | date}}</span>
         <span class="example-spacer"></span>
         <button mat-button class="example-icon" aria-label="Example icon-buton with menu">
+          <!-- <header *ngIf="check_login">{{username}}</header> -->
           <mat-menu #appMenu="matMenu">
             <ng-template matMenuContent let-name="name">
               <button mat-menu-item routerLink="/profile">Taarifa Zako</button>
-              <button mat-menu-item (click)="openBackDropCustomClass(tempa)">Kuingia</button>
+              <button mat-menu-item (click)="openDialog()">Kuingia</button>
             </ng-template>
           </mat-menu>
 
@@ -127,7 +128,11 @@
                 </div>
               </div>
             </form>
-            <button type="button" mat-raised-button color="primary" (click)="modal.close('Close click')" (click)="Login()">Ingia Ndani</button>
+            <button type="button" mat-raised-button color="primary" 
+              (click)="modal.close('Close click')" 
+              (click)="Login()"
+              [disabled]="form.invalid"
+            >Ingia Ndani</button>
           </mat-card-content>
           <div class="modal-footer">
             <div class="footer">

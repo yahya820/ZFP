@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from './User';
 import { Observable, retry } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -19,16 +18,16 @@ export class UserService {
   get(): Observable<any[]>{
     return this.http.get<any[]>(`${this.url}`)
   }
-  getId(id:number):Observable<User>{
-    return this.http.get<User>(`${this.url}/${id}`);
+  getId(id:number):Observable<any>{
+    return this.http.get<any>(`${this.url}/${id}`);
   }
   delete(id: any){
     return this.http.delete(`${this.url}/${id}`)
   }
-  update(id:number , user : User):Observable<Object>{
+  update(id:number , user : any){
     return this.http.put(`${this.url}/${id}`, user);
   }
-  login(username: any, password:any){
-    return this.http.post(this.url + '/login', null, {params : {username, password}});
+  login(username: any, password:any):Observable <any>{
+    return this.http.post<any>(this.url + '/login', null, {params : {username, password}});
   }
 }

@@ -25,7 +25,14 @@
               <li class="list-group-item"><strong>Age:  </strong> {{user.age}}</li>
               <li class="list-group-item"><strong>Number of Leader:  </strong> {{user.age}}</li>
             </ul>
-            <!-- <button mat-raised-button (click)="openDialog(user.userId)">Edit</button> -->
+            <div class="row">
+              <div class="col">
+                <button mat-raised-button (click)="openDialog(user.userId)">Edit</button>
+              </div>
+              <div class="col">
+                <button mat-raised-button (click)="openDialog1()" color="primary">Message</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

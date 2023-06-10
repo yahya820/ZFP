@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from 'src/app/Services/user/User';
+// import { User } from 'src/app/Services/user/User';
 import { UserService } from 'src/app/Services/user/user.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { UserService } from 'src/app/Services/user/user.service';
   styleUrls: ['./users.component.scss']
 })
 export class UsersComponent implements OnInit {
-  users!: User[];
+  users!: any[];
   page: number = 1;
   count: number = 0;
   tableSize: number = 10;

@@ -10,6 +10,10 @@ import { Dialog } from '@angular/cdk/dialog';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user/user.service';
+// import { User } from 'src/app/Services/user/User';
+import Swal from 'sweetalert2';
+import { User } from 'src/app/Services/user/User';
+// import { User } from 'src/app/Services/user/User';
 
 @Component({
   selector: 'app-headers',
@@ -17,6 +21,10 @@ import { UserService } from 'src/app/Services/user/user.service';
   styleUrls: ['./headers.component.scss']
 })
 export class HeadersComponent {
+  username! : any;
+  check_login:boolean = true;
+  error:boolean = false;
+ user: User = new User()
   form!: FormGroup;
   closeResult!: string;
 
@@ -33,7 +41,7 @@ export class HeadersComponent {
     private offcanvasService : NgbOffcanvas,
     private modalService: NgbModal,
     private router:Router,
-    private userServices: UserService) {
+    private userServices: UserService,) {
 
     }
 
@@ -57,22 +65,39 @@ export class HeadersComponent {
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       pass : new FormControl(null,[Validators.required])
-    })
+    });
+
+    // this.username = sessionStorage.getItem(this.user.name = ")
+    // if( this.username == null){
+    //   this.check_login = false
+    //   this.error = true
+    // }
   }
   view(){
     this.router.navigate(["/register"])
   }
 
-  administrator(){
-    this.router.navigate(["/Login"]);
-  }
+  // administrator(){
+  //   this.router.navigate(["/Login"]);
+  // }
+
+  // Login_process(name:any,pass:any){
+    
+  // }
 
   Login(){
     const value = this.form.value
-    this.userServices.login(this.form.value.name, this.form.value.pass).subscribe((response) => {
-      console.log(value)
-      response.valueOf
-    })
+    return this.userServices.login(value.name, value.pass).subscribe (
+      respo => {
+        // console.log(respo);
+        console.log( sessionStorage.setItem("name", respo.name));
+        if (respo.roles == "USER"){
+          this.router.navigate(["/menu"])
+        } else {
+          this.router.navigate(["/admin/home"])
+        }
+      }
+    )
   }
 
 }

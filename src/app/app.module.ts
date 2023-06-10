@@ -43,7 +43,8 @@ import {NgxPrintModule} from 'ngx-print';
 import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.component';
 import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
 import { ApdUserComponent } from './Admin/pages/apd-user/apd-user.component';
-import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component'
+import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component';
+import { AdminMessageComponent } from './Admin/pages/admin-message/admin-message.component'
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -78,6 +79,7 @@ import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.comp
     CardVesselComponent,
     ApdUserComponent,
     LoginAdminComponent,
+    AdminMessageComponent,
 
 
 
