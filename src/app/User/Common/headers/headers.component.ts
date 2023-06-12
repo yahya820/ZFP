@@ -51,6 +51,7 @@ export class HeadersComponent {
     dialogRef.afterClosed().subscribe((result: any) => {
       console.log(`Dialog result: ${result}`);
     });
+    console.log("me")
   }
 
   openScroll(content : TemplateRef<any>){
@@ -62,12 +63,14 @@ export class HeadersComponent {
 	}
 
   ngOnInit(){
+    this.username = sessionStorage.getItem("name")
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       pass : new FormControl(null,[Validators.required])
     });
 
-    // this.username = sessionStorage.getItem(this.user.name = ")
+
+    // this.username = sessionStorage.getItem("name")
     // if( this.username == null){
     //   this.check_login = false
     //   this.error = true
@@ -87,20 +90,23 @@ export class HeadersComponent {
   // Login_process(name:any,pass:any){
     
   // }
+  // Login(){
+  //   console.log("String")
+  //   const value = this.form.value
+  //  this.loginProcess(value.name,value.pass);
 
-  Login(){
-    const value = this.form.value
-    return this.userServices.login(value.name, value.pass).subscribe (
-      respo => {
-        // console.log(respo);
-        console.log( sessionStorage.setItem("name", respo.name));
-        if (respo.roles == "USER"){
-          this.router.navigate(["/menu"])
-        } else {
-          this.router.navigate(["/admin/home"])
-        }
-      }
-    )
+  // }
+  
+
+  // loginProcess(name:any,pass:any){
+  //   return this.userServices.login(name,pass).subscribe (
+  //     respo => {
+  //       console.log("true");
+  //     }
+  //   )
+  // }
+  close_session(){
+    sessionStorage.removeItem("name");
+    this.router.navigate(['/'])
   }
-
 }

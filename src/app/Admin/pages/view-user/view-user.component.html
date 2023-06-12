@@ -15,7 +15,7 @@
           <div class="card-body">
             <!-- <h2 class="card-title">MALIPO</h2> -->
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Username:  </strong> {{user.username}}</li>
+              <li class="list-group-item"><strong>Username:  </strong> <span style="margin-left: 20px;">{{user.username}}</span></li>
               <li class="list-group-item"><strong>Work:  </strong> {{user.work}}</li>
               <li class="list-group-item"><strong>Location:  </strong> {{user.address}}</li>
               <li class="list-group-item"><strong>Phone No:  </strong> {{user.phone}}</li>
@@ -23,11 +23,11 @@
               <li class="list-group-item"><strong>CitizenShip:  </strong> {{user.nationality}}</li>
               <li class="list-group-item"><strong>Sex:  </strong> {{user.sex}}</li>
               <li class="list-group-item"><strong>Age:  </strong> {{user.age}}</li>
-              <li class="list-group-item"><strong>Number of Leader:  </strong> {{user.age}}</li>
+              <li class="list-group-item"><strong>Number of Leader:  </strong> {{user.leader}}</li>
             </ul>
             <div class="row">
               <div class="col">
-                <button mat-raised-button (click)="openDialog(user.userId)">Edit</button>
+                <button mat-raised-button (click)="openBackDropCustomClass(user)">Edit</button>
               </div>
               <div class="col">
                 <button mat-raised-button (click)="openDialog1()" color="primary">Message</button>
@@ -42,4 +42,24 @@
       </div>
     </div>
   </div>
+
+  <ng-template #tempa let-modal >
+    <div class="card m-3">
+      <div class="container">
+          <form [formGroup]="form" >
+              <div class="mb-3 row has-validation">
+                  <label class="col-sm-6 col-form-label">No of Leader</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" formControlName="leader"[(ngModel)]="user.leader" required>
+                  </div>
+                </div>
+               <button mat-raised-button color="primary" class="mb-2"
+                (click)="save()" 
+                [disabled]="form.invalid"
+                (click)="modal.close('Close click')"
+                > Submit</button>
+          </form>
+      </div>
+  </div>
+  </ng-template>
   

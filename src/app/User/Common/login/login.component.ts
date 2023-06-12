@@ -32,8 +32,11 @@ Login(){
   const value = this.form.value
   return this.userServices.login(value.name, value.pass).subscribe (
     respo => {
-      // console.log(respo);
-      console.log( sessionStorage.setItem("name", respo.name));
+      console.log(respo)
+     sessionStorage.setItem("name", respo.name);
+      console.log(sessionStorage.setItem("name", respo.name));
+      console.log(respo.userId)
+      console.log(respo.name)
       if (respo.roles == "USER"){
         this.router.navigate(["/menu"])
       } else {
@@ -41,6 +44,7 @@ Login(){
       }
     }
   )
+  console.log("String")
 }
 
   close(){

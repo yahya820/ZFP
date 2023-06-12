@@ -45,7 +45,8 @@ export class RegisterComponent {
         pass : new FormControl(null,[Validators.required]),
         email : new FormControl(null,[Validators.required]),
         username : new FormControl(null,[Validators.required]),
-        roles : new FormControl("USER")
+        roles : new FormControl("USER"),
+        leader : new FormControl(null)
   
       })
     }

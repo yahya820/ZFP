@@ -107,7 +107,7 @@
                 <div class="mb-3 row has-validation">
                     <label class="col-sm-10 col-form-label">Idadi ya wakulima</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" formControlName="no_farm"  required>
+                      <input type="number" class="form-control" formControlName="no_farm" >
                     </div>
                   </div>
 
@@ -118,16 +118,16 @@
                         <div class="mb-3 row has-validation">
                           <label for="inputPassword" class="col-sm-10 col-form-label">idadi ya wakulima Wanaume</label>
                           <div class="col-sm-10">
-                            <input type="number" class="form-control" min="0" max="100"  required>
+                            <input type="number" class="form-control" min="0" max="100" formControlName="no_men" >
                           </div>
                         </div>
                       </div>
         
                       <div class="col">
                         <div class="mb-3 row has-validation">
-                          <label for="inputPassword" class="col-sm-10 col-form-label">idadi ya wakulima Wanaume</label>
+                          <label for="inputPassword" class="col-sm-10 col-form-label">idadi ya wakulima Wanawake</label>
                           <div class="col-sm-10">
-                            <input type="number" class="form-control" min="0" max="100"  required>
+                            <input type="number" class="form-control" min="0" max="100" formControlName="no_women" >
                           </div>
                         </div>
                       </div>
@@ -136,7 +136,7 @@
                   <div class="mb-3 row has-validation">
                     <label class="col-sm-10 col-form-label">Heka</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control"  required>
+                      <input type="number" class="form-control" formControlName="hector" >
                     </div>
                   </div>
 
@@ -147,7 +147,7 @@
                         <div class="mb-3 row has-validation">
                           <label for="inputPassword" class="col-sm-10 col-form-label">Aina ya Mwani</label>
                           <div class="col-sm-10">
-                            <select class="form-control" >
+                            <select class="form-control" formControlName="type">
                                 <option>E.spinosum</option>
                                 <option>E.cottonii</option>
                             </select>
@@ -159,7 +159,7 @@
                         <div class="mb-3 row has-validation">
                           <label for="inputPassword" class="col-sm-10 col-form-label">Tani</label>
                           <div class="col-sm-10">
-                            <input type="number" class="form-control" />
+                            <input type="number" class="form-control" formControlName="tones" />
                           </div>
                         </div>
                     </div>
@@ -167,7 +167,7 @@
                   <div class="mb-3 row has-validation">
                     <label class="col-sm-10 col-form-label">Tarehe</label>
                     <div class="col-sm-10">
-                      <input type="date" class="form-control" formControlName="no_farm"  required>
+                      <input type="date" class="form-control" formControlName="date">
                     </div>
                   </div>
             </form>

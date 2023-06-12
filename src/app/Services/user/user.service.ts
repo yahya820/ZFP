@@ -27,7 +27,7 @@ export class UserService {
   update(id:number , user : any){
     return this.http.put(`${this.url}/${id}`, user);
   }
-  login(username: any, password:any):Observable <any>{
-    return this.http.post<any>(this.url + '/login', null, {params : {username, password}});
+  login(name: any, pass:any):Observable <any>{
+    return this.http.post<any>(this.url + '/login', null, {params : {name, pass}});
   }
 }

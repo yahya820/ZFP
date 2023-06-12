@@ -21,6 +21,9 @@ export class ApdUserComponent {
 
   ngOnInit(){
     this.id = this.route.snapshot.params['id']
+    this.userService.getId(this.id).subscribe(response => {
+      console.log("the Id is ",response)
+    })
 
     this.form = new FormGroup({
       leader : new FormControl(null,[Validators.required])
@@ -28,9 +31,10 @@ export class ApdUserComponent {
   }
 
   save(){
-    this.userService.update(this.id, this.users).subscribe ((response)=> {
-      console.log("SuccessFull", response);
-    })
+    // this.userService.update(this.id, this.form.value).subscribe ((response: any)=> {
+    //   this.form.get("leader")?.setValue(response.leader)
+    //   console.log("SuccessFull", response);
+    // })
   }
 
   close(){

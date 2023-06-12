@@ -16,4 +16,5 @@ export class User{
     pass!: String;
     email!: String;
     roles! :String;
+    leader!:String;
 }

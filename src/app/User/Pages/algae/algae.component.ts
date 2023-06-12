@@ -27,11 +27,12 @@ export class AlgaeComponent implements OnInit {
     // })
     this.form = new FormGroup({
       no_farm : new FormControl(['',Validators.required]),
-       no_farm_men : new FormControl(['',Validators.required]),
-       no_farm_wen : new FormControl(['',Validators.required]),
-       hectors : new FormControl(['',Validators.required]),
-       type_seaweed : new FormControl(['',Validators.required]),
-       tones : new FormControl(['',Validators.required])
+       no_men : new FormControl(['',Validators.required]),
+       no_women : new FormControl(['',Validators.required]),
+       hector : new FormControl(['',Validators.required]),
+       type : new FormControl(['',Validators.required]),
+       tones : new FormControl(['',Validators.required]),
+       date : new FormControl([null,[Validators.required]])
     })
   }
   tableData = [

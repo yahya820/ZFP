@@ -6,12 +6,16 @@
       <nav class="nav nav-brand nav-pills flex-lg-row sticky" >
         <span class="flex-sm-fill text-sm text-black nav-link ">{{currentDate | date}}</span>
         <span class="example-spacer"></span>
+        <header class="name">{{username}}</header> 
+
         <button mat-button class="example-icon" aria-label="Example icon-buton with menu">
-          <!-- <header *ngIf="check_login">{{username}}</header> -->
           <mat-menu #appMenu="matMenu">
             <ng-template matMenuContent let-name="name">
               <button mat-menu-item routerLink="/profile">Taarifa Zako</button>
               <button mat-menu-item (click)="openDialog()">Kuingia</button>
+              <!-- <button mat-menu-item (click)="close_session()">Kutoka</button> -->
+              <button mat-menu-item (click)="close_session()"><a href="" class="none">Kutoka</a></button>
+              
             </ng-template>
           </mat-menu>
 
@@ -128,9 +132,7 @@
                 </div>
               </div>
             </form>
-            <button type="button" mat-raised-button color="primary" 
-              (click)="modal.close('Close click')" 
-              (click)="Login()"
+            <button type="button" class="btn btn-primary"
               [disabled]="form.invalid"
             >Ingia Ndani</button>
           </mat-card-content>
