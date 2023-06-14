@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable, retry } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 export class UserService {
 
   private url = "http://localhost:8080/api/vi/users";
+
+  public scrollEvent: EventEmitter<void> = new EventEmitter<void>();
   
   constructor(private http: HttpClient) { }
 
@@ -18,7 +20,7 @@ export class UserService {
   get(): Observable<any[]>{
     return this.http.get<any[]>(`${this.url}`)
   }
-  getId(id:number):Observable<any>{
+  getId(id:any):Observable<any>{
     return this.http.get<any>(`${this.url}/${id}`);
   }
   delete(id: any){
@@ -30,4 +32,5 @@ export class UserService {
   login(name: any, pass:any):Observable <any>{
     return this.http.post<any>(this.url + '/login', null, {params : {name, pass}});
   }
+
 }

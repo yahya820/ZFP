@@ -55,7 +55,7 @@ const routes: Routes = [
       { path:"tabs_fisher",  component:TabsFisherComponent},
       { path:"seaweed", component: SeawedProComponent},
       { path:"contact", component: ContactComponent},
-      { path:"profile", component: ProfileComponent},
+      { path:"profile/{id}", component: ProfileComponent},
       { path:"algae", component: AlgaeComponent}
 
     ]

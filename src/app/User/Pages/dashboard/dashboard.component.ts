@@ -6,6 +6,7 @@ import { NgbModalConfig, NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-boots
 import { config } from 'rxjs';
 import { TabsFisherComponent } from '../tabs-fisher/tabs-fisher.component';
 import { FooterComponent } from '../../Common/footer/footer.component';
+import { UserService } from 'src/app/Services/user/user.service';
 
 
 @Component({
@@ -17,10 +18,25 @@ export class DashboardComponent {
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
   // images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  constructor(public dialog: MatDialog,config: NgbModalConfig) {
+  constructor(public dialog: MatDialog,config: NgbModalConfig,
+    private userService : UserService) {
     config.backdrop = 'static';
     config.keyboard = false;
   }
+  ngOnInit(){
+    this.userService.scrollEvent.subscribe(()=>{
+      scroll();
+    })
+  }
+  ngOnDestroy(){
+    this.userService.scrollEvent.unsubscribe();
+  }
+  scroll(){
+    const element = document.querySelector('#contentElement');
+    element?.scrollIntoView({behavior: 'smooth'});
+  }
+
+  
 
   openDialog() {
     const dialogRef = this.dialog.open(TabsFisherComponent);
@@ -34,6 +50,8 @@ export class DashboardComponent {
   //     this.modalService.open(content);
   // }
   }
+
+  
  
 }
 

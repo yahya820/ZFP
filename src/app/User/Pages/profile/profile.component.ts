@@ -1,4 +1,8 @@
+import { identifierName } from '@angular/compiler';
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { UserService } from 'src/app/Services/user/user.service';
+// import { User } from 'src/app/Services/user/User';
 export interface User {
   name: string;
   username: string;
@@ -16,6 +20,11 @@ export interface User {
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent {
+  // user!:any
+
+  id = sessionStorage.getItem("name");
+  // user : User = new User()
+
   user: User = {
     name: 'John Doe',
     username: 'johndoe',
@@ -27,5 +36,17 @@ export class ProfileComponent {
     phone_no: '0776955066',
   };
 
+  constructor(private route:ActivatedRoute,
+    private userService : UserService){} 
+
+  ngOnInit(){
+    this.userService.getId(sessionStorage.getItem("id")).subscribe(
+      Response => {
+        this.user = Response;
+        console.log(this.user);
+      }
+    )
+    
+  }
 
 }

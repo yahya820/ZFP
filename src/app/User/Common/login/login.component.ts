@@ -3,6 +3,7 @@ import {FormGroup, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/Services/user/user.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -34,15 +35,19 @@ Login(){
     respo => {
       console.log(respo)
      sessionStorage.setItem("name", respo.name);
-      console.log(sessionStorage.setItem("name", respo.name));
-      console.log(respo.userId)
-      console.log(respo.name)
+     sessionStorage.setItem("id", respo.userId);
       if (respo.roles == "USER"){
+        window.location.reload()
         this.router.navigate(["/menu"])
       } else {
         this.router.navigate(["/admin/home"])
       }
+    }, error => {
+       Swal.fire({
+        title : "Umekosea Jina lako au Neno la Siri"
+       })
     }
+    
   )
   console.log("String")
 }

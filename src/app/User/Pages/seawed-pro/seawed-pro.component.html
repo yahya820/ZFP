@@ -7,7 +7,7 @@
     <form [formGroup]="form" >
         <label>Ingiza Namba Ya Uongozi</label>
         <br>
-        <input type="number" class="containter form-control" formControlName="number"/>
+        <input type="text" class="containter form-control" formControlName="number"/>
         <br>
         <button [disabled]="form.invalid" class="btn btn-primary" (click)="onSubmit()">Ingia</button>
     </form>

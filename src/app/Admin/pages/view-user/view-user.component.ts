@@ -16,7 +16,7 @@ import { User } from 'src/app/Services/user/User';
 })
 export class ViewUserComponent implements OnInit {
   id!: number
-  user:  User = new User();
+  user: any;
   form!: FormGroup;
   
   constructor(private route:ActivatedRoute,
@@ -64,6 +64,7 @@ export class ViewUserComponent implements OnInit {
     var value = this.form.value;
     this.userService.update(this.id, this.form.value).subscribe(responser => {
       console.log("the update is => ", responser)
+      
     })
   }
 

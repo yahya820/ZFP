@@ -43,8 +43,7 @@ export class RegisterComponent {
         sex : new FormControl(null,[Validators.required]),
         age : new FormControl(null,[Validators.required]),
         pass : new FormControl(null,[Validators.required]),
-        email : new FormControl(null,[Validators.required]),
-        username : new FormControl(null,[Validators.required]),
+        email : new FormControl(null,[Validators.required,Validators.email]),
         roles : new FormControl("USER"),
         leader : new FormControl(null)
   
@@ -66,7 +65,6 @@ export class RegisterComponent {
           this.router.navigate(['/menu'])
         });
       }
-      
       
     }
 
