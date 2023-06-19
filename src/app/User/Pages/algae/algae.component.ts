@@ -9,6 +9,7 @@ import { AlgaeService } from 'src/app/Services/algae/algae.service';
 })
 export class AlgaeComponent  {
   form!:FormGroup;
+  selectedCountry!: string;
   // isLinear = false;
   // firstFormGroup!: FormGroup;
   // secondFormGroup!: FormGroup;
@@ -52,5 +53,96 @@ export class AlgaeComponent  {
   }
 
 
+  districtList: string[] = [
+    "Wilaya ya Kati",
+    "Wilaya ya Micheweni",
+    "Wilaya ya Kaskazini A",
+    "Wilaya ya Kaskazini B",
+    "Wilaya ya Kaskazini Unguja",
+    "Wilaya ya Kusini Unguja",
+    "Wilaya ya Mjini Magharibi",
+    "Wilaya ya Mjini Mashariki",
+    "Wilaya ya Mjini Magharibi",
+    "Wilaya ya Chake Chake",
+    "Wilaya ya Mkoani",
+    "Wilaya ya Wete",
+    "Wilaya ya Lindi",
+    "Wilaya ya Kati",
+    "Wilaya ya Magharibi A",
+    "Wilaya ya Magharibi B",
+    "Wilaya ya Pemba Kaskazini",
+    "Wilaya ya Pemba Kusini"
+  ];
+
+  // onChangeCountry() {
+  //   // Perform any desired action based on the selected country
+  //   console.log(this.selectedCountry);
+  // }
+
+  regionsInUngujaPemba: string[] = [
+    "Unguja Magharibi 'B'",
+    "Unguja Kaskazini",
+    "Unguja Kusini",
+    "Pemba Kaskazini",
+    "Pemba Kusini"
+  ];
+
+  villagesLimaMwani: string[] = [
+    "Tumbatu Gomani",
+    "Tumbatu jongowe",
+    "Kilindi",
+    "Kigunda",
+    "Tazari",
+    "Kilimani",
+    "Kidoti",
+    "Fukuchani",
+    "Topoa",
+    "Muange",
+    "Kijini Matemwe",
+    "Matemwe",
+    "Pwani Mchangani",
+    "Kiongwe",
+    "Pongwe",
+    "Uroa",
+    "Marumbi",
+    "Chwaka",
+    "Bungi",
+    "Kikungwi",
+    "Unguja Ukuu",
+    "Uzi",
+    "Ngambwa",
+    "Pete",
+    "Ukongoroni",
+    "Charawe",
+    "Bwejuu",
+    "Matemwe",
+    "Kiwengwa",
+    "Kizimkazi",
+    "Michamvi",
+    "Paje",
+    "Mkoani",
+    "Jambiani kibigija",
+    "Jambiani Kikadini",
+    "Makuduchi kajengwa",
+    "Makundushi Nganani",
+    "Makunduchi Mzuri",
+    "Makunduchi Kiongoni",
+    "Makunduchi Tassani",
+    "Makunduchi Kijini",
+    "Kizimkazi",
+    "Muyuni 'A'",
+    "Muyuni 'B'",
+    "Muyuni 'C'",
+    "Muungoni",
+    "Bweleo",
+    "Kisakasaka",
+    "Dimani",
+    "Nyamanzi",
+    "Buyu",
+    "Fuoni Kibondeni"
+
+    
+  ];
+  
 }
 

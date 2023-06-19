@@ -9,7 +9,6 @@ import { NavigationComponent } from './Admin/pages/navigation/navigation.compone
 import { UsersComponent } from './Admin/pages/users/users.component';
 // import { VesselRecComponent } from './Admin/pages/vessel-rec/vessel-rec.component';
 import { ViewFisherComponent } from './Admin/pages/view-fisher/view-fisher.component';
-import { AuthGuard } from './common/admin_guard/auth.guard';
 import { NavbarComponent } from './common/navbar/navbar.component';
 import { HeadersComponent } from './User/Common/headers/headers.component';
 import { LoginComponent } from './User/Common/login/login.component';
@@ -34,6 +33,7 @@ import { ViewSeaweedComponent } from './Admin/pages/view-seaweed/view-seaweed.co
 import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.component';
 import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
 import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component';
+import { AuthGuard } from './common/user_guard/auth.guard';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -48,6 +48,7 @@ const routes: Routes = [
   {
     path: '',
     component: HeadersComponent,
+    
     children: [
 	    { path: '', redirectTo: 'menu', pathMatch: 'full' },
       { path: 'menu', component: DashboardComponent },
@@ -63,7 +64,6 @@ const routes: Routes = [
   {
     path: 'admin',
     component: NavigationComponent,
-    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },

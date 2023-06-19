@@ -32,15 +32,15 @@ export class SeawedProComponent {
 
   }
   onSubmit(){
-    if (this.users.leader == this.form.value.number){
+    // if (this.users.leader == this.form.value.number){
       this.Router.navigateByUrl("/algae")
-    }else {
-      Swal.fire({
-        title: 'Umekosea Namba ya Uongozi',
-        // text: 'You have been registered as an admin',
-        // Error: 'success'
-      })
-    }
+    // }else {
+    //   Swal.fire({
+    //     title: 'Umekosea Namba ya Uongozi',
+    //     // text: 'You have been registered as an admin',
+    //     // Error: 'success'
+    //   })
+    // }
   }
 
 }

@@ -6,7 +6,7 @@
             <input type="text" class="form-control"/>
             <button class="btn btn-primary mt-3 mb-3">Tafuta</button>
 
-            <table mat-table [dataSource]="tableData">
+            <!-- <table mat-table [dataSource]="tableData">
                 <ng-container matColumnDef="id">
                   <th mat-header-cell *matHeaderCellDef>Kijiji</th>
                   <td mat-cell *matCellDef="let element"></td>
@@ -22,9 +22,52 @@
               
                 <tr mat-header-row *matHeaderRowDef="['id', 'name', 'payment']"></tr>
                 <tr mat-row *matRowDef="let row; columns: ['id', 'name', 'payment']"></tr>
-              </table>
+              </table> -->
+
+             <div class="row">
+              <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>MKOA</mat-label>
+                  <mat-select type="text">
+                    <mat-option *ngFor="let region of regionsInUngujaPemba" [value]="region">{{ region }}</mat-option>
+                    <!-- <mat-option value="Muajiriwa wa Serikali">Muajiriwa wa Serikali</mat-option>
+                    <mat-option value="Muajiriwa Binafsi">Muajiriwa Binafsi</mat-option>
+                    <mat-option value="Umejiajiri">Umejiajiri</mat-option> -->
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>WILAYA</mat-label>
+                  <mat-select type="text">
+                    <mat-option *ngFor="let district of districtList" [value]="district">{{ district }}</mat-option>
+                    <!-- <mat-option value="Muajiriwa wa Serikali">Muajiriwa wa Serikali</mat-option>
+                    <mat-option value="Muajiriwa Binafsi">Muajiriwa Binafsi</mat-option>
+                    <mat-option value="Umejiajiri">Umejiajiri</mat-option> -->
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col">
+                <mat-form-field appearance="outline" class="w-100">
+                  <mat-label>KIJIJI</mat-label>
+                  <mat-select type="text">
+                    <mat-option *ngFor="let Mwani of villagesLimaMwani" [value]="Mwani">{{ Mwani }}</mat-option>
+                    <!-- <mat-option value="Muajiriwa wa Serikali">Muajiriwa wa Serikali</mat-option>
+                    <mat-option value="Muajiriwa Binafsi">Muajiriwa Binafsi</mat-option>
+                    <mat-option value="Umejiajiri">Umejiajiri</mat-option> -->
+                  </mat-select>
+                </mat-form-field>
+                <!-- <input type="text" *ngFor="let Mwani of villagesLimaMwani">{{Mwani}}</input> -->
+              </div>
+             </div>
         </div>
     </div>
+</div>
+
+
+<div>
+  <label for="district">Select District:</label>
+ 
 </div>
 
 
