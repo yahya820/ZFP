@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { Algae } from 'src/app/Services/algae/Algae';
+import { AlgaeService } from 'src/app/Services/algae/algae.service';
 
 @Component({
   selector: 'app-seaweed',
@@ -7,13 +10,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./seaweed.component.scss']
 })
 export class SeaweedComponent {
-  constructor( private router:Router){}
-  tableData = [
-    // {id: 1, Name: 'John Doe', Address: "Town", Phone_no: '20220101'},
-    // {id: 2, Name: 'Jane Doe', Address: "Kizimkazi", Phone_no: '20220202'},
-    // {id: 3, Name: 'Bob Smith', Address: 300, Phone_no: '20220303'},
-    // {id: 4, Name: 'Alice Johnson', Address: 4, Phone_no: '20220404'},
-  ];
+  dataSource = new MatTableDataSource();
+  algae:any;
+  constructor( private router:Router,
+    private algaeService: AlgaeService){} 
+  ngOnInit(){
+    this.fetchAllalgae();
+  }
+  fetchAllalgae(){
+    this.algaeService.getAll().subscribe(response=> {
+      this.algae = response;
+      console.log(this.algae);
+    })
+  }
 
   view(){
     this.router.navigate(['/admin/view_seaweed']);

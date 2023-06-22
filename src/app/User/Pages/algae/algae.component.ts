@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { AlgaeService } from 'src/app/Services/algae/algae.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-algae',
@@ -10,30 +12,18 @@ import { AlgaeService } from 'src/app/Services/algae/algae.service';
 export class AlgaeComponent  {
   form!:FormGroup;
   selectedCountry!: string;
-  // isLinear = false;
-  // firstFormGroup!: FormGroup;
-  // secondFormGroup!: FormGroup;
-  // thirdFormGroup!:FormGroup;
 
   constructor(private _formBuilder: FormBuilder,
-    private algaeservice : AlgaeService) {}
+    private algaeservice : AlgaeService,
+    private router:Router) {}
 
   ngOnInit() {
-    // this.firstFormGroup = this._formBuilder.group({
-    //   firstCtrl: ['', Validators.required]
-    // });
-    // this.secondFormGroup = this._formBuilder.group({
-    //   secondCtrl: ['', Validators.required]
-    // });
-    // this.thirdFormGroup = this._formBuilder.group({
-    //   thirdCtrl: ['',Validators.required]
-    // })
     this.form = new FormGroup({
       no_farm : new FormControl(null,[Validators.required]),
        no_men : new FormControl(null,[Validators.required]),
        no_women : new FormControl(null,[Validators.required]),
        hector : new FormControl(null,[Validators.required]),
-       type : new FormControl(null,[Validators.required]),
+       type : new FormControl("yahya"),
        tones : new FormControl(null,[Validators.required]),
        date : new FormControl(null,[Validators.required])
     })
@@ -45,11 +35,17 @@ export class AlgaeComponent  {
 
   submit(){
     const values  = this.form.value
+    console.log(values)
     this.algaeservice.add(values).subscribe (
       response => {
         console.log(response);
       }
-    )
+    );{
+      Swal.fire({
+        title: "Umefikisha Kikamilifu Taarifa za Mwani",
+        icon : 'success'
+      });
+    }
   }
 
 
@@ -60,9 +56,6 @@ export class AlgaeComponent  {
     "Wilaya ya Kaskazini B",
     "Wilaya ya Kaskazini Unguja",
     "Wilaya ya Kusini Unguja",
-    "Wilaya ya Mjini Magharibi",
-    "Wilaya ya Mjini Mashariki",
-    "Wilaya ya Mjini Magharibi",
     "Wilaya ya Chake Chake",
     "Wilaya ya Mkoani",
     "Wilaya ya Wete",
@@ -139,7 +132,45 @@ export class AlgaeComponent  {
     "Dimani",
     "Nyamanzi",
     "Buyu",
-    "Fuoni Kibondeni"
+    "Fuoni Kibondeni",
+    "Tumbe Magharibi",
+    "Kinowe",
+    "Wingwi",
+    "Mjini wingwi",
+    "Maziwa Ng`ombe",
+    "Kiuyu Mbuyuni",
+    "Shumba Mjini",
+    "Micheweni Chamboni",
+    "Msuka Mashariki",
+    "Makangale",
+    "Kifundi Bahari Kuu",
+    "Tondooni",
+    "Micheweni Majenzi",
+    "Msuka Magharibi",
+    "Tumbe Mashariki",
+    "Sizini",
+    "Kiungoni",
+    "Mchanga Mdogo (Kiwani)",
+    "Chwale (kojani)",
+    "Mjini Kiuyu",
+    "Fundo",
+    "Gando",
+    "Shengejuu",
+    "Mtambwe kaskazini",
+    "Mtambwe Kusini",
+    "Ukunjwi",
+    "Kokota",
+    "Uvinje",
+    "Mtambwe",
+    "Mleteni",
+    "Chozi",
+    "Kisiwa Panza",
+    "Chokocho",
+    "Kangani",
+    "Makoongwe",
+    "Michezani",
+    "Tundauwa",
+    "Ndagoni"
 
     
   ];

@@ -64,13 +64,6 @@
     </div>
 </div>
 
-
-<div>
-  <label for="district">Select District:</label>
- 
-</div>
-
-
 <br>
 <div class="container">
     <div class="row justify-content-sm-center">
@@ -120,7 +113,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100 ">
                         <mat-label>Idadi ya Wakulima Jumla</mat-label>
-                        <input matInput type="number" required>
+                        <input matInput type="number" formControlName="no_farm" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
@@ -129,7 +122,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Heka</mat-label>
-                        <input matInput type="number" required>
+                        <input matInput type="number" formControlName="hector" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
@@ -143,7 +136,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Wanaume</mat-label>
-                        <input matInput type="number" required>
+                        <input matInput type="number" formControlName="no_men" required>
                       </mat-form-field>
                     </div>
                   </div>
@@ -151,7 +144,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Wanawake</mat-label>
-                        <input matInput type="number" required>
+                        <input matInput type="number" formControlName="no_women" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
@@ -163,7 +156,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Aina ya Mwani</mat-label>
-                        <mat-select type="text">
+                        <mat-select type="text" formControlName="type" required>
                           <mat-option value="E.spinosum">E.spinosum</mat-option>
                           <mat-option value="E.cottonii">E.cottonii</mat-option>
                         </mat-select>
@@ -174,7 +167,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Tani</mat-label>
-                        <input matInput type="number" required>
+                        <input matInput type="number" formControlName="tones" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
@@ -184,7 +177,7 @@
                 <div class="example-container">
                   <mat-form-field appearance="outline" class="w-100 mt-2">
                     <mat-label>tarehe</mat-label>
-                    <input matInput type="date" required>
+                    <input matInput type="date" formControlName="date" required>
                     <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                   </mat-form-field>
                 </div>
@@ -192,7 +185,7 @@
             
          </div>
         </form>
-        <button mat-raised-button color="primary" type="submit" class="container mb-3 w-25" >Jisajili</button>
+        <button mat-raised-button color="primary" (click)="submit()" [disabled]="form.invalid" class="container mb-3 w-25" >Jisajili</button>
        </div>
        </div>
     

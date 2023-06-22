@@ -11,7 +11,7 @@
         <button mat-button class="example-icon" aria-label="Example icon-buton with menu">
           <mat-menu #appMenu="matMenu">
             <ng-template matMenuContent let-name="name">
-              <button mat-menu-item routerLink="/profile/{id}">Taarifa Zako</button>
+              <button mat-menu-item (click)="profile()">Taarifa Zako</button>
               <button mat-menu-item (click)="openDialog()">Kuingia</button>
               <!-- <button mat-menu-item (click)="close_session()">Kutoka</button> -->
               <button mat-menu-item (click)="close_session()"><a href="" class="none">Kutoka</a></button>
@@ -55,9 +55,9 @@
             <ul class="links">
               <li><a (click)="close()" routerLink="" (click)="openBackDropCustomClass(tempa)">Mvuvi</a></li>
               <li><a routerLink="" (click)="openDialog1(chombo)">Chombo cha Mvuvi</a></li>
-              <li><a routerLink="/seaweed" routerLinkActive="active">mwani</a></li>
+              <li><a (click)="mwaniOpen()">mwani</a></li>
               <li (click)="scroll()"><a  >Sheria</a></li>
-              <li><a routerLink="/contact" routerLinkActive="active">Mawasiliano</a></li>
+              <li><a routerLink="/contact" >Mawasiliano</a></li>
               <li><a routerLink="" >Taarifa</a></li>
             </ul>
           </div>

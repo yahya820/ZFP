@@ -11,8 +11,8 @@ export class AlgaeService {
 
   constructor(private http: HttpClient) { }
 
-  add(body :object):Observable<any>{
-    return this.http.post<any>(`${this.url}`,body);
+  add(body: object){
+    return this.http.post(`${this.url}`,body);
   }
   getAll(){
     return this.http.get(this.url);

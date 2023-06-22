@@ -34,6 +34,7 @@ import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.compo
 import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
 import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component';
 import { AuthGuard } from './common/user_guard/auth.guard';
+import { AdminGuard } from './common/admin_guard/admin.guard';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -48,7 +49,6 @@ const routes: Routes = [
   {
     path: '',
     component: HeadersComponent,
-    
     children: [
 	    { path: '', redirectTo: 'menu', pathMatch: 'full' },
       { path: 'menu', component: DashboardComponent },
@@ -57,13 +57,14 @@ const routes: Routes = [
       { path:"seaweed", component: SeawedProComponent},
       { path:"contact", component: ContactComponent},
       { path:"profile/{id}", component: ProfileComponent},
-      { path:"algae", component: AlgaeComponent}
+      { path:"algae", component: AlgaeComponent,canActivate: [AuthGuard]}
 
     ]
   },
   {
     path: 'admin',
     component: NavigationComponent,
+    canActivate : [AdminGuard],
     children: [
       { path: '', redirectTo: 'home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },

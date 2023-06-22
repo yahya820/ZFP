@@ -15,6 +15,8 @@ import Swal from 'sweetalert2';
 import { User } from 'src/app/Services/user/User';
 import { TabVessComponent } from '../../Pages/tab-vess/tab-vess.component';
 import { MatTabGroup } from '@angular/material/tabs';
+import { AuthGuard } from 'src/app/common/user_guard/auth.guard';
+import { ModelGuard } from 'src/app/common/model_guard/model.guard';
 // import { User } from 'src/app/Services/user/User';
 
 @Component({
@@ -46,7 +48,8 @@ export class HeadersComponent {
     private offcanvasService : NgbOffcanvas,
     private modalService: NgbModal,
     private router:Router,
-    private userServices: UserService,) {
+    private userServices: UserService,
+    private auth:ModelGuard) {
 
     }
 
@@ -59,7 +62,11 @@ export class HeadersComponent {
 
   }
   openDialog1(chombo:any) {
-    this.modalService.open(chombo, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+    if(this.auth.canActivate()){
+      this.modalService.open(chombo, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+    }else{
+      this.openDialog();
+    }
   }
 
   openScroll(content : TemplateRef<any>){
@@ -67,10 +74,15 @@ export class HeadersComponent {
   }
 
   openBackDropCustomClass(tempa: any) {
-		this.modalService.open(tempa, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+     if(this.auth.canActivate()){
+      this.modalService.open(tempa, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+     } else {
+      this.openDialog();
+     }
 	}
 
   ngOnInit(){
+
     this.username = sessionStorage.getItem("name")
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
@@ -135,28 +147,25 @@ export class HeadersComponent {
     
   }
 
-  // administrator(){
-  //   this.router.navigate(["/Login"]);
-  // }
+  profile(){
+    const token = sessionStorage.getItem("id")
+    if(token){
+      this.router.navigateByUrl("/profile/{id}")
+    }else{
+       this.openDialog();
+    }
+  }
 
-  // Login_process(name:any,pass:any){
-    
-  // }
-  // Login(){
-  //   console.log("String")
-  //   const value = this.form.value
-  //  this.loginProcess(value.name,value.pass);
+  mwaniOpen(){
+    const token = sessionStorage.getItem("id")
+    if(token){
+      this.router.navigate(["seaweed"])
+    } else { 
+      this.openDialog();
+    }
+  }
 
-  // }
   
-
-  // loginProcess(name:any,pass:any){
-  //   return this.userServices.login(name,pass).subscribe (
-  //     respo => {
-  //       console.log("true");
-  //     }
-  //   )
-  // }
   close_session(){
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("name")

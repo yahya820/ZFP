@@ -19,6 +19,8 @@ export class LoginAdminComponent  {
     })
   }
 
+  Login(){}
+
   
 
 }

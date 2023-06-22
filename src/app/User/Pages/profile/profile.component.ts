@@ -40,13 +40,17 @@ export class ProfileComponent {
     private userService : UserService){} 
 
   ngOnInit(){
+    this.getById();
+    
+  }
+
+  getById(){
     this.userService.getId(sessionStorage.getItem("id")).subscribe(
       Response => {
         this.user = Response;
         console.log(this.user);
       }
     )
-    
   }
 
 }
