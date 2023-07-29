@@ -8,7 +8,16 @@ export class PaymentService {
 
   private url = "http://localhost:8080/api/vi/payment"
   constructor(private http:HttpClient) { }
-  add(body:object){
-    return this.http.post(`${this.url}`,body);
+  addVessel(body:any){
+    return this.http.post(`${this.url}/vessel`,body);
+  }
+  addFisherman(body:Object){
+    return this.http.post(`${this.url}/fisherman`,body);
+  }
+  getAllFisherman(){
+    return this.http.get(`${this.url}/fisherman`);
+  }
+  getByFishermanId(id:number){
+    return this.http.get(`${this.url}/fisherman/${id}`)
   }
 }

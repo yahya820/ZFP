@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
-import { Algae } from 'src/app/Services/algae/Algae';
+// import { Algae } from 'src/app/Model/Algae';
 import { AlgaeService } from 'src/app/Services/algae/algae.service';
 
 @Component({

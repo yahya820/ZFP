@@ -2,21 +2,22 @@
     <div class="row mt-3 mb-3">
       <div class="col-md-3">
         <div class="card">
-          <img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture">
+          <!-- <img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture"> -->
           <div class="card-body">
             <h5 class="card-title">{{user.name}}</h5>
-            <p class="card-text">{{user.bio}}</p>
+            <!-- <p class="card-text">{{user.bio}}</p> -->
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>Jina Kamili:  </strong> {{user.username}}</li>
-            <li class="list-group-item"><strong>Kazi:  </strong> {{user.email}}</li>
-            <li class="list-group-item"><strong>Mahali:  </strong> {{user.location}}</li>
-            <li class="list-group-item"><strong>Namba ya Simu:  </strong> {{user.phone_no}}</li>
-            <li class="list-group-item"><strong>Kitambulisho:  </strong> {{user.location}}</li>
-            <li class="list-group-item"><strong>Uraia:  </strong> {{user.location}}</li>
-            <li class="list-group-item"><strong>Jinsia :  </strong> {{user.location}}</li>
-            <li class="list-group-item"><strong>Umri:  </strong> {{user.location}}</li>
-            <!-- <li class="list-group-item"><strong>Namba ya Uwongozi:  </strong> {{user.leader}}</li> -->
+            <!-- <li class="list-group-item"><strong>Jina Kamili:  </strong> {{user.username}}</li> -->
+            <li class="list-group-item"><strong>Kazi:  </strong> {{user.work}}</li>
+            <li class="list-group-item"><strong>Mahali:  </strong> {{user.address}}</li>
+            <li class="list-group-item"><strong>Namba ya Simu:  </strong> {{user.phone}}</li>
+            <li class="list-group-item"><strong>Barua Pepe:  </strong> {{user.email}}</li>
+            <li class="list-group-item"><strong>Kitambulisho:  </strong> {{user.identity}}</li>
+            <li class="list-group-item"><strong>Uraia:  </strong> {{user.nationality}}</li>
+            <li class="list-group-item"><strong>Jinsia :  </strong> {{user.sex}}</li>
+            <li class="list-group-item"><strong>Umri:  </strong> {{user.age}}</li>
+            <li class="list-group-item"><strong>Namba ya Uwongozi:  </strong> {{user.leader}}</li>
             
             <button mat-raised-button color="acess" class="m-3 mb-2 mt-3 text-Red">Badilisha</button>
           </ul>
@@ -27,13 +28,13 @@
             <div class="card-body">
               <h2 class="card-title">Taarifa za Combo cha Uvuvi</h2>
               <ul class="list-group list-group-flush">
-                <li class="list-group-item"><strong>Jina La chombo:  </strong> {{user.username}}</li>
-                <li class="list-group-item"><strong>Aina ya chombo:  </strong> {{user.username}}</li>
-                <li class="list-group-item"><strong>Idadi ya Wavuvi:  </strong> {{user.username}}</li>
-                <li class="list-group-item"><strong>Urefu wa Chombo:  </strong> {{user.username}}</li>
-                <li class="list-group-item"><strong>Nambari ya Uwandikaji:  </strong> {{user.username}}</li>
-                <li class="list-group-item"><strong>Tarehe ya Kuanza leseni:  </strong> {{user.username}}</li>
-                <li class="list-group-item"><strong>Tarehe ya kuisha Leseni:  </strong> {{user.email}}</li>
+                 <li class="list-group-item"><strong>Jina La chombo:  </strong> {{user.name_vessel}}</li>
+                <li class="list-group-item"><strong>Aina ya chombo:  </strong> {{vessel.type_vessel}}</li>
+                <li class="list-group-item"><strong>Idadi ya Wavuvi:  </strong> {{vessel.no_people}}</li>
+                <li class="list-group-item"><strong>Urefu wa Chombo:  </strong> {{vessel.meter}}</li>
+                <li class="list-group-item"><strong>Nambari ya Uwandikaji:  </strong> {{vessel.no_vessel}}</li>
+                <li class="list-group-item"><strong>Tarehe ya Kuanza leseni:  </strong> {{vessel.start_date}}</li>
+                <li class="list-group-item"><strong>Tarehe ya kuisha Leseni:  </strong> {{vessel.finish_date}}</li>
                  <!--<li class="list-group-item"><strong>Picha ya risiti:  </strong> {{user.location}}</li>
                 <li class="list-group-item card"><img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture" width="200" height="300s"></li>
                 <button mat-raised-button >Onesha picha</button> -->
@@ -45,10 +46,10 @@
           <div class="card-body">
             <h2 class="card-title">Taarifa za leseni ya Mvuvi</h2>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Njia ya uwendeshaji:  </strong> {{user.location}}</li>
-              <li class="list-group-item"><strong>Diko Unalotumia:  </strong> {{user.phone_no}}</li>
-              <li class="list-group-item"><strong>Tarehe ya Kuanza leseni:  </strong> {{user.username}}</li>
-              <li class="list-group-item"><strong>Tarehe ya kuisha Leseni:  </strong> {{user.email}}</li>
+              <li class="list-group-item"><strong>Njia ya uwendeshaji:  </strong> {{fisherman.ways}}</li>
+              <li class="list-group-item"><strong>Diko Unalotumia:  </strong> {{fisherman.diko_usage}}</li>
+              <li class="list-group-item"><strong>Tarehe ya Kuanza leseni:  </strong> {{fisherman.start_date}}</li>
+              <li class="list-group-item"><strong>Tarehe ya kuisha Leseni:  </strong> {{fisherman.finish_date}}</li>
             </ul>
           </div>
         </div>

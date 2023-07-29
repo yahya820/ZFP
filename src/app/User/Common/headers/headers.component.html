@@ -72,10 +72,6 @@
       </nav>
 
 
-
-
-
-
     <!-- Add Content Here -->
     <router-outlet></router-outlet>
   
@@ -112,20 +108,11 @@
          </div>
           <div class="mt-2">
             <mat-tab-group class="hid">
-              <form [formGroup]="form1" (ngSubmit)="onSubmit()">
+              <form>
               <mat-tab label="Leseni ya Uvuvi" class="modal">
                 <div class="container mt-1 mb-1">
                  <div class="car">
           
-                  <!-- <div class="m-auto mt-3">
-                  <div class="text-center">
-                    <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
-                    <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
-                    <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
-                    <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
-                  <H5 class="mb-0">Kanuni 12(1)</H5>
-                  </div>
-                  </div> -->
           
                   <h2 style="text-decoration:underline;  text-align: center; margin-top:10px ;">JAZA TAARIFA HUSIKA</h2>
                   <div class="container">
@@ -147,7 +134,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="outline" class="w-100 mt-2">
                         <mat-label>Diko unalotumia</mat-label>
-                        <input matInput type="text" formControlName="diko_usage" required>
+                        <input matInput type="text" [(ngModel)]="fisherman_model.diko_usage" name="diko_usage" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
@@ -155,7 +142,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="outline" class="w-100 mt-2">
                         <mat-label>Njia ya Uwendeshaji</mat-label>
-                        <input matInput type="text" formControlName="ways" required>
+                        <input matInput type="text" [(ngModel)]="fisherman_model.ways" name="ways" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
@@ -163,7 +150,7 @@
                     <div class="example-container">
                       <mat-form-field appearance="outline" class="w-100 mt-2">
                         <mat-label>Aina ya Uvuvi</mat-label>
-                        <input matInput type="text" formControlName="type" required>
+                        <input matInput type="text" [(ngModel)]="fisherman_model.type" name="ways" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
@@ -171,80 +158,41 @@
                     <div class="example-container">
                       <mat-form-field appearance="outline" class="w-100 mt-2">
                         <mat-label>Urefu wa chombo unachoendesha</mat-label>
-                        <input matInput type="text" formControlName="meter" required>
+                        <input matInput type="text" [(ngModel)]="fisherman_model.meter" name="meter" required>
                         <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                       </mat-form-field>
                     </div>
-                    
-          <!-- 
-                    <div class="mb-3 row has-validation">
-                      <label class="col-sm-2 col-form-label">Tarehe ya kuanzia</label>
-                      <div class="col-sm-10">
-                        <input type="date" class="form-control" formControlName="date_in"
-                          name="date" placeholder="name" required>
-                      </div>
-                    </div>
-          
-                    <div class="mb-3 row has-validation">
-                      <label class="col-sm-2 col-form-label">Tarehe ya Kuishia</label>
-                      <div class="col-sm-10">
-                        <input type="number" class="form-control" formControlName="date_out" required>
-                      </div>
-                    </div> -->
                  </div>
                 </div>
                 </div>
           
                  </mat-tab>
-          
-          
-          
-          
-          
+                 <!-- </form>
+          <form> -->
               <mat-tab label="Malipo ">
                 <div class="container mt-4 mb-3">
                   <div class="car mt-5">
                     <DIV class="container">
-
-                      <!-- <div class="example-container">
-                        <h3></h3>
-                        <select class="form-control" formControlName="acc" required>
-                          <option value="">People Bank Of Zanzibar - (PBZ)</option>
-                          <option value="">Wali</option>
-                        </select>
-                      </div> -->
           
                       <div class="mb-3 row has-validation container">
                         <label class="col-sm-6 col-form-label mb-0 ">Akaunti Bank</label>
-                         <select type="text" class="form-control" formControlName="acc" required>
-                          <option value="">People Bank Of Zanzibar - (PBZ)</option>
+                         <select type="text" class="form-control" [(ngModel)]="payment_fisherman_model.acc_name" name="acc_name" required>
+                          <option value="People Bank Of Zanzibar - (PBZ)">People Bank Of Zanzibar - (PBZ)</option>
                           <!-- <option value="">Wali</option> -->
                         </select>
                       </div>
 
                       <div class="mb-3 row has-validation container">
                         <label class="col-sm-6 col-form-label ">Risiti Namba</label>
-                         <input class="form-control" formControlName="no_risiti" type="number">
+                         <input class="form-control" [(ngModel)]="payment_fisherman_model.receipt_no" name="receipt_no" type="number">
                       </div>
 
                       <div class="mb-3 row has-validation container">
                         <label class="col-sm-6 col-form-label ">Akaunti Bank</label>
-                         <input type="date" formControlName="date" class="form-control">
+                         <input type="date" [(ngModel)]="payment_fisherman_model.date" name="date" class="form-control">
                       </div>
-          
-                      <!-- <div class="mb-3 row has-validation">
-                        <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
-                        <div class="col-sm-10">
-                          <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="risiti" required>
-                        </div>
-                      </div>
-          
-                      <div id="display_image" class="img-fluid" >
-                        <img [src]="imageRisiti" >
-                      </div> -->
-          
                      <div class="text-center mb-3 mt-3">
-                      <button class="btn btn-primary" [disabled]="form1.invalid"> Wasilisha Taarifa</button>
+                      <button class="btn btn-primary" (click)="onSubmit_fisherman()"> Wasilisha Taarifa</button>
                      </div>
           
                     </DIV>
@@ -290,7 +238,7 @@
               
                     <!-- </mat-tab> -->
               
-                    <form [formGroup]="form1" (ngSubmit)="onSubmit()">
+                    <form (ngSubmit)="onSubmitVessel()">
                     <!-- <mat-tab label="Taarifa za chombo"> -->
                       <div class=" mt-2 mb-2">
                         <div class="">
@@ -300,42 +248,42 @@
                             <div class="mb-3 row has-validation">
                               <label class="col-sm-6 col-form-label">Jina la chombo</label>
                               <div class="col-sm-12">
-                                <input type="text" class="form-control" formControlName="name_vessel" required>
+                                <input type="text" class="form-control" [(ngModel)]="vessel_model.name_vessel" name="name_vessel" required>
                               </div>
                             </div>
               
                             <div class="mb-3 row has-validation">
                               <label class="col-sm-6 col-form-label">Aina ya chombo</label>
                               <div class="col-sm-12">
-                                <input type="text" class="form-control" formControlName="type_vessel" required>
+                                <input type="text" class="form-control" [(ngModel)]="vessel_model.type_vessel" name="type_vessel" required>
                               </div>
                             </div>
               
                             <div class="mb-3 row has-validation">
                               <label class="col-sm-6 col-form-label">Namba ya uwandikishaji</label>
                               <div class="col-sm-12">
-                                <input type="text" class="form-control" formControlName="no_vessel" required>
+                                <input type="text" class="form-control" [(ngModel)]="vessel_model.no_vessel" name="no_vessel" required>
                               </div>
                             </div>
               
                             <div class="mb-3 row has-validation">
                               <label class="col-sm-6 col-form-label">Urefu wa chombo</label>
                               <div class="col-sm-12">
-                                <input type="text" class="form-control" formControlName="meter" required>
+                                <input type="text" class="form-control" [(ngModel)]="vessel_model.meter" name="meter" required>
                               </div>
                             </div>
               
                             <div class="mb-3 row has-validation">
                               <label class="col-sm-6 col-form-label">Idadi ya wavuvi</label>
                               <div class="col-sm-12">
-                                <input type="number" class="form-control" formControlName="no_people" required>
+                                <input type="number" class="form-control" [(ngModel)]="vessel_model.no_people" name="no_people" required>
                               </div>
                             </div>
               
                             <div class="mb-3 row has-validation">
                               <label class="col-sm-6 col-form-label">Njia ya uwendeshaji</label>
                               <div class="col-sm-12">
-                                <input type="text" class="form-control" formControlName="ways" required>
+                                <input type="text" class="form-control" [(ngModel)]="vessel_model.ways" name="ways" required>
                               </div>
                             </div>
               <!-- 
@@ -356,7 +304,7 @@
                           </div>
                         </div>
                       </div>
-                    </form>
+                   
               
                       <!-- <div class="">
                         <button mat-button  (click)="tabGroup.selectedIndex=1" class="Rudi">Rudi</button>
@@ -366,7 +314,7 @@
               
               
                     <!-- <mat-tab label="Malipo "> -->
-                      <form [formGroup]="form1">
+                      
                         <div class=" mt-1 mb-0">
                           <div class=" mt-5">
                             <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 10px; margin-top: 100px;">MALIPO HUSIKA</h2>
@@ -375,28 +323,22 @@
                               <div class="mb-3 row has-validation">
                                 <label class="col-sm-6 col-form-label">Jina la Akaunti</label>
                                 <div class="col-sm-12">
-                                  <input type="text" class="form-control" formControlName="acc_name" required>
+                                  <input type="text" class="form-control" [(ngModel)]="payment_vessel_model.acc_name" name="acc_name" required>
                                 </div>
                               </div>
                 
-                              <div class="mb-3 row has-validation">
-                                <label class="col-sm-6 col-form-label">Nambari ya Akanti</label>
-                                <div class="col-sm-12">
-                                  <input type="number" class="form-control" formControlName="acc_no" required>
-                                </div>
-                              </div>
                 
                               <div class="mb-3 row has-validation">
                                 <label class="col-sm-6 col-form-label">Nambari ya Risiti</label>
                                 <div class="col-sm-12">
-                                  <input type="number" class="form-control" formControlName="receipt_no" required>
+                                  <input type="number" class="form-control" [(ngModel)]="payment_vessel_model.receipt_no" name="receipt_no" required>
                                 </div>
                               </div>
                 
                               <div class="mb-3 row has-validation">
                                 <label class="col-sm-6 col-form-label">Tarehe ulofanyika muamala</label>
                                 <div class="col-sm-12">
-                                  <input type="date" class="form-control" formControlName="date" required>
+                                  <input type="date" class="form-control" [(ngModel)]="payment_vessel_model.date" name="date" required>
                                 </div>
                               </div>
                 
@@ -412,7 +354,7 @@
                               </div> -->
                 
                              <div class="text-center mb-3 mt-3">
-                              <button class="btn btn-primary" [disabled]="form1.invalid" (click)="onSubmit()"> Wasilisha Taarifa</button>
+                              <button class="btn btn-primary"> Wasilisha Taarifa</button>
                              </div>
                 
                             </DIV>

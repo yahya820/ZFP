@@ -17,24 +17,24 @@ export class TabsFisherComponent {
   tabGroup!: MatTabGroup;
 
   // Profile Picture
-  displayImage(event : any){
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (e) => {
-      this.imageSrc = reader.result as String;
-    };
-  }
+  // displayImage(event : any){
+  //   const file = event.target.files[0];
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onload = (e) => {
+  //     this.imageSrc = reader.result as String;
+  //   };
+  // }
 
-  // Risiti picture
-  displayRisiti(event : any){
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = (e) => {
-      this.imageRisiti = reader.result as String;
-    };
-  }
+  // // Risiti picture
+  // displayRisiti(event : any){
+  //   const file = event.target.files[0];
+  //   const reader = new FileReader();
+  //   reader.readAsDataURL(file);
+  //   reader.onload = (e) => {
+  //     this.imageRisiti = reader.result as String;
+  //   };
+  // }
 
   onSubmit(){
 
@@ -52,22 +52,12 @@ export class TabsFisherComponent {
       type : new FormControl(null,[Validators.required]),
 
 
-      // // chombo
-      // chombo : new FormControl(null,[Validators.required]),
-      // aina : new FormControl(null,[Validators.required]),
-      // no : new FormControl(null,[Validators.required]),
-      // urefu : new FormControl(null,[Validators.required]),
-      // idadi : new FormControl(null,[Validators.required]),
-      // njia : new FormControl(null,[Validators.required]),
-      // terehe : new FormControl(null,[Validators.required]),
-
-
       // malipo
       acc : new FormControl(null,[Validators.required]),
-      no_ac : new FormControl(null,[Validators.required]),
+      // no_ac : new FormControl(null,[Validators.required]),
       no_risiti : new FormControl(null,[Validators.required]),
       date : new FormControl(null,[Validators.required]),
-      risiti : new FormControl(null,[Validators.required])
+      // risiti : new FormControl(null,[Validators.required])
 
     })
   }

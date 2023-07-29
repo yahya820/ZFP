@@ -34,7 +34,7 @@ import { MatCardModule } from '@angular/material/card';
 import { VesselComponent } from './Admin/pages/vessel/vessel.component';
 import { ViewUserComponent } from './Admin/pages/view-user/view-user.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
+// import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
 import { ApdFishermanComponent } from './Admin/pages/apd-fisherman/apd-fisherman.component';
 import { ApdVesselComponent } from './Admin/pages/apd-vessel/apd-vessel.component';
 import { SeaweedComponent } from './Admin/pages/seaweed/seaweed.component';
@@ -44,7 +44,9 @@ import { CardFisherComponent } from './Admin/pages/card-fisher/card-fisher.compo
 import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.component';
 import { ApdUserComponent } from './Admin/pages/apd-user/apd-user.component';
 import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component';
-import { AdminMessageComponent } from './Admin/pages/admin-message/admin-message.component'
+import { AdminMessageComponent } from './Admin/pages/admin-message/admin-message.component';
+import { ImageComponent } from './image/image.component'
+import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -80,6 +82,7 @@ import { AdminMessageComponent } from './Admin/pages/admin-message/admin-message
     ApdUserComponent,
     LoginAdminComponent,
     AdminMessageComponent,
+    ImageComponent,
 
 
 

@@ -1,4 +1,27 @@
-<mat-sidenav-container class="sidenav-container">
+
+<div class="wrapper sticky-top">
+  <nav>
+   <input type="checkbox" id="show-menu">
+    <button mat-button for="show-menu" class="menu-icon" aria-label="Example icon-buton with menu">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <div class="content">
+      <div class="logo"><a [routerLink]="['./']">Dashibodi</a></div>
+      <ul class="links">
+        <li><a [routerLink]="['user']">Usajili</a></li>
+        <li><a [routerLink]="['fisherman']">Mvuvi</a></li>
+        <li><a [routerLink]="['vessel']">Chombo cha Mvuvi</a></li>
+        <li ><a>Malipo</a></li>
+        <li><a>Uthibitisho</a></li>
+        <li><a [routerLink]="['seaweed']">mwani</a></li>
+        <li><a>Kutoka Ndani</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+
+<!-- <mat-sidenav-container class="sidenav-container">
     <mat-sidenav style="background-color: rgb(49, 78, 207);" #drawer class="sidenav" fixedInViewport
         [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
         [mode]="(isHandset$ | async) ? 'over' : 'side'"
@@ -25,9 +48,9 @@
           <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
         </button>
         <span>ZFP - ADMIN</span>
-      </mat-toolbar>
+      </mat-toolbar> -->
       <!-- Add Content Here -->
       <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+    <!-- </mat-sidenav-content>
+  </mat-sidenav-container> -->
   

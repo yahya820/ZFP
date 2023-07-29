@@ -115,13 +115,6 @@
             </div>
 
             <div class="mb-3 row has-validation">
-              <label class="col-sm-2 col-form-label">Nambari ya Akanti</label>
-              <div class="col-sm-10">
-                <input type="number" class="form-control" formControlName="no_ac" required>
-              </div>
-            </div>
-
-            <div class="mb-3 row has-validation">
               <label class="col-sm-2 col-form-label">Nambari ya Risiti</label>
               <div class="col-sm-10">
                 <input type="number" class="form-control" formControlName="no_risiti" required>
@@ -135,7 +128,7 @@
               </div>
             </div>
 
-            <div class="mb-3 row has-validation">
+            <!-- <div class="mb-3 row has-validation">
               <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
               <div class="col-sm-10">
                 <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="risiti" required>
@@ -144,7 +137,7 @@
 
             <div id="display_image" class="img-fluid" >
               <img [src]="imageRisiti" >
-            </div>
+            </div> -->
 
            <div class="text-center mb-3 mt-3">
             <button class="btn btn-primary" [disabled]="form1.invalid"> Wasilisha Taarifa</button>
@@ -154,9 +147,9 @@
         </div>
       </div>
 
-      <div class="">
+      <!-- <div class="">
         <button mat-button  (click)="tabGroup.selectedIndex=0" class="nyuma">Rudi</button>
-       </div>
+       </div> -->
     </mat-tab>
 
     </form>

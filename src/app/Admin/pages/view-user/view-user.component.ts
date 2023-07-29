@@ -7,7 +7,7 @@ import { ApdUserComponent } from '../apd-user/apd-user.component';
 import { AdminMessageComponent } from '../admin-message/admin-message.component';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/Services/user/User';
+import { User } from 'src/app/Model/User';
 
 @Component({
   selector: 'app-view-user',

@@ -25,7 +25,7 @@ import { TabsFisherComponent } from './User/Pages/tabs-fisher/tabs-fisher.compon
 import { VesselComponent } from './Admin/pages/vessel/vessel.component';
 import { ViewUserComponent } from './Admin/pages/view-user/view-user.component';
 import { ViewVesselComponent } from './Admin/pages/view-vessel/view-vessel.component';
-import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
+// import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
 import { ApdFishermanComponent } from './Admin/pages/apd-fisherman/apd-fisherman.component';
 import { ApdVesselComponent } from './Admin/pages/apd-vessel/apd-vessel.component';
 // import { SeaeweedRecComponent } from './Admin/pages/seaeweed-rec/seaeweed-rec.component';
@@ -35,6 +35,7 @@ import { CardVesselComponent } from './Admin/pages/card-vessel/card-vessel.compo
 import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.component';
 import { AuthGuard } from './common/user_guard/auth.guard';
 import { AdminGuard } from './common/admin_guard/admin.guard';
+import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -56,7 +57,7 @@ const routes: Routes = [
       { path:"tabs_fisher",  component:TabsFisherComponent},
       { path:"seaweed", component: SeawedProComponent},
       { path:"contact", component: ContactComponent},
-      { path:"profile/{id}", component: ProfileComponent},
+      { path:"profile", component: ProfileComponent},
       { path:"algae", component: AlgaeComponent,canActivate: [AuthGuard]}
 
     ]

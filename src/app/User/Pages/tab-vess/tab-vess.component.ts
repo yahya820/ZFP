@@ -69,14 +69,14 @@ export class TabVessComponent implements OnInit {
   
 
   onSubmit(){
-    var values = this.form1.value
-    this.vesslService.add(values).subscribe ( response => {
-      console.log(response);
+    // var values = this.form1.value
+    // this.vesslService.add(values).subscribe ( response => {
+    //   console.log(response);
 
-      this.paymentService.add(values).subscribe( response => {
-        console.log(response);
-      })
-    })
+    //   this.paymentService.add(values).subscribe( response => {
+    //     console.log(response);
+    //   })
+    // })
   }
 
 

@@ -3,7 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AlgaeComponent } from '../algae/algae.component';
-import { User } from 'src/app/Services/user/User';
+import { User } from 'src/app/Model/User';
 import Swal from 'sweetalert2';
 import { UserService } from 'src/app/Services/user/user.service';
 

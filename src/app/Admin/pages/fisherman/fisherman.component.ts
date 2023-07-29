@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { ConsoleService } from '@ng-select/ng-select/lib/console.service';
+import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
+import { PaymentService } from 'src/app/Services/payment/payment.service';
 
 @Component({
   selector: 'app-fisherman',
@@ -7,18 +10,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./fisherman.component.scss']
 })
 export class FishermanComponent {
+  fisherman:any
+  constructor(private router:Router, private fishermanService:FishermanService,
+    private paymentService:PaymentService){}
 
-  constructor(private router:Router){}
+  ngOnInit(){
+    this.findAll();
+  }
 
-  tableData = [
-    {id: 1, Name: 'John Doe', Address: "Town", Phone_no: '20220101'},
-    {id: 2, Name: 'Jane Doe', Address: "Kizimkazi", Phone_no: '20220202'},
-    // {id: 3, Name: 'Bob Smith', Address: 300, Phone_no: '20220303'},
-    // {id: 4, Name: 'Alice Johnson', Address: 4, Phone_no: '20220404'},
-  ];
+  findAll(){
+    this.paymentService.getAllFisherman().subscribe(
+      respo => {
+        console.log(respo)
+        this.fisherman = respo;
+      }
+    )
+  }
 
-  view(){
-    this.router.navigate(["/admin/view_fisher"])
+  view(id:number){
+    this.router.navigate(["/admin/view_fisher",{id}])
   }
 
 }

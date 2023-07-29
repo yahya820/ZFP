@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ImageService } from 'src/app/Services/images/image.service';
 // import { User } from 'src/app/Services/user/User';
 import { UserService } from 'src/app/Services/user/user.service';
 import Swal from 'sweetalert2';
@@ -12,13 +13,14 @@ import Swal from 'sweetalert2';
 })
 export class RegisterComponent {
   // user: User = new User();
+  public formData = new FormData();
   selectedFile!:File;
   message!: String;
   imageSrc! : String;
   form1!:FormGroup;
    // Profile Picture
    displayImage(event : any){
-    this.selectedFile = event.target.files[0];
+    this.selectedFile = event.target.files[0] as File;
     const reader = new FileReader();
     reader.readAsDataURL(this.selectedFile);
     reader.onload = (e) => {
@@ -26,7 +28,7 @@ export class RegisterComponent {
     };
   }
 
-  constructor(private router:Router,private userService: UserService){}
+  constructor(private router:Router,private userService: UserService,private imageService: ImageService){}
 
     // Form Validation
     ngOnInit(): void {
@@ -53,6 +55,15 @@ export class RegisterComponent {
       
     }
     Submit(){
+
+  //     //For Images
+  //     this.formData.set('file', this.selectedFile, this.selectedFile.name);
+  //     this.imageService.uploadImage(this.formData).subscribe(
+  //             res => {
+  //             this.imageSrc = res;
+  //   }
+  // );
+
       const values = this.form1.value;
       if (this.userService.add(values).subscribe((response)=>{
         console.log(response);

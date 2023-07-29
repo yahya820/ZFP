@@ -9,34 +9,73 @@
     </div>
   
   
-    <table mat-table [dataSource]="tableData">
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{element.id}}</td>
-      </ng-container>
-      <ng-container matColumnDef="Name">
-        <th mat-header-cell *matHeaderCellDef>Name</th>
-        <td mat-cell *matCellDef="let element">{{element.Name}}</td>
-      </ng-container>
-      <ng-container matColumnDef="Address">
-        <th mat-header-cell *matHeaderCellDef>Address</th>
-        <td mat-cell *matCellDef="let element">{{element.Address}}</td>
-      </ng-container>
-      <ng-container matColumnDef="Phone_no">
-        <th mat-header-cell *matHeaderCellDef>Phone_no</th>
-        <td mat-cell *matCellDef="let element">{{element.Phone_no}}</td>
-      </ng-container>
-      <ng-container matColumnDef="Action">
-        <th mat-header-cell *matHeaderCellDef>Action</th>
-        <td mat-cell *matCellDef="let element">
-          <!-- Add your action buttons here -->
-          <button class="btn btn-sm btn-primary mx-2" (click)="view()">View</button>
-          <button class="btn btn-sm btn-danger" >delete</button>
-        </td>
-      </ng-container>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="container-fluid">
+            
+            <div class="container-fluid">
+              
+            <div class="row" style="overflow-x:auto;">
+              <!-- <button
+            style="float: right; margin-right: 20px;"
+            styleSheetFile="../../../assets/css/print.css" 
+            printTitle="List of Enrollment" 
+            printSectionId="content"
+            ngxPrint 
+            class="btn btn-success btn-lg"
+            > Print Full List</button> -->
+              <div class="col-lg-12"  id="content" >
+                <table >
+                  <caption></caption>
+                  <thead>
+                    <tr>
+                      <th>S/No</th>
+                      <th>Jina Kamili</th>
+                      <th>Mahali</th>
+                      <th>Kadi ya Mzanzibar</th>
+                      <th>Njia anayotumia</th>
+                      <th>Aina ya uvuvi</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let fishermans of fisherman , let x = index;">
+                      <td>{{x + 1}}</td>
+                      <td>{{fishermans.name}}</td>
+                      <td>{{fishermans.address}}</td>
+                      <td>{{fishermans.identity}}</td>
+                      <td>{{fishermans.ways}}</td>
+                      <td>{{fishermans.type}}</td>
+                      <td>
+                        <button class="btn btn-primary" (click)="view(fishermans.userId)">Kuanglia</button>
+                      </td>
+                    </tr>
+                  </tbody>
     
-      <tr mat-header-row *matHeaderRowDef="['id', 'Name', 'Address', 'Phone_no', 'Action']"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['id', 'Name', 'Address', 'Phone_no', 'Action']"></tr>
-    </table>
+    
+                </table>
+    
+     
+    
+              </div>
+            
+            
+            </div>
+          </div>
+    
+          <!-- <div class="d-flex justify-content-center">
+            <pagination-controls 
+            [responsive]="true"
+            [directionLinks]="true"
+            screenReaderCurrentLabel="labels.screenReaderCurrentLabel"
+            (pageChange)="onTableDataChange($event)"
+            >
+            </pagination-controls>
+          </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   

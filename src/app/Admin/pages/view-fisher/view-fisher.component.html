@@ -1,24 +1,24 @@
-<div class="container card mt-4 mb-4">
+<!-- <div class="container card mt-4 mb-4">
   <div class="row mt-3 mb-3">
     <div class="col-md-3">
       <div class="card">
-        <img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture">
+        !-- <img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture"> --
         <div class="card-body">
-          <h5 class="card-title">{{user.name}}</h5>
-          <p class="card-text">{{user.bio}}</p>
+           !-- <h5 class="card-title">{{user.name}}</h5> -->
+          <!--<p class="card-text">{{user.bio}}</p> --
         </div>
         <h3 class="mx-2">Muhusika</h3>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><strong>Jina Kamili:  </strong> {{user.username}}</li>
+          !-- <li class="list-group-item"><strong>Jina Kamili:  </strong> {{user.username}}</li>
           <li class="list-group-item"><strong>Kazi:  </strong> {{user.email}}</li>
           <li class="list-group-item"><strong>Mahali:  </strong> {{user.location}}</li>
-          <li class="list-group-item"><strong>Namba ya Simu:  </strong> {{user.phone_no}}</li>
-          <li class="list-group-item"><strong>Kitambulisho:  </strong> {{user.location}}</li>
-          <li class="list-group-item"><strong>Uraia:  </strong> {{user.location}}</li>
+          <li class="list-group-item"><strong>Namba ya Simu:  </strong> {{user.phone_no}}</li>--
+          <li class="list-group-item"><strong>Kitambulisho:  </strong> {{fisherman.acc_name}}</li> 
+          !-- <li class="list-group-item"><strong>Uraia:  </strong> {{user.location}}</li>
           <li class="list-group-item"><strong>Jinsia :  </strong> {{user.location}}</li>
           <li class="list-group-item"><strong>Umri:  </strong> {{user.location}}</li>
-          <li class="list-group-item"><strong>Namba ya uongozi:  </strong> {{user.location}}</li>
-          <!-- <button mat-raised-button color="acess" class="m-3 mb-2 mt-3 text-Red">Badilisha</button> -->
+          <li class="list-group-item"><strong>Namba ya uongozi:  </strong> {{user.location}}</li> -->
+          <!-- <button mat-raised-button color="acess" class="m-3 mb-2 mt-3 text-Red">Badilisha</button> --
         </ul>
       </div>
     </div>
@@ -26,14 +26,14 @@
       <div class="card ">
           <div class="card-body">
             <ul class="list-group list-group-flush">
-              <h2 class="card-title">Leseni ya Mvuvi</h2>
+              !-- <h2 class="card-title">Leseni ya Mvuvi</h2>
               <li class="list-group-item"><strong>Diko analotumia:  </strong> {{user.username}}</li>
               <li class="list-group-item"><strong>Njia anayotumia:  </strong> {{user.username}}</li>
               <li class="list-group-item"><strong>Tarehe ya Kuanza leseni:  </strong></li>
-              <li class="list-group-item"><strong>Tarehe ya kuisha Leseni:  </strong> </li>
+              <li class="list-group-item"><strong>Tarehe ya kuisha Leseni:  </strong> </li> -->
                <!--<li class="list-group-item"><strong>Picha ya risiti:  </strong> {{user.location}}</li>
               <li class="list-group-item card"><img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture" width="200" height="300s"></li>
-              <button mat-raised-button >Onesha picha</button> -->
+              <button mat-raised-button >Onesha picha</button> --
             </ul>
             <button mat-raised-button class="mt-2" (click)="openDialog()">Edit</button>
           </div>
@@ -43,11 +43,11 @@
         <div class="card-body">
           <h2 class="card-title">MALIPO</h2>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>Jina la Akauni:  </strong> {{user.location}}</li>
+            !-- <li class="list-group-item"><strong>Jina la Akauni:  </strong> {{user.location}}</li>
             <li class="list-group-item"><strong>Akaunti Namba:  </strong> {{user.phone_no}}</li>
             <li class="list-group-item"><strong>Namba ya Risiti:  </strong> {{user.username}}</li>
             <li class="list-group-item"><strong>Picha ya Risiti:  </strong> {{user.email}}</li>
-            <img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture">
+            <img src="{{user.profilePicture}}" class="card-img-top" alt="Profile Picture"> --
             <button mat-raised-button color="primary">Picha kwa ukubwa</button>
           </ul>
         </div>
@@ -62,4 +62,18 @@
       <button mat-raised-button color="primary" class="mt-4 " (click)="view()">CONFIRM</button>
     </div>
   </div>
-</div>
+</div> -->
+<ng-container *ngIf="fisherman">
+  <!-- Display fisherman data here -->
+  {{ fisherman.acc_name }}
+  <!-- other properties -->
+</ng-container>
+
+<!-- Optionally, you can add a loading indicator -->
+<div *ngIf="!fisherman">Loading...</div>
+<pre>{{ fisherman | json }}</pre>
+
+{{fisherman.acc_name}}
+
+{{name}}
+

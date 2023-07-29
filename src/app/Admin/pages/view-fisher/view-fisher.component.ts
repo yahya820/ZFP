@@ -1,18 +1,9 @@
 import { Component } from '@angular/core';
 import { ApdFishermanComponent } from '../apd-fisherman/apd-fisherman.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
-
-export interface User {
-  name: string;
-  username: string;
-  email: string;
-  profilePicture: string;
-  bio: string;
-  location: string;
-  website: string;
-  phone_no : string;
-}
+import { ActivatedRoute, Router } from '@angular/router';
+import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
+import { PaymentService } from 'src/app/Services/payment/payment.service';
 
 @Component({
   selector: 'app-view-fisher',
@@ -20,22 +11,27 @@ export interface User {
   styleUrls: ['./view-fisher.component.scss']
 })
 export class ViewFisherComponent {
+  fisherman:any
+  id!:number
 
-  user: User = {
-    name: 'John Doe',
-    username: 'johndoe',
-    email: 'johndoe@example.com',
-    profilePicture: 'https://via.placeholder.com/150',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    location: 'New York, NY',
-    website: 'https://example.com',
-    phone_no: '0776955066',
-  };
+  name!:"yahya";
+  constructor(public dialog: MatDialog,private router:Router,private paymentService:PaymentService,
+    private route:ActivatedRoute) { }
 
-  constructor(public dialog: MatDialog,private router:Router) { }
+  ngOnInit(){
+    this.id = this.route.snapshot.params['id']
 
-  ngOnInit(): void {
+    this.paymentService.getByFishermanId(this.id).subscribe(
+      response => {
+        console.log(response)
+        this.fisherman = response;
+        console.log(this.fisherman.acc_name)
+      }
+    )
+
+
   }
+
 
   openDialog() {
     const dialogRef = this.dialog.open(ApdFishermanComponent);

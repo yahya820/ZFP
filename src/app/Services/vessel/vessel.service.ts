@@ -12,5 +12,8 @@ export class VesselService {
   add(body:object){
     return this.http.post(`${this.url}`,body);
   }
+  getByUserId(id:number){
+    return this.http.get(`${this.url}/user/${id}`);
+  }
 
 }
