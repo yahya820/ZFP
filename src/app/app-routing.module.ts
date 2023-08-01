@@ -36,6 +36,11 @@ import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.comp
 import { AuthGuard } from './common/user_guard/auth.guard';
 import { AdminGuard } from './common/admin_guard/admin.guard';
 import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
+import { ViewFishermanComponent } from './Admin/pages/view-fisherman/view-fisherman.component';
+import { MfanoComponent } from './Services/mfano/mfano.component';
+import { MfanoiDComponent } from './Services/mfanoi-d/mfanoi-d.component';
+import { PaymentFishermanComponent } from './Admin/pages/payment-fisherman/payment-fisherman.component';
+import { PaymentVesselComponent } from './Admin/pages/payment-vessel/payment-vessel.component';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -45,7 +50,8 @@ const routes: Routes = [
 {path:"login", component: LoginComponent},
 { path:"register", component: RegisterComponent},
 { path:"seawed", component: SeaweedComponent}   , 
-{ path:"Login", component: LoginAdminComponent} ,              
+{ path:"Login", component: LoginAdminComponent} ,
+{ path: "mfano", component: MfanoiDComponent },              
 
   {
     path: '',
@@ -83,6 +89,9 @@ const routes: Routes = [
       { path: "view_seaweed", component: ViewSeaweedComponent},
       { path: "card_vessel", component: CardVesselComponent},
       { path: "card_fisher", component: CardFisherComponent},
+      { path: "view_fisherman", component:ViewFishermanComponent},
+      { path: "payment_fisherman", component : PaymentFishermanComponent},
+      { path: "payment_vessel", component:PaymentVesselComponent}
     
     ],
   }

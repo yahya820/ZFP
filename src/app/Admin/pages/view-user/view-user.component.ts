@@ -25,7 +25,7 @@ export class ViewUserComponent implements OnInit {
     private modalService: NgbModal){}
     @ViewChild('tempa') tempa!:TemplateRef<any>
 
-  ngOnInit(): void {
+  ngOnInit() {
    this.id = this.route.snapshot.params['id'];
 
   //  this.user = new User();

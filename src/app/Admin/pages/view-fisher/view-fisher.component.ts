@@ -11,26 +11,35 @@ import { PaymentService } from 'src/app/Services/payment/payment.service';
   styleUrls: ['./view-fisher.component.scss']
 })
 export class ViewFisherComponent {
-  fisherman:any
+  fisherman1:any
+  fisherman2:any
+  fisherman3:any
   id!:number
 
-  name!:"yahya";
   constructor(public dialog: MatDialog,private router:Router,private paymentService:PaymentService,
-    private route:ActivatedRoute) { }
+  private route:ActivatedRoute,private fishermanService:FishermanService) { }
 
-  ngOnInit(){
-    this.id = this.route.snapshot.params['id']
+    ngOnInit(){
+      this.fetchAll();
+  
+      this.id = this.route.snapshot.params['id']
+      this.fishermanService.getByUserId(this.id).subscribe(
+        response => {
+          console.log(response);
+          this.fisherman1 = response;
+        }
+      )
+    }
+  
+    fetchAll(){
+      this.fishermanService.getAll().subscribe(
+        response => {
+          console.log(response);
+          this.fisherman2 = response
 
-    this.paymentService.getByFishermanId(this.id).subscribe(
-      response => {
-        console.log(response)
-        this.fisherman = response;
-        console.log(this.fisherman.acc_name)
-      }
-    )
-
-
-  }
+        }
+      )
+    }
 
 
   openDialog() {

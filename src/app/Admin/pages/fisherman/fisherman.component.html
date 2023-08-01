@@ -1,6 +1,6 @@
 <div class="card container mt-3">
     <mat-card class="mt-3 mb-3">
-      <mat-card-title>List Of Registed Fisherman</mat-card-title>
+      <mat-card-title style="text-align: center;">Idadi ya Wavuvi Waliosajiliwa</mat-card-title>
     </mat-card>
   
     <div class="input-group mb-3 mt-3 container">
@@ -42,15 +42,16 @@
                   <tbody>
                     <tr *ngFor="let fishermans of fisherman , let x = index;">
                       <td>{{x + 1}}</td>
-                      <td>{{fishermans.name}}</td>
-                      <td>{{fishermans.address}}</td>
-                      <td>{{fishermans.identity}}</td>
+                      <td>{{fishermans.user.name}}</td>
+                      <td>{{fishermans.user.address}}</td>
+                      <td>{{fishermans.user.identity}}</td>
                       <td>{{fishermans.ways}}</td>
                       <td>{{fishermans.type}}</td>
                       <td>
-                        <button class="btn btn-primary" (click)="view(fishermans.userId)">Kuanglia</button>
+                        <button class="btn btn-primary" (click)="view(fishermans.fishermanId)">Kuanglia</button>
                       </td>
                     </tr>
+                    {{fisherman[0].paymentFishermanId}}
                   </tbody>
     
     

@@ -11,7 +11,18 @@
         <li><a [routerLink]="['user']">Usajili</a></li>
         <li><a [routerLink]="['fisherman']">Mvuvi</a></li>
         <li><a [routerLink]="['vessel']">Chombo cha Mvuvi</a></li>
-        <li ><a>Malipo</a></li>
+        <li >
+          <a>
+          <div class="dropdown">
+          Malipo
+          <!-- The dropdown content (the list of links) -->
+          <div class="dropdown-content">
+              <a routerLink="/admin/payment_fisherman">Mvuvi</a>
+              <a routerLink="/admin/payment_vessel">Chombo</a>
+              <!-- Add more links here as needed -->
+          </div>
+      </div>
+  </a></li>
         <li><a>Uthibitisho</a></li>
         <li><a [routerLink]="['seaweed']">mwani</a></li>
         <li><a>Kutoka Ndani</a></li>

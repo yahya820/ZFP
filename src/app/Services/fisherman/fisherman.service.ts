@@ -14,9 +14,12 @@ export class FishermanService {
     return this.http.post(`${this.url}`,body);
   }
   getByUserId(id:any){
-    return this.http.get(`${this.url}/user/${id}`);
+    return this.http.get(`${this.url}/${id}`);
   }
   getAll(){
     return this.http.get(`${this.url}`);
+  }
+  getAllFisherman(){
+    return this.http.get(`${this.url}/By1`)
   }
 }

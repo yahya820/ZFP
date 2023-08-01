@@ -1,0 +1,73 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>List of User Registed</h2>
+        <hr>
+        <div class="container-fluid">
+          
+          <div class="container-fluid">
+            
+          <div class="row" style="overflow-x:auto;">
+            <!-- <button
+          style="float: right; margin-right: 20px;"
+          styleSheetFile="../../../assets/css/print.css" 
+          printTitle="List of Enrollment" 
+          printSectionId="content"
+          ngxPrint 
+          class="btn btn-success btn-lg"
+          > Print Full List</button> -->
+            <div class="col-lg-12"  id="content" >
+              <table >
+                <caption></caption>
+                <thead>
+                  <tr>
+                    <th>S/No</th>
+                    <th>Full Name</th>
+                    <th>Phone No</th>
+                    <th>Image</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let user of users; let x = index">
+                    <td>{{x+1}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.address}}</td>
+                      <!-- <td>1</td>
+                      <td>Yahya ali hamid</td>
+                      <td>0776944789</td>
+                      <td>Kilindi</td> -->
+                      <td>
+                      <button  class="btn btn-info" (click)="view(user.mfanoId)">View</button>
+                      <!-- <button class="btn btn-info" (click)="views()">View</button> -->
+                    </td>
+                  </tr>
+                </tbody>
+  
+  
+              </table>
+              <td>{{users?.email}}</td>
+              <td>{{users?.email}}</td>
+  
+   
+  
+            </div>
+          
+          
+          </div>
+        </div>
+  
+        <!-- <div class="d-flex justify-content-center">
+          <pagination-controls 
+          [responsive]="true"
+          [directionLinks]="true"
+          screenReaderCurrentLabel="labels.screenReaderCurrentLabel"
+          (pageChange)="onTableDataChange($event)"
+          >
+          </pagination-controls>
+        </div> -->
+        </div>
+      </div>
+    </div>
+  </div>

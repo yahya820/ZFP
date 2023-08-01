@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -17,7 +18,10 @@ export class PaymentService {
   getAllFisherman(){
     return this.http.get(`${this.url}/fisherman`);
   }
-  getByFishermanId(id:number){
-    return this.http.get(`${this.url}/fisherman/${id}`)
+  getByFishermanId(id:number):Observable<any>{
+    return this.http.get<any>(`${this.url}/fisherman/${id}`)
+  }
+  getAllPaymentFisherman(){
+    return this.http.get(`${this.url}/allPayment`);
   }
 }

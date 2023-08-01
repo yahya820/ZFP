@@ -4,7 +4,7 @@
         <div class="card">
           <!-- <img src="{{user.image}}" class="card-img-top" alt="Profile Picture"> -->
           <div class="card-body">
-            <h5 class="card-title">{{user.name}}</h5>
+            <h5 class="card-title">{{user?.name}}</h5>
             <!-- <p class="card-text">{{user.bio}}</p> -->
           </div>
         </div>
@@ -15,14 +15,14 @@
           <div class="card-body">
             <!-- <h2 class="card-title">MALIPO</h2> -->
             <ul class="list-group list-group-flush">
-              <li class="list-group-item"><strong>Work:  </strong>{{user.work}}</li>
-              <li class="list-group-item"><strong>Location:  </strong> {{user.address}}</li>
-              <li class="list-group-item"><strong>Phone No:  </strong> {{user.phone}}</li>
-              <li class="list-group-item"><strong>Identity:  </strong> {{user.identity}}</li>
-              <li class="list-group-item"><strong>CitizenShip:  </strong> {{user.nationality}}</li>
-              <li class="list-group-item"><strong>Sex:  </strong> {{user.sex}}</li>
-              <li class="list-group-item"><strong>Age:  </strong> {{user.age}}</li>
-              <li class="list-group-item"><strong>Number of Leader:  </strong> {{user.leader}}</li>
+              <li class="list-group-item"><strong>Work:  </strong>{{user?.work}}</li>
+              <li class="list-group-item"><strong>Location:  </strong> {{user?.address}}</li>
+              <li class="list-group-item"><strong>Phone No:  </strong> {{user?.phone}}</li>
+              <li class="list-group-item"><strong>Identity:  </strong> {{user?.identity}}</li>
+              <li class="list-group-item"><strong>CitizenShip:  </strong> {{user?.nationality}}</li>
+              <li class="list-group-item"><strong>Sex:  </strong> {{user?.sex}}</li>
+              <li class="list-group-item"><strong>Age:  </strong> {{user?.age}}</li>
+              <li class="list-group-item"><strong>Number of Leader:  </strong> {{user?.leader}}</li>
             </ul>
             <div class="row">
               <div class="col">

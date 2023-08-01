@@ -47,6 +47,12 @@ import { LoginAdminComponent } from './Admin/common/login-admin/login-admin.comp
 import { AdminMessageComponent } from './Admin/pages/admin-message/admin-message.component';
 import { ImageComponent } from './image/image.component'
 import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component';
+import { ViewFishermanComponent } from './Admin/pages/view-fisherman/view-fisherman.component';
+import { MfanoComponent } from './Services/mfano/mfano.component';
+import { MfanoiDComponent } from './Services/mfanoi-d/mfanoi-d.component';
+import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
+import { PaymentFishermanComponent } from './Admin/pages/payment-fisherman/payment-fisherman.component';
+import { PaymentVesselComponent } from './Admin/pages/payment-vessel/payment-vessel.component';
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -83,11 +89,17 @@ import { FishermanComponent } from './Admin/pages/fisherman/fisherman.component'
     LoginAdminComponent,
     AdminMessageComponent,
     ImageComponent,
+    ViewFishermanComponent,
+    MfanoComponent,
+    MfanoiDComponent,
+    PaymentFishermanComponent,
+    PaymentVesselComponent,
 
 
 
   ],
   imports: [
+    NgbDropdownModule,
     NgxPrintModule,
     HttpClientModule,
     MatCardModule,

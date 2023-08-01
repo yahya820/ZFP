@@ -19,10 +19,10 @@ export class FishermanComponent {
   }
 
   findAll(){
-    this.paymentService.getAllFisherman().subscribe(
-      respo => {
-        console.log(respo)
-        this.fisherman = respo;
+    this.fishermanService.getAllFisherman().subscribe(
+      response => {
+        console.log(response)
+        this.fisherman = response;
       }
     )
   }
