@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-view-fisherman',
@@ -9,29 +10,19 @@ import { PaymentService } from 'src/app/Services/payment/payment.service';
   styleUrls: ['./view-fisherman.component.scss']
 })
 export class ViewFishermanComponent {
-  fisherman1:any
-  fisherman2:any
-  id!:number
-  constructor(private route:ActivatedRoute,private fishermanService:FishermanService){}
-  ngOnInit(){
-    this.fetchAll();
+  items = [
+    {
+      additionalContent: 'Additional content for Item 1',
+      collapsed: true
+    },
+    {
+      additionalContent: 'Additional content for Item 2',
+      collapsed: true
+    },
+    // Add more items as needed
+  ];
 
-    this.id = this.route.snapshot.params['id']
-    this.fishermanService.getByUserId(this.id).subscribe(
-      response => {
-        console.log(response);
-        this.fisherman1 = response;
-      }
-    )
+  toggleCollapse(item: any): void {
+    item.collapsed = !item.collapsed;
   }
-
-  fetchAll(){
-    this.fishermanService.getAll().subscribe(
-      response => {
-        console.log(response);
-        this.fisherman2 = response
-      }
-    )
-  }
-
 }

@@ -22,4 +22,7 @@ export class FishermanService {
   getAllFisherman(){
     return this.http.get(`${this.url}/By1`)
   }
+  update(id:number,body:any){
+    return this.http.put(`${this.url}/${id}`,body);
+  }
 }

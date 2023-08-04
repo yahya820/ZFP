@@ -2,9 +2,51 @@
     <div class="container">
         <form [formGroup]="form" >
             <div class="mb-3 row has-validation">
-                <label class="col-sm-6 col-form-label">No of Leader</label>
+                <label class="col-sm-6 col-form-label">Full Name</label>
                 <div class="col-sm-12">
-                  <input type="text" class="form-control" formControlName="leader" required>
+                  <input type="text" class="form-control" formControlName="name" required>
+                </div>
+              </div>
+              <div class="mb-3 row has-validation">
+                <label class="col-sm-6 col-form-label">Mahali</label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" formControlName="address" required>
+                </div>
+              </div>
+              <div class="mb-3 row has-validation">
+                <label class="col-sm-6 col-form-label">Namba ya Simu</label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" formControlName="phone" required>
+                </div>
+              </div>
+              <div class="mb-3 row has-validation">
+                <label class="col-sm-6 col-form-label">Taifa</label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" formControlName="nationality" required>
+                </div>
+                <div class="mb-3 row has-validation">
+                  <label class="col-sm-6 col-form-label">Miaka</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" formControlName="age" required>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-3 row has-validation">
+                <label class="col-sm-6 col-form-label">Kitambulisho</label>
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" formControlName="identity" required>
+                </div>
+                <div class="mb-3 row has-validation">
+                  <label class="col-sm-6 col-form-label">Kazi</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" formControlName="work" required>
+                  </div>
+                </div>
+                <div class="mb-3 row has-validation">
+                  <label class="col-sm-6 col-form-label">No of Leader</label>
+                  <div class="col-sm-12">
+                    <input type="text" class="form-control" formControlName="leader" required>
+                  </div>
                 </div>
               </div>
              <button mat-raised-button color="primary" class="mb-2"

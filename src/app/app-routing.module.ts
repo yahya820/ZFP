@@ -41,6 +41,9 @@ import { MfanoComponent } from './Services/mfano/mfano.component';
 import { MfanoiDComponent } from './Services/mfanoi-d/mfanoi-d.component';
 import { PaymentFishermanComponent } from './Admin/pages/payment-fisherman/payment-fisherman.component';
 import { PaymentVesselComponent } from './Admin/pages/payment-vessel/payment-vessel.component';
+import { SeaweedInfoComponent } from './User/Pages/seaweed-info/seaweed-info.component';
+import { LawsComponent } from './User/Pages/laws/laws.component';
+import { VesselManyComponent } from './User/Pages/vessel-many/vessel-many.component';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -64,6 +67,9 @@ const routes: Routes = [
       { path:"seaweed", component: SeawedProComponent},
       { path:"contact", component: ContactComponent},
       { path:"profile", component: ProfileComponent},
+      { path:"seaweed_info", component: SeaweedInfoComponent},
+      { path:"laws", component: LawsComponent},
+      { path:"vessel_payment", component: VesselManyComponent},
       { path:"algae", component: AlgaeComponent,canActivate: [AuthGuard]}
 
     ]

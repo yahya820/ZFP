@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { VesselService } from 'src/app/Services/vessel/vessel.service';
 
 @Component({
   selector: 'app-vessel',
@@ -7,17 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./vessel.component.scss']
 })
 export class VesselComponent {
+  vessel:any
 
-  constructor(private router:Router){}
-  tableData = [
-    {id: 1, Name: 'John Doe', type_of_Vessel: "Town", owner: '20220101'},
-    {id: 2, Name: 'Jane Doe', type_of_Vessel: "Kizimkazi", owner: '20220202'},
-    // {id: 3, Name: 'Bob Smith', Address: 300, Phone_no: '20220303'},
-    // {id: 4, Name: 'Alice Johnson', Address: 4, Phone_no: '20220404'},
-  ];
+  constructor(private router:Router,private vesselService:VesselService){}
+  
+  ngOnInit(){
+    this.getAllVessel();
+  }
 
-  view(){
-    this.router.navigate(['admin/view_vessel']);
+  view(id:number){
+    this.router.navigate(['admin/view_vessel',{id}]);
+  }
+  getAllVessel(){
+    this.vesselService.getAllVessel().subscribe(
+      response => {
+        console.log(response)
+        this.vessel = response;
+      }
+    )
   }
 
 }

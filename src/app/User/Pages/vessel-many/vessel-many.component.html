@@ -1,0 +1,170 @@
+<div class="card container">
+    <div class="card-body">
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0 text">Jina la Chombo</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{vesselpayment[0].name_vessel}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0 text">Aina ya Chombo</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{vesselpayment[0].type_vessel}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0 text">Namba ya Chombo</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{vesselpayment[0].no_vessel}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0 text">Urefu wa Chombo</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{vesselpayment[0].meter}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 text">Njia Inayotumia</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                {{vesselpayment[0].ways}}
+            </div>
+          </div>
+          <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0 text">Idadi ya watu</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{vesselpayment[0].no_people}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-sm-3">
+            <h6 class="mb-0 text">Tarehe ya Kuanza</h6>
+          </div>
+          <div class="col-sm-9 text-secondary">
+            {{vesselpayment[0].start_date}}
+          </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-sm-3">
+              <h6 class="mb-0 text">Tareheya Kuisha</h6>
+            </div>
+            <div class="col-sm-9 text-secondary">
+                {{vesselpayment[0].finish_date}}
+            </div>
+          </div>
+      </div>
+      <hr>
+      {{vesselpayment[0].vessel_id}}
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12">
+            <h2 style="text-align: center;">Malipo</h2>
+            <hr>
+            <div class="container-fluid">
+              
+              <div class="container-fluid">
+                
+              <div class="row" style="overflow-x:auto;">
+                <button
+              style="float: right; margin-right: 15px;"
+              (click)="openBackDropCustomClass(tempa)"
+              class="btn btn-success btn-lg"
+              > Engeza Malipo</button>
+                <div class="col-lg-12"  id="content" >
+                  <table >
+                    <caption></caption>
+                    <thead>
+                      <tr>
+                        <th>S/No</th>
+                        <th>Jina la Bank</th>
+                        <th>Risiti</th>
+                        <th>Tarehe</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let x of vesselpayment,let i = index;">
+                            <td>{{i + 1}}</td>
+                            <td>{{x.acc_name}}</td>
+                            <td>{{x.receipt_no}}</td>
+                            <td>{{x.date}}</td>
+                        </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+      
+            <!-- <div class="d-flex justify-content-center">
+              <pagination-controls 
+              [responsive]="true"
+              [directionLinks]="true"
+              screenReaderCurrentLabel="labels.screenReaderCurrentLabel"
+              (pageChange)="onTableDataChange($event)"
+              >
+              </pagination-controls>
+            </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<ng-template #tempa let-modal  >
+    <div class="modal-header">
+     <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+     <div class="mt-2">
+         <form>
+           <div class="container mt-2 mb-2">
+             <div class="car mt-1">
+               <DIV class="container">
+                <h2 style="text-align: center;">Engeza Malipo ya Leseni ya Uvuvi</h2>
+                 <div class="mb-3 row has-validation container">
+                   <label class="col-sm-6 col-form-label mb-0 ">Akaunti Bank</label>
+                    <select type="text" class="form-control" [(ngModel)]="payment_model.acc_name" name="acc_name" required>
+                     <option value="People Bank Of Zanzibar - (PBZ)">People Bank Of Zanzibar - (PBZ)</option>
+                     <!-- <option value="">Wali</option> -->
+                   </select>
+                 </div>
+  
+                 <div class="mb-3 row has-validation container">
+                   <label class="col-sm-6 col-form-label ">Risiti Namba</label>
+                    <input class="form-control" [(ngModel)]="payment_model.receipt_no" name="receipt_no" type="number">
+                 </div>
+  
+                 <div class="mb-3 row has-validation container">
+                   <label class="col-sm-6 col-form-label ">Akaunti Bank</label>
+                    <input type="date" [(ngModel)]="payment_model.date" name="date" class="form-control">
+                 </div>
+                <div class="text-center mb-3 mt-3">
+                 <button class="btn btn-primary" (click)="payment_submit()"(click)="modal.dismiss('Cross click')"> Wasilisha Taarifa</button>
+                </div>
+     
+               </DIV>
+             </div>
+           </div>
+         </form>
+     
+     </div>
+  
+  
+   </ng-template>

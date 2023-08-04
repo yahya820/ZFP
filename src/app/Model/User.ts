@@ -13,7 +13,6 @@ export class User{
     sex: any;
     age: any;
     username: any;
-    pass: any;
     email: any;
     roles! :any;
     leader:any;

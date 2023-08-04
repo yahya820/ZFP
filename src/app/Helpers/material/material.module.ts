@@ -43,12 +43,14 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { IconSpinnerModule } from '../icon-spinner/icon-spinner.module';
 import {FormsModule,ReactiveFormsModule } from "@angular/forms";
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 
 @NgModule({
   exports: [
+    NgbAccordionModule,
     FormsModule,
     IconSpinnerModule,
     A11yModule,

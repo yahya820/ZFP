@@ -32,10 +32,6 @@ import { PaymentVessel } from 'src/app/Model/PaymentVessel';
   styleUrls: ['./headers.component.scss']
 })
 export class HeadersComponent {
-  payment_fisherman_model : PaymentFisherman = new PaymentFisherman();
-  payment_vessel_model : PaymentVessel = new PaymentVessel();
-  fisherman_model : fisherman = new fisherman();
-  vessel_model : Vessel =  new Vessel();
   vessel2:any
   fihserman2: any
   username! : any;
@@ -60,7 +56,6 @@ export class HeadersComponent {
   constructor(private breakpointObserver: BreakpointObserver,
     public dialog: MatDialog,
     private offcanvasService : NgbOffcanvas,
-    private modalService: NgbModal,
     private router:Router,
     private userServices: UserService,
     private auth:ModelGuard,
@@ -78,28 +73,15 @@ export class HeadersComponent {
     });
 
   }
-  openDialog1(chombo:any) {
-    if(this.auth.canActivate()){
-      this.modalService.open(chombo, { scrollable: true, backdropClass: 'light-blue-backdrop' });
-    }else{
-      this.openDialog();
-    }
-  }
+  
 
   openScroll(content : TemplateRef<any>){
     this.offcanvasService.open(content, { scroll: true, panelClass: 'bg-info'});
   }
 
-  openBackDropCustomClass(tempa: any) {
-     if(this.auth.canActivate()){
-      this.modalService.open(tempa, { scrollable: true, backdropClass: 'light-blue-backdrop' });
-     } else {
-      this.openDialog();
-     }
-	}
+  
 
   ngOnInit(){
-
     this.username = sessionStorage.getItem("name")
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
@@ -165,44 +147,13 @@ export class HeadersComponent {
     }
   }
 
-  mwaniOpen(){
-    const token = sessionStorage.getItem("id")
-    if(token){
-      this.router.navigate(["seaweed"])
-    } else { 
-      this.openDialog();
-    }
-  }
+  
 
   
   close_session(){
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("name")
     // this.router.navigate(['/'])
-  }
-
-  onSubmit_fisherman() {
-    // const value = this.form1.value;
-    const value = this.fisherman_model;
-    value.userId = sessionStorage.getItem('id');
-    value.fishermanId = sessionStorage.getItem("id");
-    
-    this.fishermanService.add(value).subscribe(
-      fishresponse => {
-        console.log(fishresponse);
-        this.fihserman2 = fishresponse;
-  
-        const value_payment = this.payment_fisherman_model;
-        value_payment.fishermanId = this.fihserman2.fishermanId;  // Set the fishermanId from the saved Fisherman object
-        // value_payment.vessel_id = null
-
-        this.paymentService.addFisherman(value_payment).subscribe(
-          response => {
-            console.log(response);
-          }
-        );
-      }
-    );
   }
   
 }

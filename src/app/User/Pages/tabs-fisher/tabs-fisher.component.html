@@ -1,159 +1,135 @@
-<!-- <div class="card">
-  <div class="m-auto">
-    <div class="text-center"><img class="img-fluid" src="../../../../assets/images/nembo1.png" width="200" height="70" ></div>
-  <div class="text-center">
-    <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
-    <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
-    <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
-    <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
-  <H5 class="mb-0">Kanuni 12(1)</H5>
+<!-- app.component.html -->
+<mat-card class="card">
+  <img mat-card-image src="../../../../assets/images/images (2).jpeg" alt="Image Alt Text" />
+  <mat-card-content>
+    <!-- Card content goes here -->
+    <h2 style="text-align: end; margin-top:5px;">MAELEZO</h2>
+    <br>
+    <h2>Usajili wa Leseni ya Uvuvi:</h2>
+
+    Usajili wa leseni ya uvuvi ni mchakato unaowezesha wavuvi au wamiliki wa vyombo vya uvuvi kupata kibali cha kisheria kinachowaruhusu kushiriki katika shughuli za uvuvi. Usajili huu unaweza kuwa ni sehemu ya mchakato wa kudhibiti, kusimamia, na kulinda rasilimali za uvuvi katika eneo husika.
+    <h2> Hapa kuna maelezo yanayohusiana na usajili wa leseni ya uvuvi:</h2>
+    <ol>
+      <li><strong>Mamlaka Husika:</strong> Usajili wa leseni ya uvuvi kawaida hutolewa na mamlaka husika ya serikali inayosimamia shughuli za uvuvi. Hii inaweza kuwa wizara ya kilimo, mifugo, na uvuvi au idara inayohusika na rasilimali za maji na uvuvi.</li>
+      <li><strong>Aina za Leseni:</strong> Kulingana na aina na ukubwa wa shughuli za uvuvi, kuna aina tofauti za leseni za uvuvi zinazopatikana. Leseni hizi zinaweza kuwa kwa ajili ya uvuvi wa baharini au uvuvi wa maji baridi, na zinaweza kutofautiana kwa wakati (mfano, leseni ya muda mfupi au mrefu) na eneo la uvuvi.</li>
+      <li><strong>Mahitaji ya Usajili:</strong> Wavuvi au wamiliki wa vyombo vya uvuvi mara nyingi wanapaswa kutimiza mahitaji fulani kabla ya kupata leseni. Hii inaweza kujumuisha kutoa taarifa za kibinafsi, maelezo ya chombo cha uvuvi, aina za vifaa vya uvuvi vitakavyotumiwa, na takwimu nyingine zinazohusiana na shughuli za uvuvi.</li>
+      <li><strong>Mchakato wa Maombi:</strong> Wavuvi au wamiliki wa vyombo vya uvuvi wanatakiwa kuwasilisha maombi yao ya leseni kwa mamlaka husika. Maombi haya yanaweza kuhitaji kujazwa kwa fomu maalum na kutoa nyaraka zinazohitajika. Baadhi ya nchi pia zinaweza kuwa na mfumo wa usajili mtandaoni kwa ajili ya urahisi zaidi.</li>
+      <li><strong>Ada na Malipo:</strong> Kwa kawaida, kuna ada inayotozwa kwa ajili ya usajili wa leseni ya uvuvi. Ada hizi zinaweza kutofautiana kulingana na aina ya leseni, ukubwa wa chombo cha uvuvi, na muda wa leseni. Malipo haya mara nyingi hutumiwa kusaidia katika shughuli za usimamizi wa rasilimali za uvuvi.</li>
+      <li><strong>Usimamizi na Udhibiti:</strong> Usajili wa leseni ya uvuvi unaweza kuwa sehemu ya mfumo mkubwa wa usimamizi na udhibiti wa rasilimali za uvuvi. Kupitia usajili huu, mamlaka husika inaweza kufuatilia idadi ya vyombo vya uvuvi, aina ya samaki wanaovuliwa, na mwenendo wa shughuli za uvuvi ili kuhakikisha kuwa rasilimali za uvuvi zinatumika kwa njia endelevu na zinadhibitiwa kwa ufanisi.</li>
+      <li><strong>Adhabu na Uzito wa Sheria:</strong> Kutojisajili au kukiuka masharti ya leseni ya uvuvi kunaweza kusababisha adhabu kwa mujibu wa sheria. Hii inalenga kuhakikisha kuwa wavuvi wanazingatia miongozo na kanuni zilizowekwa ili kulinda mazingira na kuhifadhi rasilimali za uvuvi kwa vizazi vijavyo.</li>
+    </ol>
+    
+    <br><strong style="color: red;">ZINGATIO</strong> usajili wa leseni ya uvuvi ni sehemu muhimu ya mfumo wa usimamizi wa rasilimali za uvuvi. Inalenga kuhakikisha kuwa shughuli za uvuvi zinafanywa kwa njia endelevu na zenye kuhifadhi mazingira, na kusaidia katika kulinda rasilimali hizi muhimu kwa faida ya sasa na vizazi vijavyo.
+<br><br><button mat-raised-button color="primary" class="mt-2" (click)="openBackDropCustomClass(tempa)">SAJILI</button>
+  </mat-card-content>
+</mat-card>
+
+
+
+<ng-template #tempa let-modal class="w-75"  >
+  <div class="modal-header">
+   <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
   </div>
-  </div>
-</div> -->
+   <div class="mt-2">
+     <mat-tab-group class="hid">
+       <form>
+       <mat-tab label="Leseni ya Uvuvi" class="modal">
+         <div class="containe mt-1 mb-1">
+          <div class="ca">
+   
+   
+           <h2 style="text-decoration:underline;  text-align: center; margin-top:10px ;">JAZA TAARIFA HUSIKA</h2>
+           <div class="container-fluid">
+   
+             <!-- <div class="text-center mb-5">
+               <div id="display_image" >
+                 <img [src]="imageSrc" width="150">
+               </div>
+   
+               <div class="mb-3 row has-validation">
+                 <div class="mt-3">
+                   <label for="inputFile" style="margin-right:15px">Weka picha yako</label>
+                   <label for="inputFile"  >Badilisha picha yako</label>
+                   <input hidden (change)="displayImage($event)" type="file" id="inputFile" formControlName="image">
+                 </div>
+               </div>
+             </div> -->
+             
+             <div class="example-container">
+               <mat-form-field appearance="outline" class="w-100 mt-2">
+                 <mat-label>Diko unalotumia</mat-label>
+                 <input matInput type="text" [(ngModel)]="fisherman_model.diko_usage" name="diko_usage" required>
+                 <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+               </mat-form-field>
+             </div>
+   
+             <div class="example-container">
+               <mat-form-field appearance="outline" class="w-100 mt-2">
+                 <mat-label>Njia ya Uwendeshaji</mat-label>
+                 <input matInput type="text" [(ngModel)]="fisherman_model.ways" name="ways" required>
+                 <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+               </mat-form-field>
+             </div>
 
+             <div class="example-container">
+               <mat-form-field appearance="outline" class="w-100 mt-2">
+                 <mat-label>Aina ya Uvuvi</mat-label>
+                 <input matInput type="text" [(ngModel)]="fisherman_model.type" name="ways" required>
+                 <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+               </mat-form-field>
+             </div>
 
-<!-- TABS -->
-
-<div class="mt-2">
-  <mat-tab-group class="hid mb-3">
-    <form [formGroup]="form1" (ngSubmit)="onSubmit()">
-    <mat-tab label="Leseni ya Uvuvi">
-      <div class="container mt-4 mb-4">
-       <div class="card">
-
-        <div class="m-auto mt-3">
-          <!-- <div class="text-center"><img class="img-fluid" src="../../../../assets/images/nembo1.png" width="200" height="70" ></div> -->
-        <div class="text-center">
-          <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
-          <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
-          <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
-          <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
-        <H5 class="mb-0">Kanuni 12(1)</H5>
-        </div>
-        </div>
-
-        <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px; margin-top: 60px;">JAZA TAARIFA HUSIKA</h2>
-        <div class="container">
-
-          <!-- <div class="text-center mb-5">
-            <div id="display_image" >
-              <img [src]="imageSrc" width="150">
-            </div>
-
-            <div class="mb-3 row has-validation">
-              <div class="mt-3">
-                <label for="inputFile" style="margin-right:15px">Weka picha yako</label>
-                <label for="inputFile"  >Badilisha picha yako</label>
-                <input hidden (change)="displayImage($event)" type="file" id="inputFile" formControlName="image">
-              </div>
-            </div>
-          </div> -->
-
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Diko unalotumia</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control" formControlName="diko_usage" required>
-            </div>
+             <div class="example-container">
+               <mat-form-field appearance="outline" class="w-100 mt-2">
+                 <mat-label>Urefu wa chombo unachoendesha</mat-label>
+                 <input matInput type="text" [(ngModel)]="fisherman_model.meter" name="meter" required>
+                 <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+               </mat-form-field>
+             </div>
           </div>
-
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label"> Njia ya Uwendeshaji</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control"  formControlName="ways" required>
-            </div>
-          </div>
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label"> Aina ya Uvuvi</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control"  formControlName="type" required>
-            </div>
-          </div>
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label"> Urefu wa chombo unachoendesha</label>
-            <div class="col-sm-10">
-              <input type="text" class="form-control"  formControlName="meter" required>
-            </div>
-          </div>
+         </div>
+         </div>
+   
+          </mat-tab>
           
-<!-- 
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Tarehe ya kuanzia</label>
-            <div class="col-sm-10">
-              <input type="date" class="form-control" formControlName="date_in"
-                name="date" placeholder="name" required>
-            </div>
-          </div>
+       <mat-tab label="Malipo ">
+         <div class="containe mt-4 mb-3">
+           <div class="ca mt-5">
+             <DIV class="containe">
+   
+               <div class="mb-3 container-fluid">
+                 <label class="col-sm col-form-label mb-0 ">Akaunti Bank</label>
+                  <select type="text" class="form-control w-100" [(ngModel)]="payment_fisherman_model.acc_name" name="acc_name" required>
+                   <option value="People Bank Of Zanzibar - (PBZ)">People Bank Of Zanzibar - (PBZ)</option>
+                   <!-- <option value="">Wali</option> -->
+                 </select>
+               </div>
 
-          <div class="mb-3 row has-validation">
-            <label class="col-sm-2 col-form-label">Tarehe ya Kuishia</label>
-            <div class="col-sm-10">
-              <input type="number" class="form-control" formControlName="date_out" required>
-            </div>
-          </div> -->
-       </div>
-       <button mat-button  (click)="tabGroup.selectedIndex=2" class="mbele w-25">Nyengine</button>
-      </div>
-      </div>
-
-       </mat-tab>
-
-
-
-
-
-    <mat-tab label="Malipo ">
-      <div class="container mt-4 mb-3">
-        <div class="card mt-5">
-          <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">MALIPO HUSIKA</h2>
-          <DIV class="container">
-
-            <div class="mb-3 row has-validation">
-              <label class="col-sm-2 col-form-label">Jina la Akaunti</label>
-              <div class="col-sm-10">
-                <input type="text" class="form-control" formControlName="acc" required>
+               <div class="mb-3 container-fluid">
+                 <label class="col-sm col-form-label ">Risiti Namba</label>
+                  <input class="form-control w-100" [(ngModel)]="payment_fisherman_model.receipt_no" name="receipt_no" type="number">
+               </div>
+               <div >
+               
+                 
               </div>
-            </div>
-
-            <div class="mb-3 row has-validation">
-              <label class="col-sm-2 col-form-label">Nambari ya Risiti</label>
-              <div class="col-sm-10">
-                <input type="number" class="form-control" formControlName="no_risiti" required>
+              <div class="container-fluid">
+                <label class="col-sm col-form-label ">Akaunti Bank</label>
+                <input type="date" [(ngModel)]="payment_fisherman_model.date" name="date" class="form-control w-100">
               </div>
-            </div>
-
-            <div class="mb-3 row has-validation">
-              <label class="col-sm-2 col-form-label">Tarehe ulofanyika muamala</label>
-              <div class="col-sm-10">
-                <input type="date" class="form-control" formControlName="date" required>
+              <div class="text-center mb-3 mt-3">
+               <button class="btn btn-primary" (click)="onSubmit_fisherman()" (click)="modal.dismiss('Cross click')"> Wasilisha Taarifa</button>
               </div>
-            </div>
-
-            <!-- <div class="mb-3 row has-validation">
-              <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
-              <div class="col-sm-10">
-                <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="risiti" required>
-              </div>
-            </div>
-
-            <div id="display_image" class="img-fluid" >
-              <img [src]="imageRisiti" >
-            </div> -->
-
-           <div class="text-center mb-3 mt-3">
-            <button class="btn btn-primary" [disabled]="form1.invalid"> Wasilisha Taarifa</button>
+             </DIV>
            </div>
+         </div>
+       </mat-tab>
+   
+       </form>
+   
+     </mat-tab-group>
+   
+   </div>
 
-          </DIV>
-        </div>
-      </div>
 
-      <!-- <div class="">
-        <button mat-button  (click)="tabGroup.selectedIndex=0" class="nyuma">Rudi</button>
-       </div> -->
-    </mat-tab>
-
-    </form>
-
-  </mat-tab-group>
-
-</div>
+ </ng-template>

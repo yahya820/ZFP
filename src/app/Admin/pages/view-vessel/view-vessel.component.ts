@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { ApdVesselComponent } from '../apd-vessel/apd-vessel.component';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { PaymentService } from 'src/app/Services/payment/payment.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 export interface User {
   name: string;
   username: string;
@@ -19,18 +21,23 @@ export interface User {
   styleUrls: ['./view-vessel.component.scss']
 })
 export class ViewVesselComponent {
-  user: User = {
-    name: 'John Doe',
-    username: 'johndoe',
-    email: 'johndoe@example.com',
-    profilePicture: 'https://via.placeholder.com/150',
-    bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    location: 'New York, NY',
-    website: 'https://example.com',
-    phone_no: '0776955066',
-  };
 
-  constructor(public dialog: MatDialog,private router:Router) { }
+  constructor(public dialog: MatDialog,private router:Router,
+    private route:ActivatedRoute,private paymentService:PaymentService,
+    private modalService: NgbModal,) { }
+  vessel1:any
+  id!:number;
+
+  ngOnInit(){
+    this.id = this.route.snapshot.params["id"]
+    this.paymentService.getAllPaymentByUSerId(this.id).subscribe(
+      response => {
+        console.log(response)
+        this.vessel1 = response;
+
+      }
+    )
+  }
 
   openDialog() {
     const dialogRef = this.dialog.open(ApdVesselComponent);
@@ -41,6 +48,16 @@ export class ViewVesselComponent {
   }
   view(){
     this.router.navigate(["/admin/card_vessel"]);
+  }
+  openDialog1(chombo:any) {
+    // if(this.auth.canActivate()){
+      this.modalService.open(chombo, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+    // }else{
+    //   // this.openDialog();
+    // }
+  }
+  onSubmitVessel(){
+    
   }
 
 }

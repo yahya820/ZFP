@@ -45,16 +45,15 @@
   <ng-template #tempa let-modal >
     <div class="card m-3">
       <div class="container">
-          <form [formGroup]="form" >
+          <form >
               <div class="mb-3 row has-validation">
                   <label class="col-sm-6 col-form-label">No of Leader</label>
                   <div class="col-sm-12">
-                    <input type="text" class="form-control" formControlName="leader"[(ngModel)]="user.leader" required>
+                    <input type="text" class="form-control"[(ngModel)]="user.leader" name="leader" required>
                   </div>
                 </div>
                <button mat-raised-button color="primary" class="mb-2"
                 (click)="save()" 
-                [disabled]="form.invalid"
                 (click)="modal.close('Close click')"
                 > Submit</button>
           </form>

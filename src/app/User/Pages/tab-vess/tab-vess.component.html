@@ -1,164 +1,193 @@
-<div class="card container mb-2 mt-3">
- 
+
+<!-- app.component.html -->
+<mat-card class="card">
+  <img mat-card-image src="../../../../assets/images/images (3).jpeg" alt="Image Alt Text" />
+  <mat-card-content>
+    <!-- Card content goes here -->
+    <h2 style="text-align: end; margin-top:5px;">MAELEZO</h2>
+    <br>
+<h2>Chombo cha Uvuvi:</h2>
+<P>Chombo cha uvuvi ni kifaa, boti, au meli kinachotumiwa kwa shughuli za uvuvi. Chombo hiki kinaweza kutofautiana ukubwa, uwezo, na aina ya uvuvi inayofanywa.</P>
+<h2>Kusajili Chombo cha Uvuvi:</h2>
+<p>Usajili wa chombo cha uvuvi ni mchakato wa kuthibitisha chombo hicho kisheria na kuweka kumbukumbu sahihi za mmiliki wake na maelezo mengine muhimu. Kusajili chombo cha uvuvi kunaweza kuhitajika na mamlaka za serikali ili kudhibiti shughuli za uvuvi na kuhakikisha uhifadhi endelevu wa rasilimali za uvuvi.
+</p>
+<h2>Hatua za kusajili chombo cha uvuvi zinaweza kuwa kama ifuatavyo:</h2>
+<ol>
+  <li><strong>Tambua Mahitaji ya Usajili:</strong> Jifunze kuhusu sheria na kanuni zinazohusiana na uvuvi na usajili wa vyombo vya uvuvi katika eneo lako. Pata taarifa kutoka kwa mamlaka za serikali za eneo hilo au idara inayosimamia masuala ya uvuvi.</li>
+  <li><strong>Jaza Fomu za Usajili:</strong> Jaza fomu ya usajili kwa kutoa taarifa zinazohitajika kama vile jina la mmiliki, anwani, maelezo ya chombo cha uvuvi, na namba za usajili za chombo (kama zinahitajika).</li>
+  <li><strong>Hakikiwa na Idara Husika:</strong> Baada ya kuwasilisha fomu ya usajili na nyaraka zinazohitajika, chombo chako kinaweza kuhakikiwa na idara husika ya serikali inayosimamia uvuvi.</li>
+  <li><strong>Lipia Ada ya Usajili:</strong> Inawezekana kuombwa kulipa ada ya usajili ili kukamilisha mchakato wa usajili. Ada hii inaweza kutofautiana kulingana na eneo na ukubwa wa chombo cha uvuvi.</li>
+  <li><strong>Pata Namba ya Usajili:</strong> Baada ya kukamilisha mchakato wa usajili na kulipa ada inayohitajika, chombo chako kitapewa namba ya usajili inayothibitisha usajili wake. Namba hii inapaswa kubandikwa kwenye chombo chako kwa njia ya kudumu.</li>
+</ol>
+<br>
+Ni muhimu kufuata mchakato wa usajili wa chombo cha uvuvi kwa umakini ili kufuata sheria na kuhakikisha shughuli za uvuvi zinafanywa kwa njia endelevu na kisheria. Kwa hivyo, unashauriwa kuwasiliana na mamlaka husika ya serikali ili kupata maelezo sahihi na ya kina kuhusu mchakato wa usajili wa chombo cha uvuvi katika eneo lako.
+<br>
+<button mat-raised-button color="primary" class="mt-2" (click)="openDialog1(chombo)">SAJILI</button>
+  </mat-card-content>
+</mat-card>
+
+  <!-- Leseni ya Chombo cha Uvuvi -->
+  <ng-template #chombo let-modal>
+    <div class="modal-header">
+      <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+     </div>
+    <div class="modal-body">
+      <div class="mb-2 mt-3">
 
 
 
-<div class=" card container mt-2 mb-3">
-  <div class="m-auto mt-3">
-    <!-- <div class="text-center"><img class="img-fluid" src="../../../../assets/images/nembo1.png" width="200" height="70" ></div> -->
-  <div class="text-center">
-    <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
-    <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
-    <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
-    <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
-  <H5 class="mb-0">Kanuni 12(1)</H5>
-  </div>
-  </div>
 
-       <!-- <div class="">
-        <button mat-button (click)="tabGroup.selectedIndex=1" class="mbele">Nyengine</button>
-       </div> -->
-
-      <!-- </mat-tab> -->
-
-      <form [formGroup]="form1" (ngSubmit)="onSubmit()">
-      <!-- <mat-tab label="Taarifa za chombo"> -->
-        <div class="container mt-4 mb-4">
-          <div class="">
-            <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">JAZA TAARIFA ZA CHOMBO</h2>
-            <div class="container">
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Jina la chombo</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="name_vessel" required>
-                </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Aina ya chombo</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="type_vessel" required>
-                </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Namba ya uwandikishaji</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="no_vessel" required>
-                </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Urefu wa chombo</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="meter" required>
-                </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Idadi ya wavuvi</label>
-                <div class="col-sm-10">
-                  <input type="number" class="form-control" formControlName="no_people" required>
-                </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Njia ya uwendeshaji</label>
-                <div class="col-sm-10">
-                  <input type="text" class="form-control" formControlName="ways" required>
-                </div>
-              </div>
-<!-- 
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Tarehe</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control" formControlName="date_in" required>
-                </div>
-              </div>
-
-              <div class="mb-3 row has-validation">
-                <label class="col-sm-2 col-form-label">Tarehe</label>
-                <div class="col-sm-10">
-                  <input type="date" class="form-control" formControlName="date_out" required>
-                </div>
-              </div> -->
-
-            </div>
+        <div class=" mt-2 mb-3">
+          <!-- <div class="m-auto mt-3">
+          <div class="text-center">
+            <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
+            <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
+            <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
+            <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
+          <H5 class="mb-0">Kanuni 12(1)</H5>
           </div>
+          </div> -->
+        
+               <!-- <div class="">
+                <button mat-button (click)="tabGroup.selectedIndex=1" class="mbele">Nyengine</button>
+               </div> -->
+        
+              <!-- </mat-tab> -->
+        
+              <form (ngSubmit)="onSubmitVessel()">
+              <!-- <mat-tab label="Taarifa za chombo"> -->
+                <div class=" mt-2 mb-2">
+                  <div class="">
+                    <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">JAZA TAARIFA ZA CHOMBO</h2>
+                    <div class="">
+        
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-6 col-form-label">Jina la chombo</label>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control" [(ngModel)]="vessel_model.name_vessel" name="name_vessel" required>
+                        </div>
+                      </div>
+        
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-6 col-form-label">Aina ya chombo</label>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control" [(ngModel)]="vessel_model.type_vessel" name="type_vessel" required>
+                        </div>
+                      </div>
+        
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-6 col-form-label">Namba ya uwandikishaji</label>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control" [(ngModel)]="vessel_model.no_vessel" name="no_vessel" required>
+                        </div>
+                      </div>
+        
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-6 col-form-label">Urefu wa chombo</label>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control" [(ngModel)]="vessel_model.meter" name="meter" required>
+                        </div>
+                      </div>
+        
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-6 col-form-label">Idadi ya wavuvi</label>
+                        <div class="col-sm-12">
+                          <input type="number" class="form-control" [(ngModel)]="vessel_model.no_people" name="no_people" required>
+                        </div>
+                      </div>
+        
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-6 col-form-label">Njia ya uwendeshaji</label>
+                        <div class="col-sm-12">
+                          <input type="text" class="form-control" [(ngModel)]="vessel_model.ways" name="ways" required>
+                        </div>
+                      </div>
+        <!-- 
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-2 col-form-label">Tarehe</label>
+                        <div class="col-sm-10">
+                          <input type="date" class="form-control" formControlName="date_in" required>
+                        </div>
+                      </div>
+        
+                      <div class="mb-3 row has-validation">
+                        <label class="col-sm-2 col-form-label">Tarehe</label>
+                        <div class="col-sm-10">
+                          <input type="date" class="form-control" formControlName="date_out" required>
+                        </div>
+                      </div> -->
+        
+                    </div>
+                  </div>
+                </div>
+             
+        
+                <!-- <div class="">
+                  <button mat-button  (click)="tabGroup.selectedIndex=1" class="Rudi">Rudi</button>
+                  <button mat-button  (click)="tabGroup.selectedIndex=3" class="mbele">Nyengine</button>
+                 </div> -->
+              <!-- </mat-tab> -->
+        
+        
+              <!-- <mat-tab label="Malipo "> -->
+                
+                  <div class=" mt-1 mb-0">
+                    <div class=" mt-5">
+                      <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 10px; margin-top: 100px;">MALIPO HUSIKA</h2>
+                      <DIV class="">
+          
+                        <div class="mb-3 row has-validation">
+                          <label class="col-sm-6 col-form-label">Jina la Akaunti</label>
+                          <div class="col-sm-12">
+                            <input type="text" class="form-control" [(ngModel)]="payment_vessel_model.acc_name" name="acc_name" required>
+                          </div>
+                        </div>
+          
+          
+                        <div class="mb-3 row has-validation">
+                          <label class="col-sm-6 col-form-label">Nambari ya Risiti</label>
+                          <div class="col-sm-12">
+                            <input type="number" class="form-control" [(ngModel)]="payment_vessel_model.receipt_no" name="receipt_no" required>
+                          </div>
+                        </div>
+          
+                        <div class="mb-3 row has-validation">
+                          <label class="col-sm-6 col-form-label">Tarehe ulofanyika muamala</label>
+                          <div class="col-sm-12">
+                            <input type="date" class="form-control" [(ngModel)]="payment_vessel_model.date" name="date" required>
+                          </div>
+                        </div>
+          
+                        <!-- <div class="mb-3 row has-validation">
+                          <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
+                          <div class="col-sm-10">
+                            <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="receipt_image" required>
+                          </div>
+                        </div>
+          
+                        <div id="display_image" class="img-fluid" >
+                          <img [src]="imageRisiti" >
+                        </div> -->
+          
+                       <div class="text-center mb-3 mt-3">
+                        <button class="btn btn-primary"> Wasilisha Taarifa</button>
+                       </div>
+          
+                      </DIV>
+                    </div>
+                  </div>
+                </form>
+        
+                <!-- <div class="">
+                  <button mat-button  (click)="tabGroup.selectedIndex=2" class="nyuma">Rudi</button>
+                 </div> -->
+              <!-- </mat-tab> -->
+        
+              
+        
+            <!-- </mat-tab-group> -->
+        
         </div>
-      </form>
-
-        <!-- <div class="">
-          <button mat-button  (click)="tabGroup.selectedIndex=1" class="Rudi">Rudi</button>
-          <button mat-button  (click)="tabGroup.selectedIndex=3" class="mbele">Nyengine</button>
-         </div> -->
-      <!-- </mat-tab> -->
-
-
-      <!-- <mat-tab label="Malipo "> -->
-        <form [formGroup]="form1">
-          <div class="container mt-4 mb-3">
-            <div class=" mt-5">
-              <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">MALIPO HUSIKA</h2>
-              <DIV class="container">
-  
-                <div class="mb-3 row has-validation">
-                  <label class="col-sm-2 col-form-label">Jina la Akaunti</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" formControlName="acc_name" required>
-                  </div>
-                </div>
-  
-                <div class="mb-3 row has-validation">
-                  <label class="col-sm-2 col-form-label">Nambari ya Akanti</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" formControlName="acc_no" required>
-                  </div>
-                </div>
-  
-                <div class="mb-3 row has-validation">
-                  <label class="col-sm-2 col-form-label">Nambari ya Risiti</label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" formControlName="receipt_no" required>
-                  </div>
-                </div>
-  
-                <div class="mb-3 row has-validation">
-                  <label class="col-sm-2 col-form-label">Tarehe ulofanyika muamala</label>
-                  <div class="col-sm-10">
-                    <input type="date" class="form-control" formControlName="date" required>
-                  </div>
-                </div>
-  
-                <!-- <div class="mb-3 row has-validation">
-                  <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
-                  <div class="col-sm-10">
-                    <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="receipt_image" required>
-                  </div>
-                </div>
-  
-                <div id="display_image" class="img-fluid" >
-                  <img [src]="imageRisiti" >
-                </div> -->
-  
-               <div class="text-center mb-3 mt-3">
-                <button class="btn btn-primary" [disabled]="form1.invalid" (click)="onSubmit()"> Wasilisha Taarifa</button>
-               </div>
-  
-              </DIV>
-            </div>
-          </div>
-        </form>
-
-        <!-- <div class="">
-          <button mat-button  (click)="tabGroup.selectedIndex=2" class="nyuma">Rudi</button>
-         </div> -->
-      <!-- </mat-tab> -->
-
-      
-
-    <!-- </mat-tab-group> -->
-
-</div>
-</div>
+        </div>
+    </div>
+  </ng-template>

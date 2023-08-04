@@ -17,7 +17,6 @@ import { User } from 'src/app/Model/User';
 export class ViewUserComponent implements OnInit {
   id!: number
   user: any;
-  form!: FormGroup;
   
   constructor(private route:ActivatedRoute,
     private userService: UserService,
@@ -33,9 +32,9 @@ export class ViewUserComponent implements OnInit {
     this.user = response;
    })
 
-   this.form = new FormGroup({
-    leader : new FormControl (null,[Validators.required])
-   }) 
+  //  this.form = new FormGroup({
+  //   leader : new FormControl (null,[Validators.required])
+  //  }) 
   }
 
   openDialog(id:number) {
@@ -61,11 +60,11 @@ export class ViewUserComponent implements OnInit {
     });
   }
   save(){
-    var value = this.form.value;
-    this.userService.update(this.id, this.form.value).subscribe(responser => {
-      console.log("the update is => ", responser)
-      
-    })
+    this.userService.updateleader(this.id,this.user).subscribe(
+      response => {
+        console.log(response);
+      }
+    )
   }
 
 

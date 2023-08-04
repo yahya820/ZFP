@@ -53,6 +53,10 @@ import { MfanoiDComponent } from './Services/mfanoi-d/mfanoi-d.component';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentFishermanComponent } from './Admin/pages/payment-fisherman/payment-fisherman.component';
 import { PaymentVesselComponent } from './Admin/pages/payment-vessel/payment-vessel.component';
+import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
+import { SeaweedInfoComponent } from './User/Pages/seaweed-info/seaweed-info.component';
+import { LawsComponent } from './User/Pages/laws/laws.component';
+import { VesselManyComponent } from './User/Pages/vessel-many/vessel-many.component';
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -94,11 +98,15 @@ import { PaymentVesselComponent } from './Admin/pages/payment-vessel/payment-ves
     MfanoiDComponent,
     PaymentFishermanComponent,
     PaymentVesselComponent,
+    SeaweedInfoComponent,
+    LawsComponent,
+    VesselManyComponent,
 
 
 
   ],
   imports: [
+    NgbAccordionModule,
     NgbDropdownModule,
     NgxPrintModule,
     HttpClientModule,

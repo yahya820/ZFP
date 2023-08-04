@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-view-fisher',
@@ -17,7 +18,8 @@ export class ViewFisherComponent {
   id!:number
 
   constructor(public dialog: MatDialog,private router:Router,private paymentService:PaymentService,
-  private route:ActivatedRoute,private fishermanService:FishermanService) { }
+  private route:ActivatedRoute,private fishermanService:FishermanService,
+  private modalService: NgbModal,) { }
 
     ngOnInit(){
       this.fetchAll();
@@ -54,4 +56,15 @@ export class ViewFisherComponent {
     this.router.navigate(["/admin/card_fisher"]);
   }
 
+  openBackDropCustomClass(tempa: any) {
+        this.modalService.open(tempa, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+  }
+onSubmit_fisherman(){
+  const fisher_id = this.fisherman1.fisherman_id
+  this.fishermanService.update(fisher_id,this.fisherman1).subscribe(
+    response => {
+      console.log(response);
+    }
+  )
+}
 }

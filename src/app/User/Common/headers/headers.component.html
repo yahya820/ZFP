@@ -53,11 +53,11 @@
           <div class="content">
             <div class="logo"><a href="">Mfumo wa Uvuvi Zanzibar</a></div>
             <ul class="links">
-              <li><a (click)="close()" routerLink="" (click)="openBackDropCustomClass(tempa)">Mvuvi</a></li>
-              <li><a routerLink="" (click)="openDialog1(chombo)">Chombo cha Mvuvi</a></li>
-              <li><a (click)="mwaniOpen()">mwani</a></li>
-              <li (click)="scroll()"><a  >Sheria</a></li>
-              <li><a routerLink="/contact" >Mawasiliano</a></li>
+              <li><a (click)="close()" routerLink="/tabs_fisher" >Mvuvi</a></li>
+              <li><a routerLink="/tabs_vessel">Chombo cha Mvuvi</a></li>
+              <li><a routerLink="/seaweed_info">mwani</a></li>
+              <li (click)="scroll()"><a routerLink="/laws" >Sheria</a></li>
+              <li><a routerLink="/contact">Mawasiliano</a></li>
               <li><a routerLink="" >Taarifa</a></li>
             </ul>
           </div>
@@ -90,11 +90,11 @@
   <div class="content">
     <div class="logo"><a href="" (click)="offcanvas.close('cross click')">Mfumo wa Uvuvi Zanzibar</a></div>
     <ul class="links">
-      <li><a routerLink="" (click)="openBackDropCustomClass(tempa)" (click)="offcanvas.close('cross click')">Mvuvi</a></li>
-      <li><a routerLink="" (click)="openDialog1(chombo)" (click)="offcanvas.close('cross click')">Chombo cha Mvuvi</a></li>
-      <li><a routerLink="" (click)="offcanvas.close('cross click')">mwani</a></li>
-      <li><a routerLink="" (click)="offcanvas.close('cross click')">Sheria</a></li>
-      <li><a routerLink="" (click)="offcanvas.close('cross click')">Mawasiliano</a></li>
+      <li><a routerLink="/tabs_fisher" (click)="offcanvas.close('cross click')">Mvuvi</a></li>
+      <li><a routerLink="/tabs_vessel" (click)="offcanvas.close('cross click')">Chombo cha Mvuvi</a></li>
+      <li><a routerLink="/seaweed_info" (click)="offcanvas.close('cross click')">mwani</a></li>
+      <li><a routerLink="/laws" (click)="offcanvas.close('cross click')">Sheria</a></li>
+      <li><a routerLink="/contact" (click)="offcanvas.close('cross click')">Mawasiliano</a></li>
       <li><a routerLink="" (click)="offcanvas.close('cross click')">Taarifa</a></li>
     </ul>
   </div>
@@ -102,279 +102,9 @@
 
     <!-- Leseni ya Mvuvi -->
 
-        <ng-template #tempa let-modal  >
-         <div class="modal-header">
-          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-         </div>
-          <div class="mt-2">
-            <mat-tab-group class="hid">
-              <form>
-              <mat-tab label="Leseni ya Uvuvi" class="modal">
-                <div class="container mt-1 mb-1">
-                 <div class="car">
-          
-          
-                  <h2 style="text-decoration:underline;  text-align: center; margin-top:10px ;">JAZA TAARIFA HUSIKA</h2>
-                  <div class="container">
-          
-                    <!-- <div class="text-center mb-5">
-                      <div id="display_image" >
-                        <img [src]="imageSrc" width="150">
-                      </div>
-          
-                      <div class="mb-3 row has-validation">
-                        <div class="mt-3">
-                          <label for="inputFile" style="margin-right:15px">Weka picha yako</label>
-                          <label for="inputFile"  >Badilisha picha yako</label>
-                          <input hidden (change)="displayImage($event)" type="file" id="inputFile" formControlName="image">
-                        </div>
-                      </div>
-                    </div> -->
-                    
-                    <div class="example-container">
-                      <mat-form-field appearance="outline" class="w-100 mt-2">
-                        <mat-label>Diko unalotumia</mat-label>
-                        <input matInput type="text" [(ngModel)]="fisherman_model.diko_usage" name="diko_usage" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                      </mat-form-field>
-                    </div>
-          
-                    <div class="example-container">
-                      <mat-form-field appearance="outline" class="w-100 mt-2">
-                        <mat-label>Njia ya Uwendeshaji</mat-label>
-                        <input matInput type="text" [(ngModel)]="fisherman_model.ways" name="ways" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                      </mat-form-field>
-                    </div>
-
-                    <div class="example-container">
-                      <mat-form-field appearance="outline" class="w-100 mt-2">
-                        <mat-label>Aina ya Uvuvi</mat-label>
-                        <input matInput type="text" [(ngModel)]="fisherman_model.type" name="ways" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                      </mat-form-field>
-                    </div>
-
-                    <div class="example-container">
-                      <mat-form-field appearance="outline" class="w-100 mt-2">
-                        <mat-label>Urefu wa chombo unachoendesha</mat-label>
-                        <input matInput type="text" [(ngModel)]="fisherman_model.meter" name="meter" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-                      </mat-form-field>
-                    </div>
-                 </div>
-                </div>
-                </div>
-          
-                 </mat-tab>
-                 <!-- </form>
-          <form> -->
-              <mat-tab label="Malipo ">
-                <div class="container mt-4 mb-3">
-                  <div class="car mt-5">
-                    <DIV class="container">
-          
-                      <div class="mb-3 row has-validation container">
-                        <label class="col-sm-6 col-form-label mb-0 ">Akaunti Bank</label>
-                         <select type="text" class="form-control" [(ngModel)]="payment_fisherman_model.acc_name" name="acc_name" required>
-                          <option value="People Bank Of Zanzibar - (PBZ)">People Bank Of Zanzibar - (PBZ)</option>
-                          <!-- <option value="">Wali</option> -->
-                        </select>
-                      </div>
-
-                      <div class="mb-3 row has-validation container">
-                        <label class="col-sm-6 col-form-label ">Risiti Namba</label>
-                         <input class="form-control" [(ngModel)]="payment_fisherman_model.receipt_no" name="receipt_no" type="number">
-                      </div>
-
-                      <div class="mb-3 row has-validation container">
-                        <label class="col-sm-6 col-form-label ">Akaunti Bank</label>
-                         <input type="date" [(ngModel)]="payment_fisherman_model.date" name="date" class="form-control">
-                      </div>
-                     <div class="text-center mb-3 mt-3">
-                      <button class="btn btn-primary" (click)="onSubmit_fisherman()"> Wasilisha Taarifa</button>
-                     </div>
-          
-                    </DIV>
-                  </div>
-                </div>
-              </mat-tab>
-          
-              </form>
-          
-            </mat-tab-group>
-          
-          </div>
 
 
-        </ng-template>
-
-
-        <!-- Leseni ya Chombo cha Uvuvi -->
-        <ng-template #chombo let-modal>
-          <div class="modal-header">
-            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-           </div>
-          <div class="modal-body">
-            <div class="mb-2 mt-3">
- 
-
-
-
-              <div class=" mt-2 mb-3">
-                <!-- <div class="m-auto mt-3">
-                <div class="text-center">
-                  <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
-                  <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
-                  <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
-                  <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
-                <H5 class="mb-0">Kanuni 12(1)</H5>
-                </div>
-                </div> -->
-              
-                     <!-- <div class="">
-                      <button mat-button (click)="tabGroup.selectedIndex=1" class="mbele">Nyengine</button>
-                     </div> -->
-              
-                    <!-- </mat-tab> -->
-              
-                    <form (ngSubmit)="onSubmitVessel()">
-                    <!-- <mat-tab label="Taarifa za chombo"> -->
-                      <div class=" mt-2 mb-2">
-                        <div class="">
-                          <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px;">JAZA TAARIFA ZA CHOMBO</h2>
-                          <div class="">
-              
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-6 col-form-label">Jina la chombo</label>
-                              <div class="col-sm-12">
-                                <input type="text" class="form-control" [(ngModel)]="vessel_model.name_vessel" name="name_vessel" required>
-                              </div>
-                            </div>
-              
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-6 col-form-label">Aina ya chombo</label>
-                              <div class="col-sm-12">
-                                <input type="text" class="form-control" [(ngModel)]="vessel_model.type_vessel" name="type_vessel" required>
-                              </div>
-                            </div>
-              
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-6 col-form-label">Namba ya uwandikishaji</label>
-                              <div class="col-sm-12">
-                                <input type="text" class="form-control" [(ngModel)]="vessel_model.no_vessel" name="no_vessel" required>
-                              </div>
-                            </div>
-              
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-6 col-form-label">Urefu wa chombo</label>
-                              <div class="col-sm-12">
-                                <input type="text" class="form-control" [(ngModel)]="vessel_model.meter" name="meter" required>
-                              </div>
-                            </div>
-              
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-6 col-form-label">Idadi ya wavuvi</label>
-                              <div class="col-sm-12">
-                                <input type="number" class="form-control" [(ngModel)]="vessel_model.no_people" name="no_people" required>
-                              </div>
-                            </div>
-              
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-6 col-form-label">Njia ya uwendeshaji</label>
-                              <div class="col-sm-12">
-                                <input type="text" class="form-control" [(ngModel)]="vessel_model.ways" name="ways" required>
-                              </div>
-                            </div>
-              <!-- 
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-2 col-form-label">Tarehe</label>
-                              <div class="col-sm-10">
-                                <input type="date" class="form-control" formControlName="date_in" required>
-                              </div>
-                            </div>
-              
-                            <div class="mb-3 row has-validation">
-                              <label class="col-sm-2 col-form-label">Tarehe</label>
-                              <div class="col-sm-10">
-                                <input type="date" class="form-control" formControlName="date_out" required>
-                              </div>
-                            </div> -->
-              
-                          </div>
-                        </div>
-                      </div>
-                   
-              
-                      <!-- <div class="">
-                        <button mat-button  (click)="tabGroup.selectedIndex=1" class="Rudi">Rudi</button>
-                        <button mat-button  (click)="tabGroup.selectedIndex=3" class="mbele">Nyengine</button>
-                       </div> -->
-                    <!-- </mat-tab> -->
-              
-              
-                    <!-- <mat-tab label="Malipo "> -->
-                      
-                        <div class=" mt-1 mb-0">
-                          <div class=" mt-5">
-                            <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 10px; margin-top: 100px;">MALIPO HUSIKA</h2>
-                            <DIV class="">
-                
-                              <div class="mb-3 row has-validation">
-                                <label class="col-sm-6 col-form-label">Jina la Akaunti</label>
-                                <div class="col-sm-12">
-                                  <input type="text" class="form-control" [(ngModel)]="payment_vessel_model.acc_name" name="acc_name" required>
-                                </div>
-                              </div>
-                
-                
-                              <div class="mb-3 row has-validation">
-                                <label class="col-sm-6 col-form-label">Nambari ya Risiti</label>
-                                <div class="col-sm-12">
-                                  <input type="number" class="form-control" [(ngModel)]="payment_vessel_model.receipt_no" name="receipt_no" required>
-                                </div>
-                              </div>
-                
-                              <div class="mb-3 row has-validation">
-                                <label class="col-sm-6 col-form-label">Tarehe ulofanyika muamala</label>
-                                <div class="col-sm-12">
-                                  <input type="date" class="form-control" [(ngModel)]="payment_vessel_model.date" name="date" required>
-                                </div>
-                              </div>
-                
-                              <!-- <div class="mb-3 row has-validation">
-                                <label class="col-sm-2 col-form-label">Weka picha ya Risiti</label>
-                                <div class="col-sm-10">
-                                  <input (change)="displayRisiti($event)" type="file" class="form-control" formControlName="receipt_image" required>
-                                </div>
-                              </div>
-                
-                              <div id="display_image" class="img-fluid" >
-                                <img [src]="imageRisiti" >
-                              </div> -->
-                
-                             <div class="text-center mb-3 mt-3">
-                              <button class="btn btn-primary"> Wasilisha Taarifa</button>
-                             </div>
-                
-                            </DIV>
-                          </div>
-                        </div>
-                      </form>
-              
-                      <!-- <div class="">
-                        <button mat-button  (click)="tabGroup.selectedIndex=2" class="nyuma">Rudi</button>
-                       </div> -->
-                    <!-- </mat-tab> -->
-              
-                    
-              
-                  <!-- </mat-tab-group> -->
-              
-              </div>
-              </div>
-          </div>
-        </ng-template>
+      
 
 
 

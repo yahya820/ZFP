@@ -7,33 +7,33 @@
                   <div class="row about-list">
                       <div class="col-md-6">
                           <div class="media">
-                              <p><label>Kitambulisho</label><span style="margin-left: 20px;">{{fisherman1?.user.identity}}</span></p>
+                              <p><label>Kitambulisho</label><span style="margin-left: 20px;">{{fisherman1?.identity}}</span></p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Miaka</label>{{fisherman1?.user.age}} </p>
+                              <p><label>Miaka</label>{{fisherman1?.age}} </p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Taifa</label>{{fisherman1?.user.nationality}}</p>
+                              <p><label>Taifa</label>{{fisherman1?.nationality}}</p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Mahali</label>{{fisherman1?.user.address}}</p>
+                              <p><label>Mahali</label>{{fisherman1?.address}}</p>
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="media">
                               
-                              <p><label>Namba ya Simu</label>{{fisherman1?.user.phone}}</p>
+                              <p><label>Namba ya Simu</label>{{fisherman1?.phone}}</p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Jinsia</label>{{fisherman1?.user.sex}}</p>
+                              <p><label>Jinsia</label>{{fisherman1?.sex}}</p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Kazi</label>{{fisherman1?.user.work}}</p>
+                              <p><label>Kazi</label>{{fisherman1?.work}}</p>
                           </div>
                       </div>
                   </div>
@@ -42,33 +42,44 @@
           <div class="col-lg-6">
               <div class="about-avatar">
                   <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt=""> -->
-                  <p>{{fisherman1?.user.name}}</p>
-                  <p>{{fisherman1?.user.email}}</p>
+                  <p>{{fisherman1?.name}}</p>
+                  <p>{{fisherman1?.email}}</p>
               </div>
           </div>
       </div>
       <div class="counter">
           <div class="row">
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
+              <div class="col">
+                  <div class=" text-center">
                       <h3>Njia unayotumia</h3>
-                      <p class="m-0px font-w-600">{{fisherman1?.ways}}</p>
+                      <p class="mb-0 font-w-600">{{fisherman1?.ways}}</p>
                   </div>
               </div>
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
+              <div class="col">
+                  <div class=" text-center">
                       <h3>Diko unalotumia</h3>
-                      <p class="m-0px font-w-600">{{fisherman1?.diko_usage}}</p>
+                      <p class="mb-0 font-w-600">{{fisherman1?.diko_usage}}</p>
                   </div>
               </div>
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
+              <div class="col">
+                <div class=" text-center">
+                    <h3>Aina ya uvuvi</h3>
+                    <p class="mb-0 font-w-600">{{fisherman1?.type}}</p>
+                </div>
+            </div><div class="col">
+              <div class="text-center">
+                  <h3>Mita</h3>
+                  <p class="mb-0 font-w-600">{{fisherman1?.meter}}</p>
+              </div>
+          </div>
+              <div class="col">
+                  <div class=" text-center">
                       <h3>Tarehe ya Kuanza</h3>
-                      <p class="m-0px font-w-600">{{fisherman1?.start_date}}</p>
+                      <p class="mb-0 font-w-600">{{fisherman1?.start_date}}</p>
                   </div>
               </div>
-              <div class="col-6 col-lg-3">
-                  <div class="count-data text-center">
+              <div class="col">
+                  <div class="text-center">
                       <h3>Terehe ya kuisha</h3>
                       <p class="mb-0">{{fisherman1?.finish_date}}</p>
                   </div>
@@ -80,11 +91,8 @@
   </div> 
   <button
           style="float: right; margin-right: 20px;"
-          styleSheetFile="../../../assets/css/print.css" 
-          printTitle="List of Enrollment" 
-          printSectionId="content"
-          ngxPrint 
           class="btn btn-success btn-lg"
+          (click)="openBackDropCustomClass(tempa)"
           > Badilisha</button><br><br>
   </div>
 
@@ -153,3 +161,97 @@
     </div>
     
 </section>
+
+<ng-template #tempa let-modal class="w-75"  >
+  <div class="modal-header">
+   <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+   <div class="mt-2">
+       <form>
+         <div class="containe mt-1 mb-1">
+          <div class="ca">
+   
+   
+           <h2 style="text-decoration:underline;  text-align: center; margin-top:10px ;">BADILISHA TAARIFA</h2>
+           <div class="container-fluid">
+             
+            <div class="row">
+              <div class="col">
+                <div class="example-container">
+                  <mat-form-field appearance="outline" class="w-100 mt-2">
+                    <mat-label>Diko unalotumia</mat-label>
+                    <input matInput type="text" [(ngModel)]="fisherman1.diko_usage" name="diko_usage" required>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col">
+                <div class="example-container">
+                  <mat-form-field appearance="outline" class="w-100 mt-2">
+                    <mat-label>Njia ya Uwendeshaji</mat-label>
+                    <input matInput type="text" [(ngModel)]="fisherman1.ways" name="ways" required>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row">
+              <div class="col">
+                <div class="example-container">
+                  <mat-form-field appearance="outline" class="w-100 mt-2">
+                    <mat-label>Aina ya Uvuvi</mat-label>
+                    <input matInput type="text" [(ngModel)]="fisherman1.type" name="type" required>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="col">
+                <div class="example-container">
+                  <mat-form-field appearance="outline" class="w-100 mt-2">
+                    <mat-label>Urefu wa chombo unachoendesha</mat-label>
+                    <input matInput type="text" [(ngModel)]="fisherman1.meter" name="meter" required>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+             
+            <div class="row">
+              <div class="col">   
+             <div class="example-container">
+              <mat-form-field appearance="outline" class="w-100 mt-2">
+                <mat-label>Tarehe ya Kuanza Leseni</mat-label>
+                <input matInput type="date" [(ngModel)]="fisherman1.start_date" name="start_date" required>
+                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+              </mat-form-field>
+            </div>
+              </div>
+              <div class="col">
+                <div class="example-container">
+                  <mat-form-field appearance="outline" class="w-100 mt-2">
+                    <mat-label>Tarehe ya Kuisha Leseni</mat-label>
+                    <input matInput type="date" [(ngModel)]="fisherman1.finish_date" name="finish_date" required>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                </div>
+              </div>
+            </div>
+            
+
+             
+
+             
+            
+          </div>
+         </div>
+         </div>
+              <div class="text-center mb-3 mt-3">
+               <button class="btn btn-primary" (click)="onSubmit_fisherman()" (click)="modal.dismiss('Cross click')"> Wasilisha Taarifa</button>
+              </div>
+       </form>
+   
+   </div>
+
+
+ </ng-template>

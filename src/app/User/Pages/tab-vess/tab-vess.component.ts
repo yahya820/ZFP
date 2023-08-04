@@ -2,8 +2,12 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatTabGroup } from '@angular/material/tabs';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { PaymentVessel } from 'src/app/Model/PaymentVessel';
+import { Vessel } from 'src/app/Model/Vessel';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
+import { ModelGuard } from 'src/app/common/model_guard/model.guard';
 
 @Component({
   selector: 'app-tab-vess',
@@ -11,13 +15,18 @@ import { VesselService } from 'src/app/Services/vessel/vessel.service';
   styleUrls: ['./tab-vess.component.scss']
 })
 export class TabVessComponent implements OnInit {
+  vessel_model : Vessel =  new Vessel();
+  payment_vessel_model : PaymentVessel = new PaymentVessel();
   form1!:FormGroup;
   imageSrc! : String;
   imageRisiti! : String;
 
   constructor(private router:Router,
   private paymentService: PaymentService,
-  private vesslService : VesselService){}
+  private vesslService : VesselService,
+  private modalService: NgbModal,
+  private auth:ModelGuard,
+  ){}
 
   @ViewChild(MatTabGroup)
   tabGroup!: MatTabGroup;
@@ -63,7 +72,16 @@ export class TabVessComponent implements OnInit {
       // receipt_image : new FormControl(null,[Validators.required])
      })
   }
-      // malipo
+  onSubmitVessel(){
+
+  }
+  openDialog1(chombo:any) {
+    // if(this.auth.canActivate()){
+      this.modalService.open(chombo, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+    // }else{
+    //   // this.openDialog();
+    // }
+  }
     
 
   

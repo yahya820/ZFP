@@ -24,16 +24,19 @@ export class PaymentFishermanComponent {
   }
   printTable() {
     let DATA: any = document.getElementById('htmlData');
-      // html2canvas(DATA).then((canvas) => {
-      //   let fileWidth = 208;
-      //   let fileHeight = (canvas.height * fileWidth) / canvas.width;
-      //   const FILEURI = canvas.toDataURL('image/png');
+      html2canvas(DATA).then((canvas) => {
+        let fileWidth = 208;
+        let fileHeight = (canvas.height * fileWidth) / canvas.width;
+        const FILEURI = canvas.toDataURL('image/png');
+
+      
+
         let PDF = new jsPDF('p', 'mm', 'a4');
-        // let position = 0;
+        let position = 0;
         PDF.text("thi is my time", 14 , 20);
-        // PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+        PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
         PDF.save('angular-demo.pdf');
-      // });
+      });
   }
   
 
