@@ -1,10 +1,12 @@
 export class Algae {
-    algaeId!: number;
-    no_farm!: number;
-    no_men!: number;
-    no_women!: number;
-    hector!: number;
-    tones!: number;
-    type!: number;
-    date!: Date;
+    algaeId:any;
+    no_farm:any;
+    no_men:any;
+    no_women:any;
+    hector:any;
+    tones:any;
+    type:any;
+    date!: any;
+
+    locationid:any
 }

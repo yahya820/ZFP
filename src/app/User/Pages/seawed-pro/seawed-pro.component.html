@@ -1,15 +1,117 @@
-<!-- <div *ngif="alert" class=" container mt-5 alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Ingia Namba Sahihi ya Uongozi!</strong> 
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div> -->
 
-  <div class="card bg-light container">
-    <form [formGroup]="form" >
-        <label>Ingiza Namba Ya Uongozi</label>
-        <br>
-        <input type="text" class="containter form-control" formControlName="number"/>
-        <br>
-        <button [disabled]="form.invalid" class="btn btn-primary" (click)="onSubmit()">Ingia</button>
-    </form>
-</div>
-<router-outlet></router-outlet>
+<div class="container">
+      <div class="row justify-content-sm-center">
+          <div class="col col-lg-6">
+      <div class="container mt-2 mb-3 m-auto">
+          <div class="card">
+           
+                <h2 style="text-decoration:underline;  text-align: center; margin-bottom: 50px; margin-top: 50px;">TAARIFA ZA MWANI</h2>
+          
+                <!-- <div class="container row">
+                  <div class="col-md-12">
+                      <div *ngIf=message>{{message}}</div>
+                  </div>
+              </div> -->
+  
+                <form>
+              <div class="container">
+                  <!-- <div class="text-center mb-5">
+                    <div id="display_image" >
+                      <img [src]="imageSrc" width="150">
+                    </div>
+        
+                    <div class="mb-3 row has-validation">
+                      <div class="mt-3">
+                        <label for="inputFile" style="margin-right:15px">Weka picha yako</label>
+                        <label for="inputFile"  >Badilisha picha yako</label>
+                        <input hidden (change)="displayImage($event)" type="file" id="inputFile" formControlName="image">
+                      </div>
+                    </div>
+                  </div> -->
+       
+                  <div class="row">
+                    <div class="col">
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" class="w-100 ">
+                          <mat-label>Idadi ya Wakulima Jumla</mat-label>
+                          <input matInput type="number" [(ngModel)]="algae_model.no_farm" name="no_farm" required>
+                          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" class="w-100">
+                          <mat-label>Heka</mat-label>
+                          <input matInput type="number" [(ngModel)]="algae_model.hector" name="hector" required>
+                          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+  
+                 <h3 style="text-align: center; margin-top: 20px;">Idadi ya Wakulima</h3>
+  
+                  <div class="row">
+                    <div class="col">
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" class="w-100">
+                          <mat-label>Wanaume</mat-label>
+                          <input matInput type="number" [(ngModel)]="algae_model.no_men" name="no_men" required>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" class="w-100">
+                          <mat-label>Wanawake</mat-label>
+                          <input matInput type="number" [(ngModel)]="algae_model.no_women" name="no_women" required>
+                          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+                   <h3 style="text-align: center; margin-top: 20px;">Uzalishaji kwa Tani</h3>
+                  <div class="row">
+                    <div class="col">
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" class="w-100">
+                          <mat-label>Aina ya Mwani</mat-label>
+                          <mat-select type="text" [(ngModel)]="algae_model.type" name="type" required>
+                            <mat-option value="E.spinosum">E.spinosum</mat-option>
+                            <mat-option value="E.cottonii">E.cottonii</mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="example-container">
+                        <mat-form-field appearance="fill" class="w-100">
+                          <mat-label>Tani</mat-label>
+                          <input matInput type="number" [(ngModel)]="algae_model.tones" name="tones" required>
+                          <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        </mat-form-field>
+                      </div>
+                    </div>
+                  </div>
+       
+                  <div class="example-container">
+                    <mat-form-field appearance="outline" class="w-100 mt-2">
+                      <mat-label>tarehe</mat-label>
+                      <input matInput type="date" [(ngModel)]="algae_model.date" name="date" required>
+                      <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                    </mat-form-field>
+                  </div>
+       
+              
+           </div>
+          </form>
+          <button mat-raised-button color="primary" (click)="submit()"  class="container mb-3 w-25" >Jisajili</button>
+         </div>
+         </div>
+      
+              <br />
+              <br />
+          </div>
+      </div>
+  </div>

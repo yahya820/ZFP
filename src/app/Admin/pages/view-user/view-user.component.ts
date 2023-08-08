@@ -8,6 +8,8 @@ import { AdminMessageComponent } from '../admin-message/admin-message.component'
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/Model/User';
+import { MessageService } from 'src/app/Services/message/message.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-view-user',
@@ -17,11 +19,13 @@ import { User } from 'src/app/Model/User';
 export class ViewUserComponent implements OnInit {
   id!: number
   user: any;
+  form!:FormGroup;
   
   constructor(private route:ActivatedRoute,
     private userService: UserService,
     public dialog: MatDialog,
-    private modalService: NgbModal){}
+    private modalService: NgbModal,
+    private messageService:MessageService){}
     @ViewChild('tempa') tempa!:TemplateRef<any>
 
   ngOnInit() {
@@ -32,9 +36,9 @@ export class ViewUserComponent implements OnInit {
     this.user = response;
    })
 
-  //  this.form = new FormGroup({
-  //   leader : new FormControl (null,[Validators.required])
-  //  }) 
+   this.form = new FormGroup({
+    message : new FormControl (null,[Validators.required])
+   }) 
   }
 
   openDialog(id:number) {
@@ -51,6 +55,9 @@ export class ViewUserComponent implements OnInit {
     console.log(this.user);
 
 	}
+  openBackDropCustomClassMessage(message:any) {
+		this.modalService.open(message, { size: 'md', backdropClass: 'light-blue-backdrop' });
+	}
 
   openDialog1() {
     const dialogRef = this.dialog.open(AdminMessageComponent);
@@ -65,6 +72,16 @@ export class ViewUserComponent implements OnInit {
         console.log(response);
       }
     )
+  }
+  submitMessage(){
+    this.messageService.add(this.id,this.form.value).subscribe(
+      response => {
+        console.log(response);
+      }
+    ),Swal.fire({
+      title: "Ujumbe Umefika kikamilifu",
+      icon : "success"
+    })
   }
 
 

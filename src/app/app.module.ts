@@ -57,6 +57,9 @@ import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
 import { SeaweedInfoComponent } from './User/Pages/seaweed-info/seaweed-info.component';
 import { LawsComponent } from './User/Pages/laws/laws.component';
 import { VesselManyComponent } from './User/Pages/vessel-many/vessel-many.component';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { MessageComponent } from './User/Pages/message/message.component';
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -101,11 +104,14 @@ import { VesselManyComponent } from './User/Pages/vessel-many/vessel-many.compon
     SeaweedInfoComponent,
     LawsComponent,
     VesselManyComponent,
+    MessageComponent,
 
 
 
   ],
   imports: [
+    NgxPaginationModule,
+    MatAutocompleteModule,
     NgbAccordionModule,
     NgbDropdownModule,
     NgxPrintModule,

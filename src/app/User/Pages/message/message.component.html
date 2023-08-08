@@ -1,0 +1,21 @@
+<div class="card">
+    <div class="card-body">
+        <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of message,let x  = index;">
+                  <td>{{ x + 1 }}</td>
+                  <td>{{ item.message }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          
+    </div>
+</div>

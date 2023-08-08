@@ -23,6 +23,20 @@
       Kwa kumalizia, usajili wa mwani mtandaoni ni mfumo wa kidijitali unaoleta tija katika sekta ya ukulima wa mwani. Unachangia katika usimamizi bora wa shughuli za ukulima wa mwani, kuhifadhi mazingira ya pwani, na kuhakikisha kuwa matumizi ya rasilimali za mwani yanakuwa endelevu.
       <br>
         <br><strong style="color: red;">ZINGATIO:</strong> Ni kiongozi pekee ndie anaehusika kujaza taarifa za mwani.
-      <br><button mat-raised-button color="primary" class="mt-2" (click)="mwaniOpen()">SAJILI</button>
+      <br><button mat-raised-button color="primary" class="mt-2" (click)="openSm(content)">SAJILI</button>
     </mat-card-content>
   </mat-card>
+
+  <ng-template #content let-modal>
+    <div class="modal-body">
+      <div class="car  container">
+        <form [formGroup]="form" >
+            <label style="margin-bottom: 5px;">Ingiza Uthibitisho wa Uongozi</label>
+            <br>
+            <input type="text" class="containter form-control" formControlName="number"/>
+            <br>
+            <button [disabled]="form.invalid" class="btn btn-primary" (click)="onSubmit()" (click)="modal.dismiss('Cross click')">Ingia</button>
+        </form>
+    </div>
+    </div>
+  </ng-template>

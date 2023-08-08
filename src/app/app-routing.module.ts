@@ -44,6 +44,7 @@ import { PaymentVesselComponent } from './Admin/pages/payment-vessel/payment-ves
 import { SeaweedInfoComponent } from './User/Pages/seaweed-info/seaweed-info.component';
 import { LawsComponent } from './User/Pages/laws/laws.component';
 import { VesselManyComponent } from './User/Pages/vessel-many/vessel-many.component';
+import { MessageComponent } from './User/Pages/message/message.component';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -70,7 +71,8 @@ const routes: Routes = [
       { path:"seaweed_info", component: SeaweedInfoComponent},
       { path:"laws", component: LawsComponent},
       { path:"vessel_payment", component: VesselManyComponent},
-      { path:"algae", component: AlgaeComponent,canActivate: [AuthGuard]}
+      { path:"algae", component: AlgaeComponent,canActivate: [AuthGuard]},
+      { path:"message", component: MessageComponent,canActivate: [AuthGuard]}
 
     ]
   },

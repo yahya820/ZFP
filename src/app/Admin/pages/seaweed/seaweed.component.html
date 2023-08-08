@@ -17,34 +17,26 @@
         <thead>
           <tr>
             <th>S/No</th>
-            <th>Villages</th>
-            <th>No of Farms</th>
-            <th>Male</th>
-            <th>Female</th>
-            <th>Type of Production</th>
-            <th>Tones</th>
-            <th>Date</th>
+            <th>Kijiji</th>
+            <th>Wakulima</th>
+            <th>Wanaume</th>
+            <th>Wanawake</th>
+            <th>Aina ya Mwani</th>
+            <th>Tani</th>
+            <th>Tarehe</th>
 
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let algaes of algae, let x = index;">
             <td>{{x +1}}</td>
-            <td></td>
+            <td>{{algaes.village}}</td>
             <td>{{algaes.no_farm}}</td>
             <td>{{algaes.no_men}}</td>
             <td>{{algaes.no_women}}</td>
             <td>{{algaes.type}}</td>
             <td>{{algaes.tones}}</td>
-            <td>{{algaes.date}}</td>
-              <!-- <td>1</td>
-              <td>Yahya ali hamid</td>
-              <td>0776944789</td>
-              <td>Kilindi</td> -->
-              <!-- <td>
-              <button  class="btn btn-info" (click)="view(user.userId)">View</button>
-              <button  class="btn btn-danger" (click)="delete(user.userId)">Delete</button>
-            </td> -->
+            <td>{{algaes.date}}</td>  
           </tr>
         </tbody>
 

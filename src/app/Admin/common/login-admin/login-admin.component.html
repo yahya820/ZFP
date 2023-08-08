@@ -1,67 +1,40 @@
-<div style="border-radius: 2px" class="justify-content-sm-center col-md-4 m-auto card">
-    <mat-card class="container">
-      <div style="text-align: center; margin-bottom: 10px; margin-top:10px">
-        <h2 class="mb-0">MFUMO WA UVUVI ZANZIBAR</h2>
-        <h4 class="mb-0">KUINGIA</h4>
-      </div>
-  
-      <mat-card-content class="container  mt-3">
-        <form [formGroup]="form">
-          <div class="row container">
-            <div class="example-container">
-              <mat-form-field appearance="fill" class="w-100">
-                <mat-label>Jina kamili</mat-label>
-                <input matInput formControlName="name" required>
-                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-              </mat-form-field>
-            </div>
-            <div class="example-container">
-              <mat-form-field appearance="fill" class="w-100">
-                <mat-label>Neno la siri</mat-label>
-                <input matInput placeholder="Neno la siri" type="password" formControlName="pass" required>
-                <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
-              </mat-form-field>
-            </div>
+ <div class="centered-container">
+    <div class="card">
+      <div class="card-body">
+        <mat-card class="container">
+          <div style="text-align: center; margin-bottom: 10px; margin-top:10px">
+            <h2 class="mb-0">MFUMO WA UVUVI ZANZIBAR</h2>
+            <h4 class="mb-0">KUINGIA</h4>
           </div>
-        </form>
-        <button type="button" mat-raised-button color="primary"  
-          (click)="Login()"
-          [disabled]="form.invalid"
-          class="mb-3"
-        >Ingia Ndani</button>
-      </mat-card-content>
-      <div class="modal-footer">
-        <div class="footer">
-          <nav>
-            <div class="text-center">
-              <div class="row">
-                <!-- <div class="col-sm-12 col-md-6 col-lg-6">
-                  <a class="mb-0" (click)="modal.close('Close click')">Umesahau Namba ya Siri</a>
-                </div> -->
-                <div class="col">
-                  <!-- <a (click)="register()"(click)="close()">Huna Akaunti? Jisajili Hapa</a> -->
+      
+          <mat-card-content class="container  mt-3">
+            <form [formGroup]="form">
+              <div class="row container">
+                <div class="example-container">
+                  <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Jina kamili</mat-label>
+                    <input matInput formControlName="name" required>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
                 </div>
-                <!-- <div class="text-center maneno">
-                  <a (click)="administrator()" class="mb-0" (click)="modal.close('Close click')">kwa Msimamizi</a>
-                </div> -->
+                <div class="example-container">
+                  <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Neno la siri</mat-label>
+                    <input matInput placeholder="Neno la siri" type="password" formControlName="pass" required>
+                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                  </mat-form-field>
+                </div>
               </div>
-            </div>
-          </nav>
-        </div>
+            </form>
+            <button type="button" mat-raised-button color="primary"  
+              (click)="Login()"
+              [disabled]="form.invalid"
+              class="mb-3"
+            >Ingia Ndani</button>
+          </mat-card-content>
+        </mat-card>
       </div>
-    </mat-card>
+    </div>
   </div>
   
   
-  <!-- <ng-template #content let-modal>
-      <div class="modal-header">
-          <h4 class="modal-title">Modal title</h4>
-          <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
-      </div>
-      <div class="modal-body">
-          <p>One fine body&hellip;</p>
-      </div>
-      <div class="modal-footer">
-          <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
-      </div>
-  </ng-template> -->

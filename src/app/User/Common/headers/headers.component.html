@@ -31,7 +31,7 @@
           <div class="text-center">
              <img class="img-fluid" src="../../../../assets/images/nembo1.png" width="100" height="50">
             <!-- <h2 class="mb-0">MFUMO WA UVUVI ZANZIBAR</h2> -->
-            <H3>WIZARA YA KILIMO UMWAGILIAJI MALIASILI NA MIFUGO</H3>
+            <H3>WIZARA YA UCHUMI WA BLUU NA UVUVI</H3>
           </div>
         </div>
       </div>
@@ -58,7 +58,7 @@
               <li><a routerLink="/seaweed_info">mwani</a></li>
               <li (click)="scroll()"><a routerLink="/laws" >Sheria</a></li>
               <li><a routerLink="/contact">Mawasiliano</a></li>
-              <li><a routerLink="" >Taarifa</a></li>
+              <li *ngIf="username"><a routerLink="/message" >Taarifa</a></li>
             </ul>
           </div>
         </nav>
@@ -95,7 +95,7 @@
       <li><a routerLink="/seaweed_info" (click)="offcanvas.close('cross click')">mwani</a></li>
       <li><a routerLink="/laws" (click)="offcanvas.close('cross click')">Sheria</a></li>
       <li><a routerLink="/contact" (click)="offcanvas.close('cross click')">Mawasiliano</a></li>
-      <li><a routerLink="" (click)="offcanvas.close('cross click')">Taarifa</a></li>
+      <li *ngIf="username"><a routerLink="/message" (click)="offcanvas.close('cross click')">Taarifa</a></li>
     </ul>
   </div>
 </ng-template>

@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { AlgaeService } from 'src/app/Services/algae/algae.service';
 import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
+import { LocationService } from 'src/app/Services/location/location.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-algae',
@@ -10,14 +13,28 @@ import { Router } from '@angular/router';
   styleUrls: ['./algae.component.scss']
 })
 export class AlgaeComponent  {
+  location: any;
+  searchText: string = '';
+  page: number = 1;
+  itemsPerPage: number = 1;
+  user:any
   form!:FormGroup;
   selectedCountry!: string;
 
   constructor(private _formBuilder: FormBuilder,
     private algaeservice : AlgaeService,
-    private router:Router) {}
+    private router:Router,
+    private modalService: NgbModal,
+    private locationService: LocationService) {}
 
   ngOnInit() {
+
+    this.locationService.getALL().subscribe(response => {
+      console.log(response);
+      this.location = response;
+    });
+
+
     this.form = new FormGroup({
       no_farm : new FormControl(null,[Validators.required]),
        no_men : new FormControl(null,[Validators.required]),
@@ -28,10 +45,6 @@ export class AlgaeComponent  {
        date : new FormControl(null,[Validators.required])
     })
   }
-  tableData = [
-    {id: 1, name: 'John Doe', payment: 100, date: '2022-01-01'}
-   
-  ];
 
   submit(){
     const values  = this.form.value
@@ -46,6 +59,27 @@ export class AlgaeComponent  {
         icon : 'success'
       });
     }
+  }
+
+
+  get filteredLocation() {
+    return this.location.filter((user: { village: string; district: string; region: string; }) => {
+      return (
+        user.village.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        user.district.toLowerCase().includes(this.searchText.toLowerCase()) ||
+        user.region.toLowerCase().includes(this.searchText.toLowerCase())
+      );
+    });
+  }
+  view(id:number){
+    this.router.navigate(["seaweed",{id}])
+  }
+  openDialog1(chombo:any) {
+    // if(this.auth.canActivate()){
+     
+    // }else{
+    //   // this.openDialog();
+    // }
   }
 
 

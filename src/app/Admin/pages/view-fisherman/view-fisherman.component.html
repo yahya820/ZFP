@@ -1,7 +1,140 @@
-<div *ngFor="let item of items" class="item">
-  <button (click)="toggleCollapse(item)">Collapse</button>
-  <div class="content" [hidden]="!item.collapsed">
-    <!-- Additional content goes here -->
-    <p>{{ item.additionalContent }}</p>
+<!-- <input type="text" [(ngModel)]="selectedOption" (input)="filterOptions()">
+<ul>
+  <li *ngFor="let option of filteredOptions">{{ option }}</li>
+</ul> -->
+<!-- <select [(ngModel)]="selectedOption" (input)="filterOptions()">
+  <option *ngFor="let option of filteredOptions">
+    {{ option }}
+  </option>
+</select>
+<mat-form-field appearance="outline" class="w-100">
+  <mat-label>WILAYA</mat-label>
+  <mat-select type="text" [(ngModel)]="selectedOption" (input)="filterOptions()">
+    <mat-option *ngFor="let option of filteredOptions">{{ option }}</mat-option> -->
+    <!-- <mat-option value="Muajiriwa wa Serikali">Muajiriwa wa Serikali</mat-option>
+    <mat-option value="Muajiriwa Binafsi">Muajiriwa Binafsi</mat-option>
+    <mat-option value="Umejiajiri">Umejiajiri</mat-option> -->
+  <!-- </mat-select>
+</mat-form-field>
+
+<mat-form-field>
+  <input type="text" matInput [(ngModel)]="selectedOption" (input)="filterOptions()" [matAutocomplete]="auto">
+  <mat-autocomplete #auto="matAutocomplete">
+    <mat-option *ngFor="let option of filteredOptions" [value]="option">
+      {{ option }}
+    </mat-option>
+  </mat-autocomplete>
+</mat-form-field>
+
+<div class="container-fluid">
+          
+  <div class="row" style="overflow-x:auto;"> -->
+    <!-- <button
+  style="float: right; margin-right: 20px;"
+  styleSheetFile="../../../assets/css/print.css" 
+  printTitle="List of Enrollment" 
+  printSectionId="content"
+  ngxPrint 
+  class="btn btn-success btn-lg"
+  > Print Full List</button> -->
+    <!-- <div class="col-lg-12"  id="content" [formGroup]="form">
+      <div class="row g-3 align-items-center"> -->
+        <!-- <div class="col-auto">
+          <label for="inputPassword6" class="col-form-label">Start Date</label>
+        </div>
+        <div class="col-auto">
+          <input type="date" formControlName="startDate" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+        </div> -->
+        <!-- <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label">Village</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" (keyup)="applyFilter($event)" formControlName="village" id="inputPassword6" class="form-control" aria-describedby="passwordHelpInline">
+          </div>
+          <div class="col-auto">
+            <button mat-raised-button color="primary" (click)="getDataByDate()">Filter</button> -->
+            <!-- <button mat-raised-button (click)="printTable()" color="blue">Print</button> -->
+<!--       
+          </div>
+      </div>
+      
+      <table >
+        <caption></caption>
+        <thead>
+          <tr>
+            <th>S/No</th>
+            <th>Full Name</th>
+            <th>Phone No</th>
+            <th>Image</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody> -->
+          <!-- <tr *ngFor="let user of location; let x = index">
+            <td>{{x+1}}</td>
+            <td>{{user.village}}</td>
+            <td>{{user.district}}</td>
+            <td>{{user.region}}</td> -->
+              <!-- <td>1</td>
+              <td>Yahya ali hamid</td>
+              <td>0776944789</td>
+              <td>Kilindi</td> -->
+              <!-- <td> -->
+              <!--  -->
+              <!-- <button class="btn btn-info" (click)="views()">View</button> -->
+              <!-- <button  class="btn btn-info" (click)="view(user.userId)">View</button>
+              <button  class="btn btn-danger" (click)="delete(user.userId)">Delete</button>
+            </td> -->
+          <!-- </tr>
+        </tbody>
+      </table>
+
+
+
+    </div>
+  
+  
   </div>
+</div> -->
+
+<div class="container mt-5">
+  <input type="text" class="form-control mb-3" placeholder="Search" [(ngModel)]="searchText" />
+  
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>S/No</th>
+        <th>Full Name</th>
+        <th>Phone No</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of filteredLocation; let x = index">
+        <td>{{ x + 1 }}</td>
+        <td>{{ user.village }}</td>
+        <td>{{ user.district }}</td>
+        <td>{{ user.region }}</td>
+        <td>
+          <button class="btn btn-info" (click)="view(user.userId)">View</button>
+          <button class="btn btn-danger" (click)="delete(user.userId)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <pagination-controls
+    (pageChange)="page = $event"
+    [maxSize]="1"
+    [directionLinks]="true"
+    [autoHide]="true"
+    [responsive]="true"
+    [previousLabel]="'Previous'"
+    [nextLabel]="'Next'"
+  ></pagination-controls>
 </div>
+
+
+
+

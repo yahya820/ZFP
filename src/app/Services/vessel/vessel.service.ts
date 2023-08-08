@@ -21,5 +21,8 @@ export class VesselService {
   getAllVesselInProfile(){
     return this.http.get(`${this.url}/profile`);
   }
+  getByVessel(id:number){
+    return this.http.get(`${this.url}/${id}`);
+  }
 
 }

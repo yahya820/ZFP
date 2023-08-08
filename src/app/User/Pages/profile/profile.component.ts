@@ -37,6 +37,7 @@ export class ProfileComponent {
     @ViewChild('edit') edit!:TemplateRef<any> 
 
   ngOnInit(){
+    console.log(sessionStorage.getItem("fishermanId"))
       this.getAllPayment();
       this.getUserIdandFishermanId(); 
       this.getUserIdOnly()
@@ -69,7 +70,7 @@ export class ProfileComponent {
   }
 
   getAllPayment(){
-    this.paymentService.getByFishermanId(sessionStorage.getItem("id")).subscribe(
+    this.paymentService.getByFishermanId(sessionStorage.getItem("fishermanId")).subscribe(
       response => {
       console.log(response);
       this.payment = response;

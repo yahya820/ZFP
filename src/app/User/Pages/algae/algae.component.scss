@@ -2,3 +2,17 @@
     margin-bottom: 0%;
     margin-left: 15px;
 }
+.card {
+    max-width: 700px; /* Set the maximum width of the card */
+    margin: 0 auto; /* Center the card horizontally */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow to the card */
+  }
+  
+  /* Add responsive styles for different screen sizes */
+  @media screen and (max-width: 600px) {
+    .card {
+      max-width: 100%; /* Make the card take the full width on small screens */
+      margin: 16px; /* Add some margin on small screens */
+    }
+  }
+  

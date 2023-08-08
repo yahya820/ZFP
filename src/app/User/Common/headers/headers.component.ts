@@ -64,6 +64,9 @@ export class HeadersComponent {
     private vesselService:VesselService) {
 
     }
+    display (){
+
+    }
 
   openDialog() {
     const dialogRef = this.dialog.open(LoginComponent);
@@ -82,6 +85,7 @@ export class HeadersComponent {
   
 
   ngOnInit(){
+    
     this.username = sessionStorage.getItem("name")
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
@@ -153,6 +157,7 @@ export class HeadersComponent {
   close_session(){
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("name")
+    sessionStorage.removeItem("fishermanId")
     // this.router.navigate(['/'])
   }
   

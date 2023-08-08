@@ -5,7 +5,7 @@
             <h6 class="mb-0 text">Jina la Chombo</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            {{vesselpayment[0].name_vessel}}
+            {{vesselpayment?.name_vessel}}
           </div>
         </div>
         <hr>
@@ -14,7 +14,7 @@
             <h6 class="mb-0 text">Aina ya Chombo</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            {{vesselpayment[0].type_vessel}}
+            {{vesselpayment?.type_vessel}}
           </div>
         </div>
         <hr>
@@ -23,7 +23,7 @@
             <h6 class="mb-0 text">Namba ya Chombo</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            {{vesselpayment[0].no_vessel}}
+            {{vesselpayment?.no_vessel}}
           </div>
         </div>
         <hr>
@@ -32,7 +32,7 @@
             <h6 class="mb-0 text">Urefu wa Chombo</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            {{vesselpayment[0].meter}}
+            {{vesselpayment?.meter}}
           </div>
         </div>
         <hr>
@@ -41,7 +41,7 @@
               <h6 class="mb-0 text">Njia Inayotumia</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-                {{vesselpayment[0].ways}}
+                {{vesselpayment?.ways}}
             </div>
           </div>
           <hr>
@@ -50,7 +50,7 @@
             <h6 class="mb-0 text">Idadi ya watu</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            {{vesselpayment[0].no_people}}
+            {{vesselpayment?.no_people}}
           </div>
         </div>
         <hr>
@@ -59,7 +59,7 @@
             <h6 class="mb-0 text">Tarehe ya Kuanza</h6>
           </div>
           <div class="col-sm-9 text-secondary">
-            {{vesselpayment[0].start_date}}
+            {{vesselpayment?.start_date}}
           </div>
         </div>
         <hr>
@@ -68,12 +68,11 @@
               <h6 class="mb-0 text">Tareheya Kuisha</h6>
             </div>
             <div class="col-sm-9 text-secondary">
-                {{vesselpayment[0].finish_date}}
+                {{vesselpayment?.finish_date}}
             </div>
           </div>
       </div>
       <hr>
-      {{vesselpayment[0].vessel_id}}
       <div class="container-fluid">
         <div class="row">
           <div class="col-lg-12">
@@ -101,7 +100,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let x of vesselpayment,let i = index;">
+                        <tr *ngFor="let x of vesselpayment.payment_vessel_list,let i = index;">
                             <td>{{i + 1}}</td>
                             <td>{{x.acc_name}}</td>
                             <td>{{x.receipt_no}}</td>
