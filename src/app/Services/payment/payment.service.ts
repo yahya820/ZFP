@@ -12,6 +12,9 @@ export class PaymentService {
   addVessel(body:any){
     return this.http.post(`${this.url}/vessel`,body);
   }
+  addPayment_Tab_vessel(body:any){
+    return this.http.post(`${this.url}/tab_vessel`,body);
+  }
   addFisherman(body:Object){
     return this.http.post(`${this.url}/fisherman`,body);
   }
@@ -30,7 +33,16 @@ export class PaymentService {
   getAllPaymentByUSerId(id:any){
     return this.http.get(`${this.url}/vessel/UserId/${id}`);
   }
-  postPaymentByVesseId(id: number,body:any){
+  postPaymentByVesseId(id: any,body:any){
     return this.http.post(`${this.url}/vessel/${id}`,body);
+  }
+  getPaymentFishermanByDate(startDate:any,endDate:any){
+    return this.http.get(`${this.url}/fisherman/getPaymentByDate/${startDate}/${endDate}`)
+  }
+  getAllPaymentInVessel(){
+    return this.http.get(`${this.url}/vessel/getAllPayment`);
+  }
+  getPaymentVesselByDate(startDate:any,endDate:any){
+    return this.http.get(`${this.url}/vessel/${startDate}/${endDate}`)
   }
 }

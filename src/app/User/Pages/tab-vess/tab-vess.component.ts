@@ -8,6 +8,7 @@ import { Vessel } from 'src/app/Model/Vessel';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
 import { ModelGuard } from 'src/app/common/model_guard/model.guard';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-tab-vess',
@@ -17,6 +18,7 @@ import { ModelGuard } from 'src/app/common/model_guard/model.guard';
 export class TabVessComponent implements OnInit {
   vessel_model : Vessel =  new Vessel();
   payment_vessel_model : PaymentVessel = new PaymentVessel();
+  vessel : any
   form1!:FormGroup;
   imageSrc! : String;
   imageRisiti! : String;
@@ -28,8 +30,7 @@ export class TabVessComponent implements OnInit {
   private auth:ModelGuard,
   ){}
 
-  @ViewChild(MatTabGroup)
-  tabGroup!: MatTabGroup;
+  @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
 
   // Profile Picture
   displayImage(event : any){
@@ -73,7 +74,24 @@ export class TabVessComponent implements OnInit {
      })
   }
   onSubmitVessel(){
+    this.vessel_model.userId = sessionStorage.getItem("id")
+    this.vesslService.add(this.vessel_model).subscribe(
+      response =>{
+        console.log(response)
+        this.vessel = response;
 
+        this.payment_vessel_model.vesselId = this.vessel.vesselId;
+        this.paymentService.addPayment_Tab_vessel(this.payment_vessel_model).subscribe(
+          response => {
+            console.log(response)
+          }
+        )
+      }
+    ),Swal.fire({
+      icon: 'success',
+      title: 'Umefikisha Taarifa Zako za Chombo',
+      text : "Angalia katika Taarifa"
+    })
   }
   openDialog1(chombo:any) {
     // if(this.auth.canActivate()){

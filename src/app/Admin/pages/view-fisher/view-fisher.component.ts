@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import Swal from 'sweetalert2'
+import { CardFisherComponent } from '../card-fisher/card-fisher.component';
 
 @Component({
   selector: 'app-view-fisher',
@@ -25,7 +27,7 @@ export class ViewFisherComponent {
       this.fetchAll();
   
       this.id = this.route.snapshot.params['id']
-      this.fishermanService.getByUserId(this.id).subscribe(
+      this.fishermanService.getByFishermanId(this.id).subscribe(
         response => {
           console.log(response);
           this.fisherman1 = response;
@@ -44,13 +46,13 @@ export class ViewFisherComponent {
     }
 
 
-  openDialog() {
-    const dialogRef = this.dialog.open(ApdFishermanComponent);
+  // openDialog() {
+  //   const dialogRef = this.dialog.open(ApdFishermanComponent);
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      console.log(`Dialog result: ${result}`);
-    });
-  }
+  //   dialogRef.afterClosed().subscribe((result: any) => {
+  //     console.log(`Dialog result: ${result}`);
+  //   });
+  // }
 
   view(){
     this.router.navigate(["/admin/card_fisher"]);
@@ -59,12 +61,21 @@ export class ViewFisherComponent {
   openBackDropCustomClass(tempa: any) {
         this.modalService.open(tempa, { scrollable: true, backdropClass: 'light-blue-backdrop' });
   }
-onSubmit_fisherman(){
-  const fisher_id = this.fisherman1.fisherman_id
-  this.fishermanService.update(fisher_id,this.fisherman1).subscribe(
-    response => {
-      console.log(response);
-    }
-  )
-}
+  onSubmit_fisherman(){
+    this.fishermanService.update(this.id,this.fisherman1).subscribe(
+      response => {
+        console.log(response);
+      }
+    ),Swal.fire({
+      title: "Taarifa zimebadilika kikamilifu",
+      icon: "success"
+    })
+  }
+  openDialog() {
+    const dialogRef = this.dialog.open(CardFisherComponent);
+
+    dialogRef.afterClosed().subscribe((result: any) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }

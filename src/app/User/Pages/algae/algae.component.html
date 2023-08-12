@@ -3,16 +3,16 @@
 <mat-card class="card">
     <mat-card-content>
     <div class="container mt-5">
-      <input type="text" class="form-control mb-3" placeholder="Search" [(ngModel)]="searchText" />
+      <input type="text" class="form-control mb-3" placeholder="Ingiza Jina la Kijiji" [(ngModel)]="searchText" />
       
       <table class="table table-striped">
         <thead>
           <tr>
-            <th>S/No</th>
-            <th>Full Name</th>
-            <th>Phone No</th>
-            <th>Image</th>
-            <th>Action</th>
+            <th>S/Namba</th>
+            <th>Kijiji</th>
+            <th>Wilaya</th>
+            <th>Mkoa</th>
+            <th>Hatua</th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
             <td>{{ user.district }}</td>
             <td>{{ user.region }}</td>
             <td>
-              <button class="btn btn-info" (click)="view(user.locationid)" (click)="openDialog1(chombo)">View</button>
+              <button class="btn btn-info" (click)="view(user.locationid)" (click)="openDialog1(chombo)">Jaza</button>
             </td>
           </tr>
         </tbody>

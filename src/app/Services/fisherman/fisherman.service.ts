@@ -25,4 +25,7 @@ export class FishermanService {
   update(id:number,body:any){
     return this.http.put(`${this.url}/${id}`,body);
   }
+  getByFishermanId(id:number){
+    return this.http.get(`${this.url}/find/${id}`);
+  }
 }

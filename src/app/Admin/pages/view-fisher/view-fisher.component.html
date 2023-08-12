@@ -7,33 +7,33 @@
                   <div class="row about-list">
                       <div class="col-md-6">
                           <div class="media">
-                              <p><label>Kitambulisho</label><span style="margin-left: 20px;">{{fisherman1?.identity}}</span></p>
+                              <p><label>Kitambulisho</label><span style="margin-left: 20px;">{{fisherman1?.user.identity}}</span></p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Miaka</label>{{fisherman1?.age}} </p>
+                              <p><label>Miaka</label>{{fisherman1?.user.age}} </p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Taifa</label>{{fisherman1?.nationality}}</p>
+                              <p><label>Taifa</label>{{fisherman1?.user.nationality}}</p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Mahali</label>{{fisherman1?.address}}</p>
+                              <p><label>Mahali</label>{{fisherman1?.user.address}}</p>
                           </div>
                       </div>
                       <div class="col-md-6">
                           <div class="media">
                               
-                              <p><label>Namba ya Simu</label>{{fisherman1?.phone}}</p>
+                              <p><label>Namba ya Simu</label>{{fisherman1?.user.phone}}</p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Jinsia</label>{{fisherman1?.sex}}</p>
+                              <p><label>Jinsia</label>{{fisherman1?.user.sex}}</p>
                           </div>
                           <div class="media">
                               
-                              <p><label>Kazi</label>{{fisherman1?.work}}</p>
+                              <p><label>Kazi</label>{{fisherman1?.user.work}}</p>
                           </div>
                       </div>
                   </div>
@@ -42,8 +42,8 @@
           <div class="col-lg-6">
               <div class="about-avatar">
                   <!-- <img src="https://bootdey.com/img/Content/avatar/avatar7.png" title="" alt=""> -->
-                  <p>{{fisherman1?.name}}</p>
-                  <p>{{fisherman1?.email}}</p>
+                  <p>{{fisherman1?.user.name}}</p>
+                  <p>{{fisherman1?.user.email}}</p>
               </div>
           </div>
       </div>
@@ -85,16 +85,19 @@
                   </div>
               </div>
           </div>
-          
-      </div>
-      
-  </div> 
-  <button
+    </div>
+      <div class="row container">
+          <button
           style="float: right; margin-right: 20px;"
           class="btn btn-success btn-lg"
           (click)="openBackDropCustomClass(tempa)"
           > Badilisha</button><br><br>
-  </div>
+      </div>
+          
+      </div>
+      
+  </div> 
+  
 
 
   <div class=" container mt-3">
@@ -115,8 +118,9 @@
               class="btn btn-success btn-lg"
               > Print Full List</button> -->
                 <div class="col-lg-12"  id="content" >
+                  <h2 style="text-align: center;">Malipo</h2>
                   <table >
-                    <caption></caption>
+                    
                     <thead>
                       <tr>
                         <th>S/No</th>
@@ -126,7 +130,7 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let payment of fisherman2, let x = index;">
+                      <tr *ngFor="let payment of fisherman1?.paymentFishermans, let x = index;">
                         <td>{{x + 1}}</td>
                         <td>{{payment.acc_name}}</td>
                         <td>{{payment.receipt_no}}</td>
@@ -159,6 +163,7 @@
         </div>
       </div>
     </div>
+    <button (click)="openDialog()">Uthibitisho</button>
     
 </section>
 

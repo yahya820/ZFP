@@ -12,13 +12,19 @@ export class ImageComponent {
     public formData = new FormData();
     public selectedFile!: File;
     public imageSrc!: string;
+    imagedisplay!:String
     ngOnInit() {
 
     }
 
     onSelectFile(event:any) {
         this.selectedFile = event.target.files[event.target.files.length - 1] as File;
+        const reader = new FileReader();
+    reader.readAsDataURL(this.selectedFile);
+    reader.onload = (e) => {
+      this.imagedisplay = reader.result as String;
     } 
+  }
 
     performUpload() {
         this.formData.set('file', this.selectedFile, this.selectedFile.name);

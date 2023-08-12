@@ -18,11 +18,14 @@ export class VesselService {
   getAllVessel(){
     return this.http.get(`${this.url}`)
   }
-  getAllVesselInProfile(){
-    return this.http.get(`${this.url}/profile`);
+  getAllVesselInProfile(id:any){
+    return this.http.get(`${this.url}/profile/${id}`);
   }
   getByVessel(id:number){
     return this.http.get(`${this.url}/${id}`);
   }
-
+  updateVessel(id:any,body:any){
+    return this.http.put(`${this.url}/${id}`,body);
+  }
+  
 }

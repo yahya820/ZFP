@@ -19,8 +19,8 @@
     </mat-grid-list>
   </mat-card-content>
 </mat-card> -->
-<div class="mt-5" >
-    <div class="row">
+<div class="mt-3" >
+    <div class="row" id="card">
       <div class="col">
         <div class="card " >
           <div class="wrapper">
@@ -83,7 +83,7 @@
         </div>
       </div>
   
-      <div class="col">
+      <!-- <div class="col">
         <div class="card">
           <div class="mx-3">
             <p style="font-size: 10px;
@@ -93,7 +93,7 @@
             if found, please return to the nearest<br> Police Station or </p>
         </div>
       </div>
-    </div>
+    </div> -->
   
     
     <!-- <button mat-raised-button
@@ -105,7 +105,12 @@
       ngxPrint 
     >PRINT</button> -->
   </div>
-  <button mat-raised-button color="primary" class="mt-5 mb-5">PRINT</button>
+  <div class="row">
+    <button mat-raised-button color="primary"  
+    styleSheetFile="../../../assets/css/print.css" 
+        printSectionId="card"
+        ngxPrint >PRINT</button>
+  </div>
   
   
   

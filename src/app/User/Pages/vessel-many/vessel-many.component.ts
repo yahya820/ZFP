@@ -4,6 +4,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentVessel } from 'src/app/Model/PaymentVessel';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-vessel-many',
@@ -51,15 +52,14 @@ export class VesselManyComponent {
   }
 
 payment_submit(){
-const id = this.vesselpayment[0].vessel_id;
-console.log(" id =>",id)
-const vesseId = id;
-console.log("vessel id =>",vesseId)
-  this.paymentService.postPaymentByVesseId(vesseId,this.vesselpayment).subscribe(
+  this.paymentService.postPaymentByVesseId(this.id,this.payment_model).subscribe(
     response => {
       console.log("payment =>",response)
-      this.getAllPaymentByUSerId();
+      this.ngOnInit();
     }
-  )
+  ),Swal.fire({
+    title: "Malipo yamekamilika",
+    icon: "success"
+  })
 }
 }

@@ -8,4 +8,5 @@ export class Vessel{
     start_date:any;
     finish_date:any;
     meter:any;
+    userId:any
 }

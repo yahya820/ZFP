@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { VesselService } from 'src/app/Services/vessel/vessel.service';
+import Swal from 'sweetalert2'
 export interface User {
   name: string;
   username: string;
@@ -24,13 +26,14 @@ export class ViewVesselComponent {
 
   constructor(public dialog: MatDialog,private router:Router,
     private route:ActivatedRoute,private paymentService:PaymentService,
-    private modalService: NgbModal,) { }
+    private modalService: NgbModal,
+    private vesselService:VesselService) { }
   vessel1:any
   id!:number;
 
   ngOnInit(){
     this.id = this.route.snapshot.params["id"]
-    this.paymentService.getAllPaymentByUSerId(this.id).subscribe(
+    this.vesselService.getByVessel(this.id).subscribe(
       response => {
         console.log(response)
         this.vessel1 = response;
@@ -51,13 +54,20 @@ export class ViewVesselComponent {
   }
   openDialog1(chombo:any) {
     // if(this.auth.canActivate()){
-      this.modalService.open(chombo, { scrollable: true, backdropClass: 'light-blue-backdrop' });
+      this.modalService.open(chombo, { backdropClass: 'light-blue-backdrop' });
     // }else{
     //   // this.openDialog();
     // }
   }
   onSubmitVessel(){
-    
+    this.vesselService.updateVessel(this.id,this.vessel1).subscribe(
+      response => {
+        console.log(response)
+      }
+    ),Swal.fire({
+      title: "Taarifa zimebadilika kikamilifu",
+      icon: "success"
+    })
   }
 
 }
