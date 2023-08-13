@@ -6,16 +6,49 @@
       <nav class="nav nav-brand nav-pills flex-lg-row sticky" >
         <span class="flex-sm-fill text-sm text-black nav-link ">{{currentDate | date}}</span>
         <span class="example-spacer"></span>
-        <header class="name">{{username}}</header> 
 
-        <button mat-button class="example-icon" aria-label="Example icon-buton with menu">
+
+        <div class="profile-dropdown-container" *ngIf="token">
+          <button mat-button [matMenuTriggerFor]="menu" class="profile-button">
+            <img  src="../../../../assets/images/images.png" alt="Profile Picture" class="profile-picture">
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="profile()">
+              <mat-icon>account_circle</mat-icon>
+             Taarifa zangu
+            </button>
+            <button mat-menu-item (click)="close_session()">
+              <mat-icon>exit_to_app</mat-icon>
+             Kutoka
+            </button>
+          </mat-menu>
+        </div>
+        <div class="profile-dropdown-container" *ngIf="!token">
+          <button mat-button [matMenuTriggerFor]="menu" class="profile-button">
+            <span>Bonyeza hapa</span>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="openDialog()">
+              <mat-icon>Login</mat-icon>
+              Kuingia
+            </button>
+            <button mat-menu-item routerLink="/register">
+              <mat-icon>Register</mat-icon>
+             kujisajili
+            </button>
+          </mat-menu>
+        </div>
+        
+        <!-- <header class="name">{{username}}</header>  -->
+
+        <!-- <button mat-button class="example-icon" aria-label="Example icon-buton with menu">
           <mat-menu #appMenu="matMenu">
             <ng-template matMenuContent let-name="name">
-              <button mat-menu-item (click)="profile()">Taarifa Zako</button>
-              <button mat-menu-item (click)="openDialog()">Kuingia</button>
-              <!-- <button mat-menu-item (click)="close_session()">Kutoka</button> -->
-              <button mat-menu-item (click)="close_session()"><a href="" class="none">Kutoka</a></button>
-              <button mat-menu-item routerLink="/register">sajili</button>
+              <button mat-menu-item *ngIf="token" (click)="profile()">Taarifa Zako</button>
+              <button mat-menu-item *ngIf="!token" (click)="openDialog()">Kuingia</button>
+               <button mat-menu-item (click)="close_session()">Kutoka</button> 
+              <button mat-menu-item *ngIf="token" (click)="close_session()"><a href="" class="none">Kutoka</a></button>
+              <button mat-menu-item *ngIf="!token" routerLink="/register">sajili</button>
               
             </ng-template>
           </mat-menu>
@@ -23,9 +56,9 @@
           <button mat-icon-button [matMenuTriggerFor]="appMenu" [matMenuTriggerData]="{name: 'Bob'}">
             <mat-icon>more_vert</mat-icon>
           </button>
-        </button>
+        </button> -->
       </nav>
-      <hr class="mb-1">
+      <hr class="mb-0">
       <div>
         <div>
           <div class="text-center">

@@ -9,6 +9,7 @@ import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
 import { ModelGuard } from 'src/app/common/model_guard/model.guard';
 import Swal from "sweetalert2";
+import { HeadersComponent } from '../../Common/headers/headers.component';
 
 @Component({
   selector: 'app-tab-vess',
@@ -28,7 +29,7 @@ export class TabVessComponent implements OnInit {
   private vesslService : VesselService,
   private modalService: NgbModal,
   private auth:ModelGuard,
-  ){}
+  private header:HeadersComponent){}
 
   @ViewChild(MatTabGroup) tabGroup!: MatTabGroup;
 
@@ -94,11 +95,11 @@ export class TabVessComponent implements OnInit {
     })
   }
   openDialog1(chombo:any) {
-    // if(this.auth.canActivate()){
+    if(this.auth.canActivate()){
       this.modalService.open(chombo, { scrollable: true, backdropClass: 'light-blue-backdrop' });
-    // }else{
-    //   // this.openDialog();
-    // }
+    }else{
+      this.header.openDialog();
+    }
   }
     
 

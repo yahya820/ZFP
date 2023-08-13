@@ -14,6 +14,7 @@ export class User{
     age: any;
     username: any;
     email: any;
-    roles! :any;
+    roles :any;
     leader:any;
+    pass:any
 }

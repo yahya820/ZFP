@@ -45,4 +45,10 @@ export class PaymentService {
   getPaymentVesselByDate(startDate:any,endDate:any){
     return this.http.get(`${this.url}/vessel/${startDate}/${endDate}`)
   }
+  getVesselCount(){
+    return this.http.get(`${this.url}/vessel/count`)
+  }
+  getFishermanCount(){
+    return this.http.get(`${this.url}/fisherman/count`)
+  }
 }

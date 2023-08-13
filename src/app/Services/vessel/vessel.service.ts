@@ -27,5 +27,8 @@ export class VesselService {
   updateVessel(id:any,body:any){
     return this.http.put(`${this.url}/${id}`,body);
   }
+  getCount(){
+    return this.http.get(`${this.url}/count`)
+  }
   
 }

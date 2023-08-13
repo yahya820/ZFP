@@ -1,9 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { NgbAccordionModule } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatAutocomplete } from '@angular/material/autocomplete';
 import { startWith, map } from 'rxjs/operators';
 import { LocationService } from 'src/app/Services/location/location.service';
@@ -65,20 +65,26 @@ export class ViewFishermanComponent {
   //   //   this.dataSource.paginator.firstPage();
   //   // }
   // }
-
+  @Input() cardNumber!: number;
   location: any;
   searchText: string = '';
   page: number = 1;
   itemsPerPage: number = 1;
   user:any
+  form!:FormGroup;
 
-  constructor(private locationService: LocationService) {}
+  constructor(private locationService: LocationService,private fb:FormBuilder) {}
 
   ngOnInit() {
     this.locationService.getALL().subscribe(response => {
       console.log(response);
       this.location = response;
+
     });
+
+    this.form = this.fb.group({
+      name : ['',[Validators.required,Validators.minLength(10)]]
+    })
   }
 
   get filteredLocation() {
@@ -97,6 +103,9 @@ export class ViewFishermanComponent {
 
   delete(userId: number) {
     // Implement your delete logic here
+  }
+  sub(){
+    console.log(this.form.value)
   }
 }
 

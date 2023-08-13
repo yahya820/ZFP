@@ -28,4 +28,7 @@ export class FishermanService {
   getByFishermanId(id:number){
     return this.http.get(`${this.url}/find/${id}`);
   }
+  getCount(){
+    return this.http.get(`${this.url}/count`)
+  }
 }

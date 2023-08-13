@@ -16,4 +16,7 @@ export class MessageService {
   getMessage(id:any){
     return this.http.get(`${this.url}/${id}`);
   }
+  getCount(){
+    return this.http.get(`${this.url}/count`)
+  }
 }

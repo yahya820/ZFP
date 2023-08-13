@@ -187,3 +187,19 @@ nav #show-menu {
 .example-container mat-form-field + mat-form-field {
   margin-left: 8px;
 }
+.profile-dropdown-container {
+  display: inline-block;
+  position: relative;
+}
+
+.profile-button {
+  background: transparent;
+  border: none;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+

@@ -67,10 +67,10 @@ const routes: Routes = [
       { path:"tabs_fisher",  component:TabsFisherComponent},
       { path:"seaweed", component: SeawedProComponent},
       { path:"contact", component: ContactComponent},
-      { path:"profile", component: ProfileComponent},
+      { path:"profile", component: ProfileComponent,canActivate: [AuthGuard]},
       { path:"seaweed_info", component: SeaweedInfoComponent},
       { path:"laws", component: LawsComponent},
-      { path:"vessel_payment", component: VesselManyComponent},
+      { path:"vessel_payment", component: VesselManyComponent,canActivate: [AuthGuard]},
       { path:"algae", component: AlgaeComponent,canActivate: [AuthGuard]},
       { path:"message", component: MessageComponent,canActivate: [AuthGuard]}
 

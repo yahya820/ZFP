@@ -39,5 +39,8 @@ export class UserService {
   updateleader(id:any,body:any){
     return this.http.put(`${this.url}/leader/${id}`,body);
   }
+  getCount(){
+    return this.http.get(`${this.url}/count`)
+  }
 
 }

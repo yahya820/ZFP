@@ -32,6 +32,7 @@ import { PaymentVessel } from 'src/app/Model/PaymentVessel';
   styleUrls: ['./headers.component.scss']
 })
 export class HeadersComponent {
+  token = sessionStorage.getItem("id")
   vessel2:any
   fihserman2: any
   username! : any;
@@ -158,6 +159,7 @@ export class HeadersComponent {
     sessionStorage.removeItem("id");
     sessionStorage.removeItem("name")
     sessionStorage.removeItem("fishermanId")
+    window.location.reload()
     // this.router.navigate(['/'])
   }
   

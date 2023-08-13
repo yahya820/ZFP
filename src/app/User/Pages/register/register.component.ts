@@ -1,5 +1,6 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ImageService } from 'src/app/Services/images/image.service';
 // import { User } from 'src/app/Services/user/User';
@@ -28,26 +29,27 @@ export class RegisterComponent {
     };
   }
 
-  constructor(private router:Router,private userService: UserService,private imageService: ImageService){}
+  constructor(private router:Router,private userService: UserService,private imageService: ImageService,
+    private fb:FormBuilder){}
 
     // Form Validation
     ngOnInit(): void {
-      this.form1 = new FormGroup({
+      this.form1 = this.fb.group({
   
         // BInafsi
         //image : new FormControl(null,[Validators.required]),
-        name : new FormControl(null,[Validators.required]),
-        work : new FormControl(null,[Validators.required]),
-        address : new FormControl(null,[Validators.required]),
-        phone : new FormControl(null,[Validators.required]),
-        identity : new FormControl(null,[Validators.required]),
-        nationality : new FormControl(null,[Validators.required]),
-        sex : new FormControl(null,[Validators.required]),
-        age : new FormControl(null,[Validators.required]),
-        pass : new FormControl(null,[Validators.required]),
-        email : new FormControl(null,[Validators.required,Validators.email]),
-        roles : new FormControl("USER"),
-        leader : new FormControl(null)
+        name : [null,[Validators.required]],
+        work : [null,[Validators.required]],
+        address : [null,[Validators.required]],
+        phone : [null,[Validators.required,Validators.minLength(10)]],
+        identity : [null,[Validators.required,Validators.minLength(10)]],
+        nationality : [null,[Validators.required]],
+        sex : [null,[Validators.required]],
+        age : [null,[Validators.required]],
+        pass : [null,[Validators.required]],
+        email : [null,[Validators.required,Validators.email]],
+        roles : ["USER"],
+        leader : [null]
   
       })
     }
@@ -65,18 +67,23 @@ export class RegisterComponent {
   // );
 
       const values = this.form1.value;
-      if (this.userService.add(values).subscribe((response)=>{
-        console.log(response);
-      })){
-        Swal.fire({
-          title: 'Registration Successful',
-          // text: 'You have been registered as an admin',
-          icon: 'success'
-        }).then (()=> {
-          this.router.navigate(['/menu'])
-        });
-      }
-      
+      this.userService.add(values).subscribe(
+        response => {
+          console.log(response)
+          Swal.fire({
+            title: "Usajili Umekamilika",
+            icon:"success"
+          })
+          this.router.navigate(['menu'])
+        },error => {
+          console.log(error);
+          Swal.fire({
+            title: "Akaunti ishasajiliwa",
+            icon: "error"
+          })
+          this.ngOnInit();
+        }
+      )
     }
 
 }

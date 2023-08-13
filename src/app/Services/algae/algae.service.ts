@@ -20,4 +20,7 @@ export class AlgaeService {
   getById(id: number){
     return this.http.get(`${this.url}/${id}`);
   }
+  getCount(){
+    return this.http.get(`${this.url}/count`)
+  }
 }

@@ -36,7 +36,7 @@
                       <mat-form-field appearance="outline" class="w-100 mb-2 ">
                         <mat-label>Jina Lako kamili</mat-label>
                         <input matInput type="text" formControlName="name" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        <mat-error *ngIf="form1.get('name')?.hasError('required')">Ingiza Jina kamili</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -47,8 +47,8 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100 ">
                         <mat-label>Anuani</mat-label>
-                        <input matInput type="email" formControlName="email" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        <input matInput type="email" formControlName="email" placeholder="anuani sahihi" required>
+                        <mat-error *ngIf="form1.get('sex')?.hasError('required')">Ingiza anuani</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -57,7 +57,7 @@
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Mahali unapoishi</mat-label>
                         <input matInput type="text" formControlName="address" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        <mat-error *ngIf="form1.get('address')?.hasError('required')">Mahali unapoishi</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -74,6 +74,8 @@
                           <mat-option value="Muajiriwa Binafsi">Muajiriwa Binafsi</mat-option>
                           <mat-option value="Umejiajiri">Umejiajiri</mat-option>
                         </mat-select>
+                        <mat-error *ngIf="form1.get('work')?.hasError('required')">Chagua Kazi yako</mat-error>
+
                       </mat-form-field>
                     </div>
                   </div>
@@ -81,8 +83,9 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Nambari ya Simu</mat-label>
-                        <input matInput type="number" formControlName="phone" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        <input matInput type="text" formControlName="phone" placeholder="zitimie Kumi" required>
+                        <mat-error *ngIf="form1.get('phone')?.hasError('required')">Ingiza Namba yako ya simu</mat-error>
+                        <mat-error *ngIf="form1.get('phone')?.hasError('minLength')"></mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -97,6 +100,8 @@
                           <mat-option value="Mtanzania">Mtanzania</mat-option>
                           <mat-option value="Nchi Nyengine">nchi Nyengine</mat-option>
                         </mat-select>
+                        <mat-error *ngIf="form1.get('nationality')?.hasError('required')">Chagua Taifa Lako</mat-error>
+
                       </mat-form-field>
                     </div>
                   </div>
@@ -104,8 +109,9 @@
                     <div class="example-container">
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Kitambulisho cha Mzanzibar</mat-label>
-                        <input matInput type="number" formControlName="identity" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        <input matInput type="text" formControlName="identity" placeholder="zitimie kumi" required>
+                        <mat-error *ngIf="form1.get('identity')?.hasError('required')">Ingiza Kitambulisho cha Mzanzibar</mat-error>
+                        <mat-error *ngIf="form1.get('identity')?.hasError('minLength')"></mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -120,6 +126,7 @@
                           <mat-option value="Mwanaume">Mwanaume</mat-option>
                           <mat-option value="Mwanamke">Mwanamke</mat-option>
                         </mat-select>
+                        <mat-error *ngIf="form1.get('sex')?.hasError('required')">Chagua jinsia</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -128,7 +135,7 @@
                       <mat-form-field appearance="fill" class="w-100">
                         <mat-label>Miaka</mat-label>
                         <input matInput type="number" formControlName="age" required>
-                        <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                        <mat-error *ngIf="form1.get('age')?.hasError('required')">Ingiza Miaka yako</mat-error>
                       </mat-form-field>
                     </div>
                   </div>
@@ -138,7 +145,7 @@
                   <mat-form-field appearance="outline" class="w-100 mt-2">
                     <mat-label>Neno la Siri</mat-label>
                     <input matInput type="password" formControlName="pass" required>
-                    <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
+                    <mat-error *ngIf="form1.get('pass')?.hasError('required')">Ingiza Neno la siri</mat-error>
                   </mat-form-field>
                 </div>
 
