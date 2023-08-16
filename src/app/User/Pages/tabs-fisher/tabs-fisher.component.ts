@@ -115,6 +115,12 @@ export class TabsFisherComponent {
             console.log(response);
           }
         );
+      },error => {
+        Swal.fire({
+          title: "Tayari Umesajiliwa",
+          icon : "error",
+          text : "Angalia kwenye Akaunti yako"
+        })
       }
     );
   }

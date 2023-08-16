@@ -48,7 +48,7 @@ users:any
 	}
   onSubmit(){
     if (this.users.leader == this.form.value.number){
-      this.router.navigateByUrl("/algae")
+      this.router.navigateByUrl("/seaweed")
     }else {
       Swal.fire({
         title: 'Umekosea Namba ya Uongozi',

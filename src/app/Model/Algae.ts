@@ -7,6 +7,8 @@ export class Algae {
     tones:any;
     type:any;
     date!: any;
-
-    locationid:any
+    regions:any
+    district:any
+    ward:any
 }
+

@@ -41,7 +41,7 @@ Login(){
         this.router.navigate(["/menu"])
       } else {
         this.router.navigate(["/admin/home"])
-        location.reload()
+        // location.reload()
       }
     }, error => {
        Swal.fire({

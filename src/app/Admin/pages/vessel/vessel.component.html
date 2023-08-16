@@ -8,14 +8,11 @@
         <div class="container-fluid">
           
         <div class="row" style="overflow-x:auto;">
-          <!-- <button
+          <button
         style="float: right; margin-right: 20px;"
-        styleSheetFile="../../../assets/css/print.css" 
-        printTitle="List of Enrollment" 
-        printSectionId="content"
-        ngxPrint 
+          (click)=" openBackDropCustomClass(tempa)"
         class="btn btn-success btn-lg"
-        > Print Full List</button> -->
+        > Angalia</button>
           <div class="col-lg-12"  id="content" >
             <table >
               <caption></caption>
@@ -68,3 +65,51 @@
     </div>
   </div>
 </div>
+
+
+<ng-template #tempa let-modal >
+  <div class="row" style="overflow-x:auto;">
+    
+  <div class="col-lg-12"  id="content1" >
+    <h2 style="text-align: center;">Idadi ya Vyombo vya Uvuvi Vilivyosajiliwa</h2>
+    <table >
+      <caption></caption>
+      <thead>
+        <tr>
+          <th>S/No</th>
+          <th>Jina la Mmiliki</th>
+          <th>Jina la Chombo</th>
+          <th>Aina ya Chombo</th>
+          <th>Namba ya Chombo</th>
+          <th>Njia inayotumia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let vessels of vessel, let x =index;">
+          <td>{{x + 1}}</td>
+         <td>{{vessels.user.name}}</td>
+         <td>{{vessels.name_vessel}}</td>
+         <td>{{vessels.type_vessel}}</td>
+         <td>{{vessels.no_vessel}}</td>
+         <td>{{vessels.ways}}</td>
+        </tr>
+      </tbody>
+
+
+    </table>
+
+
+
+  </div>
+  
+  
+  </div>
+  <button
+  style="float: right; margin-right: 20px;"
+  styleSheetFile="assets/ccs/print.css" 
+  printTitle="List of Enrollment" 
+  printSectionId="content1"
+  ngxPrint 
+  class="btn btn-success btn-lg"
+  > Chapisha</button>
+</ng-template>

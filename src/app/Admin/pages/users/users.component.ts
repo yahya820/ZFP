@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 // import { User } from 'src/app/Services/user/User';
 import { UserService } from 'src/app/Services/user/user.service';
 
@@ -16,7 +17,8 @@ export class UsersComponent implements OnInit {
   tableSizes: any = [4, 8, 12, 16];
 
   constructor( private router:Router,
-    public userService: UserService){}
+    public userService: UserService,
+    private modalService: NgbModal,){}
   ngOnInit(): void {
     this.retrieveAll();
   }
@@ -53,6 +55,10 @@ export class UsersComponent implements OnInit {
     this.tableSize = event.target.value;
     this.page = 1;
     this.retrieveAll();
+  }
+
+  openBackDropCustomClass(tempa: any) {
+    this.modalService.open(tempa, { size: 'xl', scrollable: true, backdropClass: 'light-blue-backdrop' });
   }
 
 }

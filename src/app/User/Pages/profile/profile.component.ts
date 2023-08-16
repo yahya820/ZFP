@@ -8,6 +8,7 @@ import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { UserService } from 'src/app/Services/user/user.service';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
+import Swal  from "sweetalert2"
 // import { User } from 'src/app/Services/user/User';
 
 @Component({
@@ -70,7 +71,7 @@ export class ProfileComponent {
   }
 
   getAllPayment(){
-    this.paymentService.getByFishermanId(sessionStorage.getItem("fishermanId")).subscribe(
+    this.paymentService.getByFishermanId(sessionStorage.getItem("id")).subscribe(
       response => {
       console.log(response);
       this.payment = response;
@@ -96,7 +97,10 @@ export class ProfileComponent {
       console.log(response);
       this.getAllPayment();
     }
- )
+ ),Swal.fire({
+  title: "Malipo yamekamilka",
+  icon : "success"
+})
  }
 
 //  close(){
@@ -113,6 +117,8 @@ getAllVesselInProfile(){
 view(id:number){
   this.router.navigate(["vessel_payment",{id}])
 }
-
+print(){
+  window.print()
+}
 
 }

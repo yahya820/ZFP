@@ -17,6 +17,9 @@ export class AlgaeService {
   getAll(){
     return this.http.get(this.url);
   }
+  findAll(){
+    return this.http.get(`${this.url}/findAll`)
+  }
   getById(id: number){
     return this.http.get(`${this.url}/${id}`);
   }

@@ -19,14 +19,13 @@
           <div class="container-fluid">
             
           <div class="row" style="overflow-x:auto;">
-            <!-- <button
+            <button
           style="float: right; margin-right: 20px;"
-          styleSheetFile="../../../assets/css/print.css" 
-          printTitle="List of Enrollment" 
+          styleSheetFile="assets/ccs/print.css" 
           printSectionId="content"
           ngxPrint 
           class="btn btn-success btn-lg"
-          > Print Full List</button> -->
+          > Chapisha</button>
             <div class="col-lg-12"  id="content" >
               <table >
                 <caption></caption>
@@ -70,3 +69,38 @@
     </div>
   </div>
 </div>
+
+<ng-template #edit let-modal >
+  
+  <div class="col-lg-12"  id="content" >
+    <h2>Malipo ya Chombo Cha Uvuvi</h2>
+    <table >
+      <caption></caption>
+      <thead>
+        <tr>
+          <th>S/No</th>
+          <th>Jina Kamili</th>
+          <th>Jina la Banki</th>
+          <th>Risiti </th>
+          <th>Tarehe</th>
+        </tr>
+      </thead>
+      <tbody>
+       <tr *ngFor="let fishermans of payment , let x = index;">
+          <td>{{x + 1}}</td>
+          <td>{{fishermans.name}}</td>
+          <td>{{fishermans.acc_name}}</td>
+          <td>{{fishermans.receipt_no}}</td>
+          <td>{{fishermans.date}}</td>
+        </tr>
+    </table>
+
+</div>
+<button
+  style="float: right; margin-right: 20px;"
+  styleSheetFile="assets/ccs/print.css" 
+  printSectionId="content"
+  ngxPrint 
+  class="btn btn-success btn-lg"
+  > Chapisha</button>
+</ng-template>

@@ -77,3 +77,11 @@ table {
         font-weight: bolder;
         font-size: 12px;
     }
+    @media print {
+        #body * {
+           visibility: hidden; 
+        }
+        .data, .data * {
+            visibility: visible;
+        }
+    }

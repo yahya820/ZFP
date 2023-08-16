@@ -1,4 +1,4 @@
-<div class="container" style="margin-bottom: 30px;">
+<div class="container" style="margin-bottom: 30px;" id="body">
   <div class="container">
       <div class="main-body">
       
@@ -410,7 +410,7 @@
                   <input type="date" [(ngModel)]="payment_model.date" name="date" class="form-control">
                </div>
               <div class="text-center mb-3 mt-3">
-               <button class="btn btn-primary" (click)="payment_submit()"> Wasilisha Taarifa</button>
+               <button class="btn btn-primary" (click)="payment_submit()" (click)="modal.dismiss('Cross click')"> Wasilisha Taarifa</button>
               </div>
    
              </DIV>
@@ -424,12 +424,12 @@
  </ng-template>
 
  <ng-template #edit let-modal >
-  <div class="card m-3">
+  <div class="card m-3 " id="data">
     <div class="container">
       <form >
-      
+      <h1 id="text">PRINT</h1>
           <div class="mb-3 row has-validation">
-            <label class="col-sm-6 col-form-label">Mahali</label>
+            <label class="col-sm-6 col-form-label " id="text">Mahali</label>
             <div class="col-sm-12">
               <input type="text" class="form-control" [(ngModel)]="fisherman.address" name="address" required>
             </div>
@@ -479,7 +479,14 @@
          <button mat-raised-button color="primary" class="mb-2"
           (click)="save()" 
           (click)="modal.close('Close click')"
+          
           > Submit</button>
+          <button 
+          styleSheetFile="assets/ccs/print.css"
+          printSectionId="data"
+          ngxPrint
+          >Print</button>
+          
     </form>
     </div>
 </div>

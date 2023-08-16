@@ -32,7 +32,7 @@
   </div>
    <div class="mt-2">
      <mat-tab-group class="hid">
-       <form>
+       <form #myForm="ngForm">
        <mat-tab label="Leseni ya Uvuvi" class="modal">
          <div class="containe mt-1 mb-1">
           <div class="ca">
@@ -58,7 +58,7 @@
              <div class="example-container">
                <mat-form-field appearance="outline" class="w-100 mt-2">
                  <mat-label>Diko unalotumia</mat-label>
-                 <input matInput type="text" [(ngModel)]="fisherman_model.diko_usage" name="diko_usage" required>
+                 <input matInput type="text" name="diko_usage" [(ngModel)]="fisherman_model.diko_usage"  required>
                  <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                </mat-form-field>
              </div>
@@ -66,7 +66,7 @@
              <div class="example-container">
                <mat-form-field appearance="outline" class="w-100 mt-2">
                  <mat-label>Njia ya Uwendeshaji</mat-label>
-                 <input matInput type="text" [(ngModel)]="fisherman_model.ways" name="ways" required>
+                 <input matInput type="text" name="ways" [(ngModel)]="fisherman_model.ways"  required>
                  <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                </mat-form-field>
              </div>
@@ -74,7 +74,7 @@
              <div class="example-container">
                <mat-form-field appearance="outline" class="w-100 mt-2">
                  <mat-label>Aina ya Uvuvi</mat-label>
-                 <input matInput type="text" [(ngModel)]="fisherman_model.type" name="ways" required>
+                 <input matInput type="text" name="type" [(ngModel)]="fisherman_model.type"  required>
                  <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                </mat-form-field>
              </div>
@@ -82,7 +82,7 @@
              <div class="example-container">
                <mat-form-field appearance="outline" class="w-100 mt-2">
                  <mat-label>Urefu wa chombo unachoendesha</mat-label>
-                 <input matInput type="text" [(ngModel)]="fisherman_model.meter" name="meter" required>
+                 <input matInput type="text" name="meter" [(ngModel)]="fisherman_model.meter"  required>
                  <!-- <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error> -->
                </mat-form-field>
              </div>
@@ -99,7 +99,7 @@
    
                <div class="mb-3 container-fluid">
                  <label class="col-sm col-form-label mb-0 ">Akaunti Bank</label>
-                  <select type="text" class="form-control w-100" [(ngModel)]="payment_fisherman_model.acc_name" name="acc_name" required>
+                  <select type="text" class="form-control w-100" name="acc_name" [(ngModel)]="payment_fisherman_model.acc_name"  required>
                    <option value="People Bank Of Zanzibar - (PBZ)">People Bank Of Zanzibar - (PBZ)</option>
                    <!-- <option value="">Wali</option> -->
                  </select>
@@ -107,7 +107,7 @@
 
                <div class="mb-3 container-fluid">
                  <label class="col-sm col-form-label ">Risiti Namba</label>
-                  <input class="form-control w-100" [(ngModel)]="payment_fisherman_model.receipt_no" name="receipt_no" type="number">
+                  <input class="form-control w-100" name="receipt_no" [(ngModel)]="payment_fisherman_model.receipt_no"  type="number">
                </div>
                <div >
                
@@ -115,10 +115,10 @@
               </div>
               <div class="container-fluid">
                 <label class="col-sm col-form-label ">Akaunti Bank</label>
-                <input type="date" [(ngModel)]="payment_fisherman_model.date" name="date" class="form-control w-100">
+                <input type="date" name="date" [(ngModel)]="payment_fisherman_model.date"  class="form-control w-100">
               </div>
               <div class="text-center mb-3 mt-3">
-               <button class="btn btn-primary" (click)="onSubmit_fisherman()" (click)="modal.dismiss('Cross click')"> Wasilisha Taarifa</button>
+               <button class="btn btn-primary" [disabled]="myForm.invalid" (click)="onSubmit_fisherman()" (click)="modal.dismiss('Cross click')"> Wasilisha Taarifa</button>
               </div>
              </DIV>
            </div>
