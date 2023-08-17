@@ -10,6 +10,8 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/Model/User';
 import { MessageService } from 'src/app/Services/message/message.service';
 import Swal from 'sweetalert2';
+import { ImageService } from 'src/app/Services/images/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-user',
@@ -20,12 +22,15 @@ export class ViewUserComponent implements OnInit {
   id!: number
   user: any;
   form!:FormGroup;
+  imageSource! :any
   
   constructor(private route:ActivatedRoute,
     private userService: UserService,
     public dialog: MatDialog,
     private modalService: NgbModal,
-    private messageService:MessageService){}
+    private messageService:MessageService,
+    private imageService:ImageService,
+    private sanitizer:DomSanitizer){}
     @ViewChild('tempa') tempa!:TemplateRef<any>
 
   ngOnInit() {
@@ -35,6 +40,12 @@ export class ViewUserComponent implements OnInit {
    this.userService.getId(this.id).subscribe((response) => {
     this.user = response;
    })
+
+   this.imageService.getReceipts(this.id).subscribe(
+    response => {
+      this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.image}`);
+    }
+   )
 
    this.form = new FormGroup({
     message : new FormControl (null,[Validators.required])

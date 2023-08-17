@@ -10,7 +10,7 @@
 
         <div class="profile-dropdown-container" *ngIf="token">
           <button mat-button [matMenuTriggerFor]="menu" class="profile-button">
-            <img  src="../../../../assets/images/images.png" alt="Profile Picture" class="profile-picture">
+            <img  [src]="imageSource" alt="Profile Picture" class="profile-picture">
           </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="profile()">

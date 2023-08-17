@@ -24,6 +24,8 @@ import { fisherman } from 'src/app/Model/Fisherman';
 import { Vessel } from 'src/app/Model/Vessel';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
 import { PaymentVessel } from 'src/app/Model/PaymentVessel';
+import { ImageService } from 'src/app/Services/images/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
 // import { User } from 'src/app/Services/user/User';
 
 @Component({
@@ -32,6 +34,7 @@ import { PaymentVessel } from 'src/app/Model/PaymentVessel';
   styleUrls: ['./headers.component.scss']
 })
 export class HeadersComponent {
+  imageSource!:any
   token = sessionStorage.getItem("id")
   vessel2:any
   fihserman2: any
@@ -62,7 +65,9 @@ export class HeadersComponent {
     private auth:ModelGuard,
     private fishermanService:FishermanService,
     private paymentService:PaymentService,
-    private vesselService:VesselService) {
+    private vesselService:VesselService,
+    private imageService:ImageService,
+    private sanitizer:DomSanitizer) {
 
     }
     display (){
@@ -86,8 +91,14 @@ export class HeadersComponent {
   
 
   ngOnInit(){
-    
     this.username = sessionStorage.getItem("name")
+
+    this.imageService.getReceipts(this.token).subscribe(
+      response => {
+        this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.image}`);
+      }
+    )
+
     this.form = new FormGroup({
       name: new FormControl(null, [Validators.required]),
       pass : new FormControl(null,[Validators.required])
@@ -160,7 +171,7 @@ export class HeadersComponent {
     sessionStorage.removeItem("name")
     sessionStorage.removeItem("fishermanId")
     window.location.reload()
-    // this.router.navigate(['/'])
+    this.router.navigate(['menu'])
   }
   
 }

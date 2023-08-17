@@ -6,6 +6,8 @@ import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
 import Swal from 'sweetalert2'
+import { ImageService } from 'src/app/Services/images/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
 export interface User {
   name: string;
   username: string;
@@ -15,6 +17,7 @@ export interface User {
   location: string;
   website: string;
   phone_no : string;
+  
 }
 
 @Component({
@@ -27,9 +30,12 @@ export class ViewVesselComponent {
   constructor(public dialog: MatDialog,private router:Router,
     private route:ActivatedRoute,private paymentService:PaymentService,
     private modalService: NgbModal,
-    private vesselService:VesselService) { }
+    private vesselService:VesselService,
+    private imageService:ImageService,
+    private sanitizer:DomSanitizer) { }
   vessel1:any
   id!:number;
+  imageSource!:any
 
   ngOnInit(){
     this.id = this.route.snapshot.params["id"]
@@ -37,6 +43,12 @@ export class ViewVesselComponent {
       response => {
         console.log(response)
         this.vessel1 = response;
+
+        this.imageService.getReceipts(this.vessel1.user.userId).subscribe(
+          response => {
+            this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.image}`);
+          }
+         )
 
       }
     )

@@ -51,4 +51,7 @@ export class PaymentService {
   getFishermanCount(){
     return this.http.get(`${this.url}/fisherman/count`)
   }
+  uploadReceipts(data:any,booking_id:any){
+    return this.http.post(this.url + "/upload/" + booking_id,data);
+  }
 }

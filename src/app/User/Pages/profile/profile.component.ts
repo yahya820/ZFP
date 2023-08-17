@@ -1,10 +1,12 @@
 import { identifierName } from '@angular/compiler';
 import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { PaymentFisherman } from 'src/app/Model/PaymentFisherman';
 import { User } from 'src/app/Model/User';
 import { FishermanService } from 'src/app/Services/fisherman/fisherman.service';
+import { ImageService } from 'src/app/Services/images/image.service';
 import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { UserService } from 'src/app/Services/user/user.service';
 import { VesselService } from 'src/app/Services/vessel/vessel.service';
@@ -26,7 +28,7 @@ export class ProfileComponent {
   payment_model : PaymentFisherman = new PaymentFisherman();
   id = sessionStorage.getItem("id")
   public isCollapsed = true;
-  
+  imageSource!:any
 
   constructor(private route:ActivatedRoute,
     private userService : UserService,
@@ -34,11 +36,20 @@ export class ProfileComponent {
     private vesselService:VesselService,
     private paymentService:PaymentService,
     private modalService: NgbModal,
-    private router:Router){}
+    private router:Router,
+    private imageService:ImageService,
+    private sanitizer:DomSanitizer){}
     @ViewChild('edit') edit!:TemplateRef<any> 
 
   ngOnInit(){
     console.log(sessionStorage.getItem("fishermanId"))
+
+    this.imageService.getReceipts(this.id).subscribe(
+      response => {
+        this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.image}`);
+      }
+    )
+
       this.getAllPayment();
       this.getUserIdandFishermanId(); 
       this.getUserIdOnly()

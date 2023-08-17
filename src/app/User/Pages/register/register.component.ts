@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ImageService } from 'src/app/Services/images/image.service';
 // import { User } from 'src/app/Services/user/User';
@@ -13,6 +14,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent {
+  user!:any
   // user: User = new User();
   public formData = new FormData();
   selectedFile!:File;
@@ -30,7 +32,8 @@ export class RegisterComponent {
   }
 
   constructor(private router:Router,private userService: UserService,private imageService: ImageService,
-    private fb:FormBuilder){}
+    private fb:FormBuilder,
+    private sanitizer: DomSanitizer){}
 
     // Form Validation
     ngOnInit(): void {
@@ -57,19 +60,20 @@ export class RegisterComponent {
       
     }
     Submit(){
-
-  //     //For Images
-  //     this.formData.set('file', this.selectedFile, this.selectedFile.name);
-  //     this.imageService.uploadImage(this.formData).subscribe(
-  //             res => {
-  //             this.imageSrc = res;
-  //   }
-  // );
-
       const values = this.form1.value;
       this.userService.add(values).subscribe(
         response => {
           console.log(response)
+          this.user = response;
+          
+          const id = this.user.userId
+          const formData = new FormData();
+          formData.append('imageFile', this.selectedFile,this.selectedFile.name);
+          this.imageService.uploadReceipts(id,formData).subscribe(
+            response => {
+              console.log(response)
+            }
+          )
           Swal.fire({
             title: "Usajili Umekamilika",
             icon:"success"

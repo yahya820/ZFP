@@ -7,6 +7,8 @@ import { PaymentService } from 'src/app/Services/payment/payment.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import Swal from 'sweetalert2'
 import { CardFisherComponent } from '../card-fisher/card-fisher.component';
+import { ImageService } from 'src/app/Services/images/image.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-view-fisher',
@@ -18,21 +20,34 @@ export class ViewFisherComponent {
   fisherman2:any
   fisherman3:any
   id!:number
+  imageSource!:any
 
   constructor(public dialog: MatDialog,private router:Router,private paymentService:PaymentService,
   private route:ActivatedRoute,private fishermanService:FishermanService,
-  private modalService: NgbModal,) { }
+  private modalService: NgbModal,
+  private imageService:ImageService,
+  private sanitizer:DomSanitizer) { }
 
     ngOnInit(){
       this.fetchAll();
   
       this.id = this.route.snapshot.params['id']
+
       this.fishermanService.getByFishermanId(this.id).subscribe(
         response => {
           console.log(response);
           this.fisherman1 = response;
+
+          this.imageService.getReceipts(this.fisherman1?.user.userId).subscribe(
+            response => {
+              this.imageSource = this.sanitizer.bypassSecurityTrustResourceUrl(`data:image/png;base64, ${response.image}`);
+            }
+           )
+          
         }
+        
       )
+      
     }
   
     fetchAll(){
