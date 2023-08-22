@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class MessageService {
 
   private url = "http://localhost:8080/api/vi/message"
+  private urlPublic = "http://localhost:8080/api/vi/public"
 
   constructor(private http:HttpClient) { }
 
@@ -18,5 +19,14 @@ export class MessageService {
   }
   getCount(){
     return this.http.get(`${this.url}/count`)
+  }
+  addPublic(body:any){
+    return this.http.post(`${this.urlPublic}`,body)
+  }
+  getPublic(){
+    return this.http.get(`${this.urlPublic}`)
+  }
+  deletePublic(id:any){
+    return this.http.delete(`${this.urlPublic}/${id}`)
   }
 }

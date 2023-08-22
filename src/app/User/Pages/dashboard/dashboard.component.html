@@ -1,3 +1,4 @@
+
 <mat-card class="container bg-black  mt-2 mr-1  flex-column">
   <ngb-carousel>
     <ng-template ngbSlide>
@@ -56,31 +57,70 @@
 
 <!-- TAARIFA -->
 
-<div class="mx-4 mt-5 mb-5" >
+<!-- <div class="mx-4 mt-5 mb-5" >
   <h2 class="mb-1" style="text-decoration: underline;">Muhimu</h2>
 <div class="note">
   <div>
     <img src="../../../../assets/images/images.jpeg" width="7" height="100">
   </div>
-  <div>
-    <ul style="list-style-type: none;" class="notes">
-      <p class="mb-0">Zingatia sheria zilizowekwa na Serikali ya Mapinduzi ya Zanzibar.</p>
-      <p class="mb-0">Sheria zote lazima uzifuate.</p>
-      <p class="mb-0">Malipo yote hulipia kupitia PBZ.</p>
-      <P class="mb-0">Unalipia pesa taslimu ya TZS 35,000.</P>
-    </ul>
-  </div>
+  
 </div>
+</div> -->
+
+<!-- Sheria -->
+<div class="row mt-4">
+  <div class="col col-sm-12 col-md-12 col-lg-7">
+    <hr>
+    <div class="text-center">
+      <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
+      <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
+      <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
+      <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
+    <H5 class="mb-0">Kanuni 12(1)</H5>
+    </div>
+
+    <div class="mt-3">
+      <h2 style="text-decoration:underline;">MTUMIAJI/WATUMIAJI</h2>
+      <ol>
+        <li>Leseni inayoombwa mda wote inatakiwa iwepo katika chombo husika.</li>
+        <li>Nambari ya uwandikishaji lazima iandikwe pembeni ya chombo zenye ukubwa usiopungua sentimita 5.</li>
+        <li>Akihaulisha chombo atoe taarifa kwa Afisa Uvuvi wilaya.</li>
+        <li>Kutoa taarifa za uzalishaji wa Samaki katika dikon husika.</li>
+        <li>Asihaulishe mazao ya baharini kwenye chombo chengine.</li>
+        <li>kutovua kwa ajili ya chombo chengine bila ya kibali.</li>
+        <li>Hatatumia Uvuvi wa Mtando ndani ya maeneo ya hifadhi.</li>
+        <li>Ni marufuku mtu mwenye Leseni ndogo kuitumia kwenye leseni kubwa ya uvuvi.</li>
+        <li>Ni marufuku Leseni ya Dau kuitumia kwa chombo chengine.</li>
+        <li>Mtu wowote ataekiuka Masharti Atatozwa Faini ya shilingi Milioni tano (5,000,000) au Kifungo kisichopungua miaka miwili au vyote kwa pamoja.</li>
+        <li>Nahodha ndo mwenye jukumu la wavuvi wote katika chombo husika.</li>
+      </ol>
+     </div>
+  </div>
+  <div class="col mt-4">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Taarifa Muhimu</mat-card-title>
+        <hr>
+      </mat-card-header>
+      <ul *ngFor="let messages of message">
+        <li>{{messages.message}}</li>
+      </ul>
+     
+      <mat-card-content>
+      </mat-card-content>
+    </mat-card>
+    
+  </div>
+  
 </div>
 
+
+
 <!-- card -->
-<div class="row container-fluid  mt-4 mx-2 ">
+<div class="row container-fluid  mt-5 mx-2 " style="margin-top: 50%;">
   <div class="col-sm-12 col-md-6 col-lg-4 mb-4">
     <mat-card class="example-card">
-      <!-- <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-subtitle>name</mat-card-subtitle>
-      </mat-card-header> -->
       <img src="../../../../assets/images/images (3).jpeg"/>
       <mat-card-content>
         <h3 class="mb-0">Chombo cha Uvuvi</h3>
@@ -123,99 +163,59 @@
   </div>
 </div>
 
-<!-- Sheria -->
+
+<div class="card container mt-3">
+  <mat-card class="mt-3 mb-3 text-center">
+    <mat-card-title>UZALISHAJI WA MWANI ZANZIBAR </mat-card-title>
+  </mat-card>
+  
+
 <div class="row">
-  <div #contentElement class="col-sm-12 col-md-6 col-lg-6 mb-4">
-    <hr>
-    <div class="text-center">
-      <h3 class="mb-0">SERIKALI YA MAPINDUZI YA ZANZIBAR</h3>
-      <h5 class="mb-0">Sheria ya Uvuvi No 7 ya Mwaka 2010</h5>
-      <h5 class="mb-0">(Kanuni kuu za Uvuvi za Mwaka 1993)</h5>
-      <h2 class="mb-0">LESENI YA CHOMBO YA UVUVI</h2>
-    <H5 class="mb-0">Kanuni 12(1)</H5>
-    </div>
+</div>
+  <div class=""  id="table_seaweed" >
+   <!-- app.component.html -->
+<mat-table [dataSource]="algae" class="mat-elevation-z8">
+  <ng-container matColumnDef="S/No">
+    <mat-header-cell *matHeaderCellDef>S/No</mat-header-cell>
+    <mat-cell *matCellDef="let element; let i = index">{{ i + 1 }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="ward">
+    <mat-header-cell *matHeaderCellDef>Kijiji</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.ward }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="no_farm">
+    <mat-header-cell *matHeaderCellDef>Wakulima</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.no_farm }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="no_men">
+    <mat-header-cell *matHeaderCellDef>Wanaume</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.no_men }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="no_women">
+    <mat-header-cell *matHeaderCellDef>Wanawake</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.no_women }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="type">
+    <mat-header-cell *matHeaderCellDef>Aina ya Mwani</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.type }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="tones">
+    <mat-header-cell *matHeaderCellDef>Tani</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.tones }}</mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef>Tarehe</mat-header-cell>
+    <mat-cell *matCellDef="let element">{{ element.date }}</mat-cell>
+  </ng-container>
 
-    <div class="mt-3">
-      <h2 style="text-decoration:underline;">MTUMIAJI/WATUMIAJI</h2>
-      <ol>
-        <li>Leseni inayoombwa mda wote inatakiwa iwepo katika chombo husika.</li>
-        <li>Nambari ya uwandikishaji lazima iandikwe pembeni ya chombo zenye ukubwa usiopungua sentimita 5.</li>
-        <li>Akihaulisha chombo atoe taarifa kwa Afisa Uvuvi wilaya.</li>
-        <li>Kutoa taarifa za uzalishaji wa Samaki katika dikon husika.</li>
-        <li>Asihaulishe mazao ya baharini kwenye chombo chengine.</li>
-        <li>kutovua kwa ajili ya chombo chengine bila ya kibali.</li>
-        <li>Hatatumia Uvuvi wa Mtando ndani ya maeneo ya hifadhi.</li>
-        <li>Ni marufuku mtu mwenye Leseni ndogo kuitumia kwenye leseni kubwa ya uvuvi.</li>
-        <li>Ni marufuku Leseni ya Dau kuitumia kwa chombo chengine.</li>
-        <li>Mtu wowote ataekiuka Masharti Atatozwa Faini ya shilingi Milioni tano (5,000,000) au Kifungo kisichopungua miaka miwili au vyote kwa pamoja.</li>
-        <li>Nahodha ndo mwenye jukumu la wavuvi wote katika chombo husika.</li>
-      </ol>
-     </div>
-    </div>
-
-  <div class="col">
-    <mat-card style="margin: 12px;">
-      <mat-card-header style="background-color: rgb(240, 237, 237); height: 50px;margin: 7px;">
-        <!-- <mat-card-title>Vessel Information</mat-card-title> -->
-        <h3>Orodha ya Uzalishaji wa Mwani</h3>
-      </mat-card-header>
-      <!-- <button type="button" class="btn" (click)="open(content)">Add New </button> -->
-      <!-- <div class="input-group mb-3 w-50 m-3">
-        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-        <button class="input-group-text btn=btn-primary" id="inputGroup-sizing-default">Search</button>
-      </div> -->
-      <mat-card-content>
-        <div class="mat-elevation-z8">
-      <table mat-table [dataSource]="dataSource">
-
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> NO. </th>
-          <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-        </ng-container>
-
-        <!-- Name Column -->
-        <ng-container matColumnDef="name">
-          <th mat-header-cell *matHeaderCellDef> KIJIJI </th>
-          <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-        </ng-container>
-
-        <!-- Weight Column -->
-        <ng-container matColumnDef="weight">
-          <th mat-header-cell *matHeaderCellDef>MKOA </th>
-          <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-        </ng-container>
-
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-          <th mat-header-cell *matHeaderCellDef> WILAYA </th>
-          <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
-        </ng-container>
-
-         <!-- Symbol Column
-         <ng-container matColumnDef="miter">
-          <th mat-header-cell *matHeaderCellDef> MITER </th>
-          <td mat-cell *matCellDef="let element"> {{element.miter}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="action">
-          <th mat-header-cell *matHeaderCellDef> ACTION </th>
-        </ng-container> -->
-
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                     showFirstLastButtons
-                     aria-label="Select page of periodic elements">
-      </mat-paginator>
-    </div>
-      </mat-card-content>
-    </mat-card>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+</mat-table>
+<mat-paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
   </div>
 </div>
+
+
 
 <!-- MAWASILIANO -->
       <div class="flex-column flex-lg-row tertiary-alert back">
@@ -237,9 +237,6 @@
             <button mat-raised-button>Tuma</button>
           </div> -->
           </div>
-          <div class="col">
-            <!-- <app-footer></app-footer> -->
-        </div>
       </div>
 
 

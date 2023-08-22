@@ -42,5 +42,8 @@ export class UserService {
   getCount(){
     return this.http.get(`${this.url}/count`)
   }
+  getNameByName(name:any){
+    return this.http.get(`${this.url}/user/${name}`)
+  }
 
 }

@@ -4,7 +4,14 @@
       <h2 style="text-align: center;">Orodha ya Watu waliosajiliwa</h2>
       <hr>
       <div class="container">
-        
+
+       <form [formGroup]="form">
+        <div class="input-group mb-3 mt-3 container">
+          <input type="text" class="form-control" placeholder="Tafuta kwa kutumia Jina kamili" formControlName="name" (click)=filter()>
+          <button class="btn btn-primary" type="button" id="button-addon2"(click)=filter()>Tafuta</button>
+        </div>
+       </form>
+
         <div class="container">
           
         <div class="row" style="overflow-x:auto;">

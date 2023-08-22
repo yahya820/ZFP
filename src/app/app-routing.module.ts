@@ -45,6 +45,7 @@ import { SeaweedInfoComponent } from './User/Pages/seaweed-info/seaweed-info.com
 import { LawsComponent } from './User/Pages/laws/laws.component';
 import { VesselManyComponent } from './User/Pages/vessel-many/vessel-many.component';
 import { MessageComponent } from './User/Pages/message/message.component';
+import { PublicMessageComponent } from './Admin/pages/public-message/public-message.component';
 // import { HeadersComponent } from './Admin/pages/headers/headers.component';
 // import { NavbarComponent } from './common/navbar/navbar.component';
 
@@ -99,7 +100,8 @@ const routes: Routes = [
       { path: "card_fisher", component: CardFisherComponent},
       { path: "view_fisherman", component:ViewFishermanComponent},
       { path: "payment_fisherman", component : PaymentFishermanComponent},
-      { path: "payment_vessel", component:PaymentVesselComponent}
+      { path: "payment_vessel", component:PaymentVesselComponent},
+      { path: "pablic_message", component: PublicMessageComponent}
     
     ],
   }

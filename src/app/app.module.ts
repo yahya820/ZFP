@@ -60,6 +60,7 @@ import { VesselManyComponent } from './User/Pages/vessel-many/vessel-many.compon
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MessageComponent } from './User/Pages/message/message.component';
+import { PublicMessageComponent } from './Admin/pages/public-message/public-message.component';
 // import { AdminModule } from './Admin/Modules/admin/admin.module';
 // import { CommonModule } from '@angular/common';
 
@@ -105,6 +106,7 @@ import { MessageComponent } from './User/Pages/message/message.component';
     LawsComponent,
     VesselManyComponent,
     MessageComponent,
+    PublicMessageComponent,
 
 
 

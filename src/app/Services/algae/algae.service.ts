@@ -26,4 +26,7 @@ export class AlgaeService {
   getCount(){
     return this.http.get(`${this.url}/count`)
   }
+  getAllByTime(){
+    return this.http.get(`${this.url}/getAllByTime`)
+  }
 }
